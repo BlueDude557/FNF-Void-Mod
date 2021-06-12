@@ -42,7 +42,8 @@ class TitleState extends MusicBeatState
 	var credGroup:FlxGroup;
 	var credTextShit:Alphabet;
 	var textGroup:FlxGroup;
-	var ngSpr:FlxSprite;
+	//var ngSpr:FlxSprite;
+	var kadelogo:FlxSprite;
 
 	var curWacky:Array<String> = [];
 
@@ -211,7 +212,7 @@ class TitleState extends MusicBeatState
 		// credTextShit.alignment = CENTER;
 
 		credTextShit.visible = false;
-
+        /*
 		ngSpr = new FlxSprite(0, FlxG.height * 0.52).loadGraphic(Paths.image('newgrounds_logo'));
 		add(ngSpr);
 		ngSpr.visible = false;
@@ -219,6 +220,14 @@ class TitleState extends MusicBeatState
 		ngSpr.updateHitbox();
 		ngSpr.screenCenter(X);
 		ngSpr.antialiasing = true;
+        */
+		kadelogo = new FlxSprite(0, FlxG.height * 0.24).loadGraphic(Paths.image('KadeEngineLogo'));
+		add(kadelogo);
+		kadelogo.visible = false;
+		kadelogo.setGraphicSize(Std.int(kadelogo.width * 1.0));
+		kadelogo.updateHitbox();
+		kadelogo.screenCenter(X);
+		kadelogo.antialiasing = true;
 
 		FlxTween.tween(credTextShit, {y: credTextShit.y + 20}, 2.9, {ease: FlxEase.quadInOut, type: PINGPONG});
 
@@ -395,7 +404,7 @@ class TitleState extends MusicBeatState
 		switch (curBeat)
 		{
 			case 1:
-				createCoolText(['ninjamuffin99', 'phantomArcade', 'kawaisprite', 'evilsk8er']);
+				createCoolText(['The Funkin crew', 'and', 'StarbreakMusic']);
 			// credTextShit.visible = true;
 			case 3:
 				addMoreText('present');
@@ -406,23 +415,18 @@ class TitleState extends MusicBeatState
 			// credTextShit.visible = false;
 			// credTextShit.text = 'In association \nwith';
 			// credTextShit.screenCenter();
-			case 5:
-				if (Main.watermarks)
-					createCoolText(['Kade Engine', 'by']);
-				else
-					createCoolText(['In Partnership', 'with']);
+			case 5:				
+				createCoolText(['Made in']);
+
 			case 7:
-				if (Main.watermarks)
-					addMoreText('KadeDeveloper');
-				else
 				{
-					addMoreText('Newgrounds');
-					ngSpr.visible = true;
+					//addMoreText('Newgrounds');
+					kadelogo.visible = true;
 				}
 			// credTextShit.text += '\nNewgrounds';
 			case 8:
 				deleteCoolText();
-				ngSpr.visible = false;
+				kadelogo.visible = false;
 			// credTextShit.visible = false;
 
 			// credTextShit.text = 'Shoutouts Tom Fulp';
@@ -439,13 +443,13 @@ class TitleState extends MusicBeatState
 			// credTextShit.text = "Friday";
 			// credTextShit.screenCenter();
 			case 13:
-				addMoreText('Friday');
+				addMoreText('FNF');
 			// credTextShit.visible = true;
 			case 14:
-				addMoreText('Night');
+				addMoreText('Vs Void');
 			// credTextShit.text += '\nNight';
 			case 15:
-				addMoreText('Funkin'); // credTextShit.text += '\nFunkin';
+				addMoreText('Lets get it'); // credTextShit.text += '\nFunkin';
 
 			case 16:
 				skipIntro();
@@ -458,7 +462,7 @@ class TitleState extends MusicBeatState
 	{
 		if (!skippedIntro)
 		{
-			remove(ngSpr);
+			remove(kadelogo);
 
 			FlxG.camera.flash(FlxColor.WHITE, 4);
 			remove(credGroup);
