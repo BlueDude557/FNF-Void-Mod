@@ -498,7 +498,33 @@ class Character extends FlxSprite
 				addOffset("singDOWN-alt", -30, -27);
 
 				playAnim('idle');
-		}
+
+	        case 'void':
+		        frames = Paths.getSparrowAtlas('characters/void_assets');
+		        animation.addByPrefix('idle', 'Void Idle', 24, false);
+		        animation.addByPrefix('singUP', 'Void Up Note Chill', 20, false);
+		        animation.addByPrefix('singDOWN', 'Void Down Note Chill', 20, false);
+		        animation.addByPrefix('singLEFT', 'Void Left Note Chill', 20, false);
+		        animation.addByPrefix('singRIGHT', 'Void Right Note Chill', 26, false);
+
+		        animation.addByPrefix('singUP-alt', 'Void Up Note Hype', 20, false);
+
+		        animation.addByPrefix('singDOWN-alt', 'Void Down Note Hype', 20, false);
+		        animation.addByPrefix('singLEFT-alt', 'Void Left Note Hype', 20, false);
+		        animation.addByPrefix('singRIGHT-alt', 'Void Right Note Hype', 26, false);
+
+		        addOffset('idle');
+		        addOffset("singUP", -47, 24);
+		        addOffset("singRIGHT", 26, -30);
+		        addOffset("singLEFT", -20, 16);
+		        addOffset("singDOWN", -31, -29);
+		        addOffset("singUP-alt", -47, 56);
+		        addOffset("singRIGHT-alt", -28, -16);
+		        addOffset("singLEFT-alt", -10, 15);
+		        addOffset("singDOWN-alt", -30, -27);
+
+		        playAnim('idle');
+        }
 
 		dance();
 

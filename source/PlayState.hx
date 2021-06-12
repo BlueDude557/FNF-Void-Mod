@@ -2245,6 +2245,45 @@ class PlayState extends MusicBeatState
 			}
 		}
 
+		if (curSong == 'weightless')
+			{
+				switch (curBeat)
+				{
+					case 232:					
+						if(!triggeredAlready)
+						{
+							gf.playAnim('cheer');
+							triggeredAlready = true;
+						}
+					
+					case 234:
+						if(!triggeredAlready)
+						{   
+							boyfriend.playAnim('hey', true);
+							triggeredAlready = true;
+						}
+				}
+			}
+
+		if (curSong == 'event horizon')
+			{
+				switch (curBeat)
+				{
+					case 8:
+					    if(!triggeredAlready)
+					    {   
+							boyfriend.playAnim('hey', true);
+							triggeredAlready = true;
+						}
+					case 368:	
+						defaultCamZoom = 0.85;
+						tweenCamIn();
+					case 372:	
+						defaultCamZoom = 0.70;
+						tweenCamIn();
+				}
+			}		
+		
 		if (health <= 0)
 		{
 			boyfriend.stunned = true;
@@ -3518,7 +3557,7 @@ class PlayState extends MusicBeatState
 		wiggleShit.update(Conductor.crochet);
 
 		// HARDCODING FOR MILF ZOOMS!
-		if (curSong.toLowerCase() == 'milf' && curBeat >= 168 && curBeat < 200 && camZooming && FlxG.camera.zoom < 1.35)
+		if (curSong.toLowerCase() == 'milf' && curBeat >= 168 && curBeat < 200 && camZooming && FlxG.camera.zoom < 1.35 || curSong.toLowerCase() == 'event horizon' && curBeat >= 392 && curBeat < 456 && camZooming && FlxG.camera.zoom < 1.35)
 		{
 			FlxG.camera.zoom += 0.015;
 			camHUD.zoom += 0.03;
