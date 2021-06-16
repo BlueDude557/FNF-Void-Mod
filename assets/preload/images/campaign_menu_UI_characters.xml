@@ -158,4 +158,18 @@
 	<SubTexture name="spooky dance idle BLACK LINES0013" x="2164" y="3066" width="357" height="484" frameX="-79" frameY="-61" frameWidth="492" frameHeight="549"/>
 	<SubTexture name="spooky dance idle BLACK LINES0014" x="2531" y="3066" width="354" height="494" frameX="-78" frameY="-52" frameWidth="492" frameHeight="549"/>
 	<SubTexture name="spooky dance idle BLACK LINES0015" x="2531" y="3066" width="354" height="494" frameX="-78" frameY="-52" frameWidth="492" frameHeight="549"/>
+        <SubTexture name="void idle Black Lines0000" x="0" y="3700" width="500" height="500"/>
+	<SubTexture name="void idle Black Lines0001" x="0" y="3700" width="500" height="500"/>
+	<SubTexture name="void idle Black Lines0002" x="500" y="3700" width="500" height="500"/>
+	<SubTexture name="void idle Black Lines0003" x="500" y="3700" width="500" height="500"/>
+	<SubTexture name="void idle Black Lines0004" x="1000" y="3700" width="500" height="500"/>
+	<SubTexture name="void idle Black Lines0005" x="1000" y="3700" width="500" height="500"/>
+	<SubTexture name="void idle Black Lines0006" x="1500" y="3700" width="500" height="500"/>
+	<SubTexture name="void idle Black Lines0007" x="1500" y="3700" width="500" height="500"/>
+	<SubTexture name="void idle Black Lines0008" x="2000" y="3700" width="500" height="500"/>
+	<SubTexture name="void idle Black Lines0009" x="2000" y="3700" width="500" height="500"/>
+	<SubTexture name="void idle Black Lines0010" x="2000" y="3700" width="500" height="500"/>
+	<SubTexture name="void idle Black Lines0011" x="2000" y="3700" width="500" height="500"/>
+	<SubTexture name="void idle Black Lines0012" x="2000" y="3700" width="500" height="500"/>
+	<SubTexture name="void idle Black Lines0013" x="2000" y="3700" width="500" height="500"/>
 </TextureAtlas>
