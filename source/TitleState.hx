@@ -221,10 +221,10 @@ class TitleState extends MusicBeatState
 		ngSpr.screenCenter(X);
 		ngSpr.antialiasing = true;
         */
-		kadelogo = new FlxSprite(0, FlxG.height * 0.24).loadGraphic(Paths.image('KadeEngineLogo'));
+		kadelogo = new FlxSprite(0, FlxG.height * 0.25).loadGraphic(Paths.image('KadeEngineLogo'));
 		add(kadelogo);
 		kadelogo.visible = false;
-		kadelogo.setGraphicSize(Std.int(kadelogo.width * 1.0));
+		kadelogo.setGraphicSize(Std.int(kadelogo.width * 0.9));
 		kadelogo.updateHitbox();
 		kadelogo.screenCenter(X);
 		kadelogo.antialiasing = true;
@@ -404,10 +404,13 @@ class TitleState extends MusicBeatState
 		switch (curBeat)
 		{
 			case 1:
-				createCoolText(['The Funkin crew', 'and', 'StarbreakMusic']);
+				createCoolText(['presented', 'by']);
+
+			case 2:
+				addMoreText('the funkin crew');
 			// credTextShit.visible = true;
 			case 3:
-				addMoreText('present');
+				addMoreText('and StarbreakMusic');
 			// credTextShit.text += '\npresent...';
 			// credTextShit.addText();
 			case 4:
