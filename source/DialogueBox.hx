@@ -225,14 +225,14 @@ class DialogueBox extends FlxSpriteGroup
 		if (PlayState.SONG.song.toLowerCase()=='asteroids' || PlayState.SONG.song.toLowerCase()=='weightless' || PlayState.SONG.song.toLowerCase()=='event horizon')
 		{
 			dropText = new FlxText(242, 502, Std.int(FlxG.width * 0.6), "", 32);
-			dropText.font = 'Pixel Arial 11 Bold';
+			dropText.font = 'Exo Bold';
 			dropText.color = 0xFF020222;
 			add(dropText);
 
 			if (!portraitRight.visible)
             {
 			    swagDialogue = new FlxTypeText(240, 500, Std.int(FlxG.width * 0.6), "", 32);
-			    swagDialogue.font = 'Pixel Arial 11 Bold';
+			    swagDialogue.font = 'Exo Bold';
 		        swagDialogue.color = 0xFFF1B9FF;
 		        swagDialogue.sounds = [FlxG.sound.load(Paths.sound('VnormText'), 0.4)];
 			    add(swagDialogue);
@@ -240,7 +240,7 @@ class DialogueBox extends FlxSpriteGroup
 			else
 			{
 			    swagDialogue = new FlxTypeText(240, 500, Std.int(FlxG.width * 0.6), "", 32);
-			    swagDialogue.font = 'Pixel Arial 11 Bold';
+			    swagDialogue.font = 'Exo Bold';
 		        swagDialogue.color = 0xFFF1B9FF;
 		        swagDialogue.sounds = [FlxG.sound.load(Paths.sound('BfText'), 0.4)];
 			    add(swagDialogue);
