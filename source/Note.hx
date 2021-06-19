@@ -86,7 +86,7 @@ class Note extends FlxSprite
 
 				setGraphicSize(Std.int(width * PlayState.daPixelZoom));
 				updateHitbox();
-                //'spacey' doesn't play correct hit animation yet, fix whenevs
+
 			case 'spacey':
 			    frames = Paths.getSparrowAtlas('NOTE_assets_spacey');
 

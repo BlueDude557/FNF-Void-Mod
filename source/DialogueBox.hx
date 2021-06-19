@@ -229,12 +229,22 @@ class DialogueBox extends FlxSpriteGroup
 			dropText.color = 0xFF020222;
 			add(dropText);
 
-			swagDialogue = new FlxTypeText(240, 500, Std.int(FlxG.width * 0.6), "", 32);
-			swagDialogue.font = 'Pixel Arial 11 Bold';
-		    swagDialogue.color = 0xFFF1B9FF;
-		    swagDialogue.sounds = [FlxG.sound.load(Paths.sound('VnormText'), 0.4)];
-			add(swagDialogue);
-			
+			if (!portraitRight.visible)
+            {
+			    swagDialogue = new FlxTypeText(240, 500, Std.int(FlxG.width * 0.6), "", 32);
+			    swagDialogue.font = 'Pixel Arial 11 Bold';
+		        swagDialogue.color = 0xFFF1B9FF;
+		        swagDialogue.sounds = [FlxG.sound.load(Paths.sound('VnormText'), 0.4)];
+			    add(swagDialogue);
+			}
+			else
+			{
+			    swagDialogue = new FlxTypeText(240, 500, Std.int(FlxG.width * 0.6), "", 32);
+			    swagDialogue.font = 'Pixel Arial 11 Bold';
+		        swagDialogue.color = 0xFFF1B9FF;
+		        swagDialogue.sounds = [FlxG.sound.load(Paths.sound('BfText'), 0.4)];
+			    add(swagDialogue);
+			}
     
 		/*	switch (curCharacter)
 		    {
