@@ -1220,8 +1220,10 @@ class PlayState extends MusicBeatState
 				case 'thorns':
 					schoolIntro(doof);
 				case 'asteroids':
+					FlxG.sound.play(Paths.sound('Holocrowd'));
 					spaceIntro(doof);
 				case 'weightless':
+					FlxG.sound.play(Paths.sound('Holocheer'));
 					spaceIntro(doof);
 				case 'event-horizon':
 					spaceIntro(doof);
@@ -1363,12 +1365,6 @@ class PlayState extends MusicBeatState
 			
 		if (songLowercase == 'roses' || songLowercase == 'thorns')
 		{
-			remove(black);
-
-			if (songLowercase == 'thorns')
-			{
-				add(red);
-			}
 		}
 
 		new FlxTimer().start(0.1, function(tmr:FlxTimer)

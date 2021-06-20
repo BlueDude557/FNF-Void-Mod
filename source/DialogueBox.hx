@@ -55,15 +55,27 @@ class DialogueBox extends FlxSpriteGroup
 		bgFade.alpha = 0;
 		add(bgFade);
 
-		new FlxTimer().start(0.83, function(tmr:FlxTimer)
+	    if (PlayState.SONG.song.toLowerCase()=='senpai' || PlayState.SONG.song.toLowerCase()=='roses' || PlayState.SONG.song.toLowerCase()=='thorns')
 		{
-			bgFade.alpha += (1 / 5) * 0.7;
-			if (bgFade.alpha > 0.7)
-				bgFade.alpha = 0.7;
-		}, 5);
+			new FlxTimer().start(0.83, function(tmr:FlxTimer)
+			{
+				bgFade.alpha += (1 / 5) * 0.7;
+				if (bgFade.alpha > 0.7)
+					bgFade.alpha = 0.7;
+			}, 5);
+		}
+
+		if (PlayState.SONG.song.toLowerCase()=='asteroids' || PlayState.SONG.song.toLowerCase()=='weightless' || PlayState.SONG.song.toLowerCase()=='event horizon')
+		{
+			new FlxTimer().start(0.83, function(tmr:FlxTimer)
+			{
+				bgFade.alpha += (3 / 12) * 0.5;
+				if (bgFade.alpha > 0.5)
+					bgFade.alpha = 0.5;
+			}, 5);
+		}
 
 		box = new FlxSprite(-20, 45);
-
 		spacebox = new FlxSprite(-20, 350);
 		
 		var hasDialog = false;
@@ -119,7 +131,7 @@ class DialogueBox extends FlxSpriteGroup
 		if (!hasDialog)
 			return;
 
-	    if (PlayState.SONG.song.toLowerCase()=='senpai' || PlayState.SONG.song.toLowerCase()=='roses' || PlayState.SONG.song.toLowerCase()=='thorns')	
+	    if (PlayState.SONG.song.toLowerCase()=='senpai' || PlayState.SONG.song.toLowerCase()=='roses' || PlayState.SONG.song.toLowerCase()=='thorns')
 	    {
 		    portraitLeft = new FlxSprite(-20, 40);
 		    portraitLeft.frames = Paths.getSparrowAtlas('weeb/senpaiPortrait');
@@ -183,12 +195,13 @@ class DialogueBox extends FlxSpriteGroup
 		if (PlayState.SONG.song.toLowerCase()=='asteroids' || PlayState.SONG.song.toLowerCase()=='weightless' || PlayState.SONG.song.toLowerCase()=='event horizon')
 	    {
 			spacebox.animation.play('spaceOpen');
-		    portraitLeft.antialiasing = true;
+		    spacebox.antialiasing = true;
 		    spacebox.setGraphicSize(Std.int(spacebox.width * 1.5));
 		    spacebox.updateHitbox();
 		    add(spacebox);
 
-			arrowSelect = new FlxSprite(FlxG.width * 1.2, FlxG.height * 1.2).loadGraphic(Paths.image('space/arrow_textbox'));
+			arrowSelect = new FlxSprite(810, 800).loadGraphic(Paths.image('space/arrow_textbox'));
+			arrowSelect.setGraphicSize(Std.int(arrowSelect.width * 1.1));
 			arrowSelect.antialiasing = true;
 		    add(arrowSelect);
 		}
@@ -224,86 +237,55 @@ class DialogueBox extends FlxSpriteGroup
 
 		if (PlayState.SONG.song.toLowerCase()=='asteroids' || PlayState.SONG.song.toLowerCase()=='weightless' || PlayState.SONG.song.toLowerCase()=='event horizon')
 		{
-			dropText = new FlxText(242, 502, Std.int(FlxG.width * 0.6), "", 32);
+			dropText = new FlxText(258, 515, Std.int(FlxG.width * 0.6), "", 40);
 			dropText.font = 'Exo Bold';
 			dropText.color = 0xFF020222;
 			add(dropText);
 
-			if (!portraitRight.visible)
-            {
-			    swagDialogue = new FlxTypeText(240, 500, Std.int(FlxG.width * 0.6), "", 32);
-			    swagDialogue.font = 'Exo Bold';
-		        swagDialogue.color = 0xFFF1B9FF;
-		        swagDialogue.sounds = [FlxG.sound.load(Paths.sound('VnormText'), 0.4)];
-			    add(swagDialogue);
-			}
-			else
-			{
-			    swagDialogue = new FlxTypeText(240, 500, Std.int(FlxG.width * 0.6), "", 32);
-			    swagDialogue.font = 'Exo Bold';
-		        swagDialogue.color = 0xFFF1B9FF;
-		        swagDialogue.sounds = [FlxG.sound.load(Paths.sound('BfText'), 0.4)];
-			    add(swagDialogue);
-			}
-    
-		/*	switch (curCharacter)
-		    {
-			    case 'v1':
-			    	swagDialogue = new FlxTypeText(240, 500, Std.int(FlxG.width * 0.6), "", 32);
-			        swagDialogue.font = 'Pixel Arial 11 Bold';
-			        swagDialogue.color = 0xFFF1B9FF;
-		        	swagDialogue.sounds = [FlxG.sound.load(Paths.sound('VnormText'), 0.4)];
-					add(swagDialogue);
-			
-				case 'v2':
-					swagDialogue = new FlxTypeText(240, 500, Std.int(FlxG.width * 0.6), "", 32);
-					swagDialogue.font = 'Pixel Arial 11 Bold';
-					swagDialogue.color = 0xFFF1B9FF;
+			swagDialogue = new FlxTypeText(253, 510, Std.int(FlxG.width * 0.6), "", 40);
+			swagDialogue.font = 'Exo Bold';
+		    swagDialogue.color = 0xFFF1B9FF;
+		//	if (spacebox.animation.curAnim.name == 'normal')
+		//	{	
+		//		if (portraitLeft.animation.curAnim.name == 'voidnormal' || portraitLeft.animation.curAnim.name == 'voidsmug' || portraitLeft.animation.curAnim.name == 'voidumm' || portraitLeft.animation.curAnim.name == 'voidwornout')
 					swagDialogue.sounds = [FlxG.sound.load(Paths.sound('VnormText'), 0.4)];
-					add(swagDialogue);
 
-				case 'v3':
-					swagDialogue = new FlxTypeText(240, 500, Std.int(FlxG.width * 0.6), "", 32);
-					swagDialogue.font = 'Pixel Arial 11 Bold';
-					swagDialogue.color = 0xFFF1B9FF;
-					swagDialogue.sounds = [FlxG.sound.load(Paths.sound('VnormText'), 0.4)];
-					add(swagDialogue);
-
-				case 'v4':
-					swagDialogue = new FlxTypeText(240, 500, Std.int(FlxG.width * 0.6), "", 32);
-					swagDialogue.font = 'Pixel Arial 11 Bold';
-					swagDialogue.color = 0xFFF1B9FF;
-					swagDialogue.sounds = [FlxG.sound.load(Paths.sound('VnormText'), 0.4)];
-					add(swagDialogue);
-
-				case 'v5':
-					swagDialogue = new FlxTypeText(240, 500, Std.int(FlxG.width * 0.6), "", 32);
-					swagDialogue.font = 'Pixel Arial 11 Bold';
-					swagDialogue.color = 0xFFF1B9FF;
+			/*	if (portraitLeft.animation.curAnim.name == 'voidmad' || portraitLeft.animation.curAnim.name == 'voidrage')
 					swagDialogue.sounds = [FlxG.sound.load(Paths.sound('VmadText'), 0.4)];
-					add(swagDialogue);
 
-				case 'v6':
-					swagDialogue = new FlxTypeText(240, 500, Std.int(FlxG.width * 0.6), "", 32);
-					swagDialogue.font = 'Pixel Arial 11 Bold';
-					swagDialogue.color = 0xFFF1B9FF;
-					swagDialogue.sounds = [FlxG.sound.load(Paths.sound('VmadText'), 0.4)];
-					add(swagDialogue);
-
-				case 'bf1':
-					swagDialogue = new FlxTypeText(240, 500, Std.int(FlxG.width * 0.6), "", 32);
-					swagDialogue.font = 'Pixel Arial 11 Bold';
-					swagDialogue.color = 0xFFF1B9FF;
+				if (portraitRight.animation.curAnim.name == 'bfnormal' || portraitRight.animation.curAnim.name == 'bfsmug')
 					swagDialogue.sounds = [FlxG.sound.load(Paths.sound('BfText'), 0.4)];
-					add(swagDialogue);
+			}*/
+			/*	switch (portraitLeft.animation.curAnim.name)
+				{
+					case 'voidnormal':
+						swagDialogue.sounds = [FlxG.sound.load(Paths.sound('VnormText'), 0.4)];
+				
+					case 'voidsmug':
+						swagDialogue.sounds = [FlxG.sound.load(Paths.sound('VnormText'), 0.4)];
 
-				case 'bf2':
-					swagDialogue = new FlxTypeText(240, 500, Std.int(FlxG.width * 0.6), "", 32);
-					swagDialogue.font = 'Pixel Arial 11 Bold';
-					swagDialogue.color = 0xFFF1B9FF;
-					swagDialogue.sounds = [FlxG.sound.load(Paths.sound('BfText'), 0.4)];
-					add(swagDialogue);
-		    } */
+					case 'voidumm':
+						swagDialogue.sounds = [FlxG.sound.load(Paths.sound('VnormText'), 0.4)];
+
+					case 'voidwornout':
+						swagDialogue.sounds = [FlxG.sound.load(Paths.sound('VnormText'), 0.4)];
+
+					case 'voidmad':
+						swagDialogue.sounds = [FlxG.sound.load(Paths.sound('VmadText'), 0.4)];
+
+					case 'voidrage':
+						swagDialogue.sounds = [FlxG.sound.load(Paths.sound('VmadText'), 0.4)];
+				}
+
+				switch (portraitRight.animation.curAnim.name)
+				{
+					case 'bfnormal':
+						swagDialogue.sounds = [FlxG.sound.load(Paths.sound('BfText'), 0.4)];
+
+					case 'bfsmug':
+						swagDialogue.sounds = [FlxG.sound.load(Paths.sound('BfText'), 0.4)];
+				}    */
+			add(swagDialogue);
 		}
 
 		dialogue = new Alphabet(0, 80, "", false, true);
@@ -369,8 +351,16 @@ class DialogueBox extends FlxSpriteGroup
 
 					new FlxTimer().start(0.2, function(tmr:FlxTimer)
 					{
-						box.alpha -= 1 / 5;
-						bgFade.alpha -= 1 / 5 * 0.7;
+						if (PlayState.SONG.song.toLowerCase() == 'senpai' || PlayState.SONG.song.toLowerCase() == 'roses' || PlayState.SONG.song.toLowerCase() == 'thorns')
+						{	
+							box.alpha -= 1 / 5;
+							bgFade.alpha -= 1 / 5 * 0.7;
+						}
+						if (PlayState.SONG.song.toLowerCase()=='asteroids' || PlayState.SONG.song.toLowerCase()=='weightless' || PlayState.SONG.song.toLowerCase()=='event horizon')
+						{
+							spacebox.alpha -= 3 / 12;
+							bgFade.alpha -= 3 / 12 * 0.5;
+						}
 						portraitLeft.visible = false;
 						portraitRight.visible = false;
 						swagDialogue.alpha -= 1 / 5;
