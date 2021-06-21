@@ -1,4 +1,4 @@
-package source;
+package;
 
 #if windows
 import Discord.DiscordClient;

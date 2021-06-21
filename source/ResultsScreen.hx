@@ -186,7 +186,15 @@ class ResultsScreen extends FlxSubState
             if (PlayState.isStoryMode)
             {
                 FlxG.sound.playMusic(Paths.music('freakyMenu'));
-                FlxG.switchState(new MainMenuState());
+
+                if (StringTools.replace(PlayState.SONG.song, " ", "-").toLowerCase() == 'event-horizon')
+                {
+                    FlxG.switchState(new EndWeekSubState());
+                }
+                else
+                {
+                    FlxG.switchState(new MainMenuState());
+                }
             }
             else
                 FlxG.switchState(new FreeplayState());
