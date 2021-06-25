@@ -31,7 +31,8 @@ class StoryMenuState extends MusicBeatState
 		['Satin Panties', "High", "Milf"],
 		['Cocoa', 'Eggnog', 'Winter Horrorland'],
 		['Senpai', 'Roses', 'Thorns'],
-		['Asteroids', 'Weightless', 'Event Horizon']
+		['Asteroids', 'Weightless', 'Event Horizon'],
+		['...']
 	];
 	var curDifficulty:Int = 1;
 
@@ -45,6 +46,7 @@ class StoryMenuState extends MusicBeatState
 		['mom', 'bf', 'gf'],
 		['parents-christmas', 'bf', 'gf'],
 		['senpai', 'bf', 'gf'],
+		['void', 'bf', 'gf'],
 		['void', 'bf', 'gf']
 	];
 
@@ -56,7 +58,8 @@ class StoryMenuState extends MusicBeatState
 		"MOMMY MUST MURDER",
 		"RED SNOW",
 		"Hating Simulator ft. Moawling",
-		"Black Hole Brawl"
+		"Black Hole Brawl",
+		"...?"
 	];
 
 	var txtWeekTitle:FlxText;

@@ -164,7 +164,7 @@ class TitleState extends MusicBeatState
 		// bg.updateHitbox();
 		add(bg);
 
-		if(Main.watermarks) {
+	/*	if(Main.watermarks) {
 			logoBl = new FlxSprite(-150, -100);
 			logoBl.frames = Paths.getSparrowAtlas('KadeEngineLogoBumpin');
 			logoBl.antialiasing = true;
@@ -173,16 +173,17 @@ class TitleState extends MusicBeatState
 			logoBl.updateHitbox();
 			// logoBl.screenCenter();
 			// logoBl.color = FlxColor.BLACK;
-		} else {
-			logoBl = new FlxSprite(-150, -100);
+		} else {*/
+			logoBl = new FlxSprite(-110, -70);
 			logoBl.frames = Paths.getSparrowAtlas('logoBumpin');
 			logoBl.antialiasing = true;
-			logoBl.animation.addByPrefix('bump', 'logo bumpin', 24);
+			logoBl.animation.addByPrefix('bump', 'logo bumpin', 26);
 			logoBl.animation.play('bump');
+			logoBl.setGraphicSize(Std.int(logoBl.width * 0.9));
 			logoBl.updateHitbox();
 			// logoBl.screenCenter();
 			// logoBl.color = FlxColor.BLACK;
-		}
+	//	}
 
 		gfDance = new FlxSprite(FlxG.width * 0.4, FlxG.height * 0.07);
 		gfDance.frames = Paths.getSparrowAtlas('gfDanceTitle');
@@ -232,10 +233,10 @@ class TitleState extends MusicBeatState
 		ngSpr.screenCenter(X);
 		ngSpr.antialiasing = true;
         */
-		kadelogo = new FlxSprite(0, FlxG.height * 0.25).loadGraphic(Paths.image('KadeEngineLogo'));
+		kadelogo = new FlxSprite(0, FlxG.height * 0.38).loadGraphic(Paths.image('KadeEngineLogo'));
 		add(kadelogo);
 		kadelogo.visible = false;
-		kadelogo.setGraphicSize(Std.int(kadelogo.width * 0.9));
+		kadelogo.setGraphicSize(Std.int(kadelogo.width * 0.7));
 		kadelogo.updateHitbox();
 		kadelogo.screenCenter(X);
 		kadelogo.antialiasing = true;

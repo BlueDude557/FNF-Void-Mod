@@ -174,7 +174,7 @@ class ResultsScreen extends FlxSubState
             graphSprite.pixels.draw(graph);
             frames++;
         }
-        // keybinds
+        // keybinds   
 
         if (FlxG.keys.justPressed.ENTER)
         {
@@ -185,14 +185,16 @@ class ResultsScreen extends FlxSubState
 
             if (PlayState.isStoryMode)
             {
-                FlxG.sound.playMusic(Paths.music('freakyMenu'));
-
                 if (StringTools.replace(PlayState.SONG.song, " ", "-").toLowerCase() == 'event-horizon')
                 {
+                    //FlxG.sound.playMusic(Paths.music('freakyMenu'));
+
                     FlxG.switchState(new EndWeekSubState());
                 }
                 else
                 {
+                    FlxG.sound.playMusic(Paths.music('freakyMenu'));
+
                     FlxG.switchState(new MainMenuState());
                 }
             }

@@ -15,9 +15,6 @@ class EndWeekSubState extends MusicBeatState
 {
 	public static var leftState:Bool = false;
 
-	public static var needVer:String = "IDFK LOL";
-	public static var currChanges:String = "dk";
-
 	override function create()
 	{
 		super.create();
@@ -25,6 +22,23 @@ class EndWeekSubState extends MusicBeatState
 		bg.screenCenter();
 		add(bg);
 
+		var txt:FlxText = new FlxText(0, 300, FlxG.width,
+			"After a long and intense show, Bf had out-rapped the legendary A.C. Void! (Who"
+			+ "\nrightfully seemed pretty livid losing for the first time in centuries.)"
+			+ "\n\nEveryone got an incredible performance, and Bf and Gf casually returned"
+			+ "\nto earth and ordered a pizza. Everyone was happy. (Except Void. NOT Void.)"
+			+ "\n\nTHE END(?)"
+			+ "\n\n\nYou've got skills... but Void's not finished just yet. If you"
+			+ "\nactually thought this was kind of easy, there's another challenge..."
+			+ "\nMORE COMING SOON!",
+			28);
+			//Are you crazy enough to beat OBLIVION?		
+		txt.setFormat("VCR OSD Mono", 28, FlxColor.fromRGB(200, 200, 200), CENTER);
+		txt.borderColor = FlxColor.BLACK;
+		txt.borderSize = 4;
+		txt.borderStyle = FlxTextBorderStyle.OUTLINE;
+		txt.screenCenter(X);
+		add(txt);
 	}
 
 	override function update(elapsed:Float)
@@ -35,7 +49,7 @@ class EndWeekSubState extends MusicBeatState
 			transOut = FlxTransitionableState.defaultTransOut;
 
 			leftState = true;
-			FlxG.switchState(new StoryMenuState());
+			FlxG.switchState(new MainMenuState());
 		}
 		super.update(elapsed);
 	}

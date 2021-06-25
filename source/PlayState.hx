@@ -186,6 +186,7 @@ class PlayState extends MusicBeatState
 	var scoreTxt:FlxText;
 	var replayTxt:FlxText;
 
+	var spaceBGflash:FlxSprite;
 	var holoBoppers:FlxSprite;
 
 	public static var campaignScore:Int = 0;
@@ -385,6 +386,13 @@ class PlayState extends MusicBeatState
 			}
 		} else {stageCheck = SONG.stage;}
 
+	/*	var spaceBGflash:FlxSprite = new FlxSprite(-450, -160).loadGraphic(Paths.image('space/spaceBGflash'));
+		spaceBGflash.setGraphicSize(Std.int(spaceBGflash.width * 1.5));
+		spaceBGflash.updateHitbox();
+		spaceBGflash.antialiasing = true;
+		spaceBGflash.scrollFactor.set(0.1, 0.1);
+		spaceBGflash.alpha = 0;
+	*/
 		switch(stageCheck)
 		{
 			case 'halloween': 
@@ -684,115 +692,17 @@ class PlayState extends MusicBeatState
 					spaceBG.scrollFactor.set(0.1, 0.1);
 					spaceBG.active = false;
 					add(spaceBG);
-
-				/*	var spaceBGflash:FlxSprite = new FlxSprite(-450, -160).loadGraphic(Paths.image('space/spaceBGflash'));
+					
+					spaceBGflash = new FlxSprite(-450, -160).loadGraphic(Paths.image('space/spaceBGflash'));
 					spaceBGflash.setGraphicSize(Std.int(spaceBGflash.width * 1.5));
 					spaceBGflash.updateHitbox();
 					spaceBGflash.antialiasing = true;
 					spaceBGflash.scrollFactor.set(0.1, 0.1);
 					spaceBGflash.alpha = 0;
-					add(spaceBGflash);
-
-					if (curSong == 'Event Horizon')
-					{				
-						if(curBeat < 460)
-						{
-							switch (curBeat)
-							{
-				
-								case 136:
-
-									spaceBGflash.alpha = 1;
+					if(FlxG.save.data.distractions){
+						add(spaceBGflash);
+					}
 		
-									new FlxTimer().start(0.1, function(tmr:FlxTimer)
-										{
-											spaceBGflash.alpha -= 0.20;
-								
-											if (spaceBGflash.alpha > 0)
-											{
-												
-												tmr.reset(0.1);
-											}
-										});
-		
-								case 200:
-		
-									spaceBGflash.alpha = 1;
-		
-									new FlxTimer().start(0.1, function(tmr:FlxTimer)
-										{
-											spaceBGflash.alpha -= 0.20;
-								
-											if (spaceBGflash.alpha > 0)
-											{
-												
-												tmr.reset(0.1);
-											}
-										});
-		
-								case 264:
-		
-									spaceBGflash.alpha = 1;
-		
-									new FlxTimer().start(0.1, function(tmr:FlxTimer)
-										{
-											spaceBGflash.alpha -= 0.20;
-								
-											if (spaceBGflash.alpha > 0)
-											{
-												
-												tmr.reset(0.1);
-											}
-										});
-		
-								case 328:
-		
-									spaceBGflash.alpha = 1;
-		
-									new FlxTimer().start(0.1, function(tmr:FlxTimer)
-										{
-											spaceBGflash.alpha -= 0.20;
-								
-											if (spaceBGflash.alpha > 0)
-											{
-												
-												tmr.reset(0.1);
-											}
-										});
-		
-								case 372:
-		
-									spaceBGflash.alpha = 1;
-		
-									new FlxTimer().start(0.1, function(tmr:FlxTimer)
-										{
-											spaceBGflash.alpha -= 0.20;
-								
-											if (spaceBGflash.alpha > 0)
-											{
-												
-												tmr.reset(0.1);
-											}
-										});
-		
-								case 392:
-		
-									spaceBGflash.alpha = 1;
-		
-									new FlxTimer().start(0.1, function(tmr:FlxTimer)
-										{
-											spaceBGflash.alpha -= 0.20;
-								
-											if (spaceBGflash.alpha > 0)
-											{
-												
-												tmr.reset(0.1);
-											}
-										});
-							}	
-						}
-					}		*/
-
 					holoBoppers = new FlxSprite(-410, -360);
 					holoBoppers.frames = Paths.getSparrowAtlas('space/holoBop');
 					holoBoppers.animation.addByPrefix('bop', 'Holo Boppers', 24, false);
@@ -1408,7 +1318,7 @@ class PlayState extends MusicBeatState
 
 			if (black.alpha > 0)
 			{
-				if (songLowercase == 'asteroids')
+				if (StringTools.replace(PlayState.SONG.song, " ", "-").toLowerCase() == 'asteroids')
 				{
 					tmr.reset(0.15);
 				}
@@ -2580,7 +2490,7 @@ class PlayState extends MusicBeatState
 		if (curSong == 'Event Horizon')
 		{
 
-			var coolflash:FlxSprite = new FlxSprite(-450, -410).loadGraphic(Paths.image('space/coolflash'));
+		/*	var coolflash:FlxSprite = new FlxSprite(-450, -410).loadGraphic(Paths.image('space/coolflash'));
 			coolflash.setGraphicSize(Std.int(coolflash.width * 1.5));
 			coolflash.updateHitbox();
 			coolflash.antialiasing = true;
@@ -2591,7 +2501,8 @@ class PlayState extends MusicBeatState
 			}									
 
 			coolflash.screenCenter(X);
-
+        */
+        
 			var camPos:FlxPoint = new FlxPoint(dad.getGraphicMidpoint().x, dad.getGraphicMidpoint().y);
 
 			if(curBeat < 460)
@@ -2603,64 +2514,44 @@ class PlayState extends MusicBeatState
 
 					case 136:
 
-						coolflash.alpha = 0.6;
+						FlxTween.tween(spaceBGflash, {alpha: 1.0}, 0.2, 
+							{ease: FlxEase.expoOut});
 
-						new FlxTimer().start(0.1, function(tmr:FlxTimer)
-							{
-								coolflash.alpha -= 0.15;
+					case 137:
+
+						FlxTween.tween(spaceBGflash, {alpha: 0.0}, 0.8, 
+							{ease: FlxEase.quadInOut});
 					
-								if (coolflash.alpha > 0)
-								{
-									
-									tmr.reset(0.1);
-								}
-							});
-
 					case 200:
 
-						coolflash.alpha = 0.6;
+						FlxTween.tween(spaceBGflash, {alpha: 1.0}, 0.2, 
+							{ease: FlxEase.expoOut});
 
-						new FlxTimer().start(0.1, function(tmr:FlxTimer)
-							{
-								coolflash.alpha -= 0.15;
-					
-								if (coolflash.alpha > 0)
-								{
-									
-									tmr.reset(0.1);
-								}
-							});
+					case 201:
+
+						FlxTween.tween(spaceBGflash, {alpha: 0.0}, 0.8, 
+							{ease: FlxEase.quadInOut});
 
 					case 264:
 
-						coolflash.alpha = 0.6;
+						FlxTween.tween(spaceBGflash, {alpha: 1.0}, 0.2, 
+							{ease: FlxEase.expoOut});
 
-						new FlxTimer().start(0.1, function(tmr:FlxTimer)
-							{
-								coolflash.alpha -= 0.15;
-					
-								if (coolflash.alpha > 0)
-								{
-									
-									tmr.reset(0.1);
-								}
-							});
+					case 265:
+
+						FlxTween.tween(spaceBGflash, {alpha: 0.0}, 0.8, 
+							{ease: FlxEase.quadInOut});
 
 					case 328:
 
-						coolflash.alpha = 0.6;
+						FlxTween.tween(spaceBGflash, {alpha: 1.0}, 0.2, 
+							{ease: FlxEase.expoOut});
 
-						new FlxTimer().start(0.1, function(tmr:FlxTimer)
-							{
-								coolflash.alpha -= 0.15;
-					
-								if (coolflash.alpha > 0)
-								{
-									
-									tmr.reset(0.1);
-								}
-							});
-			
+					case 329:
+
+						FlxTween.tween(spaceBGflash, {alpha: 0.0}, 0.8, 
+							{ease: FlxEase.quadInOut});
+
 					case 368:
 
 							FlxTween.tween(FlxG.camera, {zoom: 1.0}, 1.1, 
@@ -2668,33 +2559,36 @@ class PlayState extends MusicBeatState
 
 					case 372:
 
-						coolflash.alpha = 0.6;
+						FlxTween.tween(spaceBGflash, {alpha: 1.0}, 0.2, 
+							{ease: FlxEase.expoOut});
 
-						new FlxTimer().start(0.1, function(tmr:FlxTimer)
-							{
-								coolflash.alpha -= 0.15;
-					
-								if (coolflash.alpha > 0)
-								{
-									
-									tmr.reset(0.1);
-								}
-							});
+					case 373:
+
+						FlxTween.tween(spaceBGflash, {alpha: 0.0}, 0.8, 
+							{ease: FlxEase.quadInOut});
 
 					case 392:
 
-						coolflash.alpha = 0.6;
+						FlxTween.tween(spaceBGflash, {alpha: 1.0}, 0.2, 
+							{ease: FlxEase.expoOut});
+
+					case 393:
+
+						FlxTween.tween(spaceBGflash, {alpha: 0.0}, 0.8, 
+							{ease: FlxEase.quadInOut});
+
+/*						spaceBGflash.alpha = 1;
 
 						new FlxTimer().start(0.1, function(tmr:FlxTimer)
 							{
-								coolflash.alpha -= 0.15;
+								spaceBGflash.alpha -= 0.10;
 					
-								if (coolflash.alpha > 0)
+								if (spaceBGflash.alpha > 0)
 								{
 									
 									tmr.reset(0.1);
 								}
-							});
+							});    */
 				}	
 			}		
 			
@@ -4165,7 +4059,7 @@ class PlayState extends MusicBeatState
 		if (FlxG.save.data.camzoom)
 		{
 			// HARDCODING FOR MILF ZOOMS!
-			if (curSong.toLowerCase() == 'milf' && curBeat >= 168 && curBeat < 200 && camZooming && FlxG.camera.zoom < 1.35)
+			if (curSong.toLowerCase() == 'milf' && curBeat >= 168 && curBeat < 200 && camZooming && FlxG.camera.zoom < 1.35 || curSong.toLowerCase() == 'event horizon' && curBeat >= 392 && curBeat < 456 && camZooming && FlxG.camera.zoom < 1.35)
 			{
 				FlxG.camera.zoom += 0.015;
 				camHUD.zoom += 0.03;
