@@ -192,6 +192,8 @@ class ResultsScreen extends FlxSubState
 
             if (PlayState.isStoryMode)
             {
+                FlxG.sound.playMusic(Paths.music('freakyMenu'));
+
                 if (StringTools.replace(PlayState.SONG.song, " ", "-").toLowerCase() == 'event-horizon')
                 {
                     //FlxG.sound.playMusic(Paths.music('freakyMenu'));
@@ -200,7 +202,7 @@ class ResultsScreen extends FlxSubState
                 }
                 else
                 {
-                    FlxG.sound.playMusic(Paths.music('freakyMenu'));
+                    //FlxG.sound.playMusic(Paths.music('freakyMenu'));
 
                     FlxG.switchState(new MainMenuState());
                 }

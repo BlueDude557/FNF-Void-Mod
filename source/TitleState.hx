@@ -241,7 +241,7 @@ class TitleState extends MusicBeatState
 		ngSpr.screenCenter(X);
 		ngSpr.antialiasing = true;
         */
-		kadelogo = new FlxSprite(0, FlxG.height * 0.38).loadGraphic(Paths.image('KadeEngineLogo'));
+		kadelogo = new FlxSprite(0, FlxG.height * 0.32).loadGraphic(Paths.image('KadeEngineLogo'));
 		add(kadelogo);
 		kadelogo.visible = false;
 		kadelogo.setGraphicSize(Std.int(kadelogo.width * 0.7));

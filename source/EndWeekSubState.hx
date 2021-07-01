@@ -22,11 +22,11 @@ class EndWeekSubState extends MusicBeatState
 		bg.screenCenter();
 		add(bg);
 
-		var txt:FlxText = new FlxText(0, 300, FlxG.width,
+		var txt:FlxText = new FlxText(0, 380, FlxG.width,
 			"After a long and intense show, Bf had out-rapped the legendary A.C. Void! (Who"
 			+ "\nrightfully seemed pretty livid losing for the first time in centuries.)"
 			+ "\n\nEveryone got an incredible performance, and Bf and Gf casually returned"
-			+ "\nto earth and ordered a pizza. Everyone was happy. (Except Void. NOT Void.)"
+			+ "\nto earth and ordered a pizza. Everyone was happy. (Except Void. Obviously.)"
 			+ "\n\nTHE END(?)"
 			+ "\n\n\nYou've got skills... but Void's not finished just yet. If you"
 			+ "\nactually thought this was kind of easy, there's another challenge..."

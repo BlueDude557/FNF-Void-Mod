@@ -4218,6 +4218,17 @@ class PlayState extends MusicBeatState
 				boyfriend.playAnim('hey', true);
 				dad.playAnim('cheer', true);
 			}
+
+		if (curBeat >= 66 && curBeat < 67 && curSong == 'Asteroids')
+		{
+			dad.playAnim('wink', true);
+		}
+
+		if (curBeat >= 18 && curBeat < 19 && curSong == 'Weightless')
+		{
+			dad.playAnim('wink', true);
+		}
+
 		if (curBeat >= 232 && curBeat < 233 && curSong == 'Weightless')
 		{   
 			if(!triggeredAlready)
