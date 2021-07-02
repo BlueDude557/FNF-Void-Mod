@@ -4223,7 +4223,6 @@ class PlayState extends MusicBeatState
 		{
 			dad.playAnim('wink', true);
 		}
-
 		if (curBeat >= 18 && curBeat < 19 && curSong == 'Weightless')
 		{
 			dad.playAnim('wink', true);
