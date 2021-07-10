@@ -338,7 +338,16 @@ class DialogueBox extends FlxSpriteGroup
 		{
 			remove(dialogue);
 				
-			FlxG.sound.play(Paths.sound('clickText'), 0.8);
+			if (PlayState.SONG.song.toLowerCase()=='senpai' || PlayState.SONG.song.toLowerCase()=='roses' || PlayState.SONG.song.toLowerCase()=='thorns')
+            {
+				FlxG.sound.play(Paths.sound('clickText'), 0.8);
+			}
+				
+			if (PlayState.SONG.song.toLowerCase()=='asteroids' || PlayState.SONG.song.toLowerCase()=='weightless' || PlayState.SONG.song.toLowerCase()=='event horizon')
+			{
+				FlxG.sound.play(Paths.sound('clickTextSpace'), 0.8);
+		    }
+			
 
 			if (dialogueList[1] == null && dialogueList[0] != null)
 			{

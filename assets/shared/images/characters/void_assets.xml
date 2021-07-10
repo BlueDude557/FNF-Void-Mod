@@ -151,4 +151,19 @@
         <SubTexture name="Void Wink0012" x="6750" y="7250" width="750" height="850" frameX="0" frameY="0" frameWidth="750" frameHeight="850"/>
         <SubTexture name="Void Wink0013" x="6750" y="7250" width="750" height="850" frameX="0" frameY="0" frameWidth="750" frameHeight="850"/>
         <SubTexture name="Void Wink0014" x="6750" y="7250" width="750" height="850" frameX="0" frameY="0" frameWidth="750" frameHeight="850"/>
+        <SubTexture name="Void Seethe0000" x="0" y="6400" width="750" height="850" frameX="0" frameY="0" frameWidth="750" frameHeight="850"/>
+        <SubTexture name="Void Seethe0001" x="0" y="6400" width="750" height="850" frameX="0" frameY="0" frameWidth="750" frameHeight="850"/>
+        <SubTexture name="Void Seethe0002" x="750" y="6400" width="750" height="850" frameX="0" frameY="0" frameWidth="750" frameHeight="850"/>
+        <SubTexture name="Void Seethe0003" x="750" y="6400" width="750" height="850" frameX="0" frameY="0" frameWidth="750" frameHeight="850"/>
+        <SubTexture name="Void Seethe0004" x="1500" y="6400" width="750" height="850" frameX="0" frameY="0" frameWidth="750" frameHeight="850"/>
+        <SubTexture name="Void Seethe0005" x="1500" y="6400" width="750" height="850" frameX="0" frameY="0" frameWidth="750" frameHeight="850"/>
+        <SubTexture name="Void Seethe0006" x="1500" y="6400" width="750" height="850" frameX="0" frameY="0" frameWidth="750" frameHeight="850"/>
+        <SubTexture name="Void Seethe0007" x="1500" y="6400" width="750" height="850" frameX="0" frameY="0" frameWidth="750" frameHeight="850"/>
+        <SubTexture name="Void Seethe0008" x="1500" y="6400" width="750" height="850" frameX="0" frameY="0" frameWidth="750" frameHeight="850"/>
+        <SubTexture name="Void Seethe0009" x="1500" y="6400" width="750" height="850" frameX="0" frameY="0" frameWidth="750" frameHeight="850"/>
+        <SubTexture name="Void Seethe0010" x="1500" y="6400" width="750" height="850" frameX="0" frameY="0" frameWidth="750" frameHeight="850"/>
+        <SubTexture name="Void Seethe0011" x="1500" y="6400" width="750" height="850" frameX="0" frameY="0" frameWidth="750" frameHeight="850"/>
+        <SubTexture name="Void Seethe0012" x="1500" y="6400" width="750" height="850" frameX="0" frameY="0" frameWidth="750" frameHeight="850"/>
+        <SubTexture name="Void Seethe0013" x="1500" y="6400" width="750" height="850" frameX="0" frameY="0" frameWidth="750" frameHeight="850"/>
+        <SubTexture name="Void Seethe0014" x="1500" y="6400" width="750" height="850" frameX="0" frameY="0" frameWidth="750" frameHeight="850"/>
 </TextureAtlas>

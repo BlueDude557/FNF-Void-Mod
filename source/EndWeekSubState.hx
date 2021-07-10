@@ -39,6 +39,14 @@ class EndWeekSubState extends MusicBeatState
 		txt.borderStyle = FlxTextBorderStyle.OUTLINE;
 		txt.screenCenter(X);
 		add(txt);
+
+		new FlxTimer().start(3.4, function(tmr:FlxTimer)
+		{
+			if(txt.y == 395) FlxTween.tween(txt, {y: 380}, 3.3, 
+				{ease: FlxEase.quadInOut});
+			else  FlxTween.tween(txt, {y: 395}, 3.3, 
+				{ease: FlxEase.quadInOut});
+		}, 0);
 	}
 
 	override function update(elapsed:Float)

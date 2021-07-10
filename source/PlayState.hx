@@ -713,7 +713,15 @@ class PlayState extends MusicBeatState
 					holoBoppers.updateHitbox();
 					if(FlxG.save.data.distractions){
 						add(holoBoppers);
-					}									
+					}		
+					
+					new FlxTimer().start(3.2, function(tmr:FlxTimer)
+					{
+						if(holoBoppers.y == -330) FlxTween.tween(holoBoppers, {y: -360}, 3.1, 
+							{ease: FlxEase.quadInOut});
+						else  FlxTween.tween(holoBoppers, {y: -330}, 3.1, 
+							{ease: FlxEase.quadInOut});
+					}, 0);
 
 					phillyTrain = new FlxSprite(2000, -50).loadGraphic(Paths.image('space/zippyrocks'));
 					if(FlxG.save.data.distractions){
@@ -731,6 +739,14 @@ class PlayState extends MusicBeatState
 					spacerocks.active = false;
 					add(spacerocks);
 
+					new FlxTimer().start(3, function(tmr:FlxTimer)
+					{
+						if(spacerocks.y == -65) FlxTween.tween(spacerocks, {y: -30}, 2.9, 
+							{ease: FlxEase.quadInOut});
+						else  FlxTween.tween(spacerocks, {y: -65}, 2.9, 
+							{ease: FlxEase.quadInOut});
+					}, 0);
+
 					var spacestage:FlxSprite = new FlxSprite(-500, -220).loadGraphic(Paths.image('space/spacestage'));
 					spacestage.setGraphicSize(Std.int(spacestage.width * 1.2));
 					spacestage.updateHitbox();
@@ -738,13 +754,21 @@ class PlayState extends MusicBeatState
 					spacestage.active = false;
 					add(spacestage);
 
-					var spacerocksFG:FlxSprite = new FlxSprite(-1620, -130).loadGraphic(Paths.image('space/spacerocksFG'));
+					var spacerocksFG:FlxSprite = new FlxSprite(-1620, -160).loadGraphic(Paths.image('space/spacerocksFG'));
 					spacerocksFG.setGraphicSize(Std.int(spacerocksFG.width * 1.3));
 					spacerocksFG.updateHitbox();			
 					spacerocksFG.antialiasing = true;
 					spacerocksFG.scrollFactor.set(1.6, 1.6);
 					spacerocksFG.active = false;
 					add(spacerocksFG);
+
+					new FlxTimer().start(3, function(tmr:FlxTimer)
+					{
+						if(spacerocksFG.y == -120) FlxTween.tween(spacerocksFG, {y: -160}, 2.9, 
+							{ease: FlxEase.quadInOut});
+						else  FlxTween.tween(spacerocksFG, {y: -120}, 2.9, 
+							{ease: FlxEase.quadInOut});
+					}, 0);
 			}
 		
 
@@ -1183,6 +1207,49 @@ class PlayState extends MusicBeatState
 							});
 						});
 					});
+				case "event-horizon":
+					var blackScreen:FlxSprite = new FlxSprite(-100, -100).makeGraphic(FlxG.width * 2, FlxG.height * 2, FlxColor.BLACK);
+					blackScreen.scrollFactor.set();
+					add(blackScreen);
+					camHUD.visible = false;
+
+					new FlxTimer().start(0.1, function(tmr:FlxTimer)
+					{
+						blackScreen.alpha -= 0.10;
+			
+						if (blackScreen.alpha > 0)
+						{
+							tmr.reset(0.1);			
+						}
+					});
+
+					if (blackScreen.alpha == 0)
+					{
+						remove(blackScreen);
+					}
+
+					new FlxTimer().start(0.1, function(tmr:FlxTimer)
+					{
+						FlxG.sound.play(Paths.sound('madVoidSting'));
+						camFollow.y = 380;
+						camFollow.x += -730;
+						FlxG.camera.focusOn(camFollow.getPosition());
+						FlxG.camera.zoom = 1.0;
+
+						dad.playAnim('wink', true);
+
+						new FlxTimer().start(0.8, function(tmr:FlxTimer)
+						{
+							camHUD.visible = true;
+							FlxTween.tween(FlxG.camera, {zoom: 0.70}, 2.7, {
+								ease: FlxEase.quadInOut,
+								onComplete: function(twn:FlxTween)
+								{
+									spaceIntro(doof);
+								}
+							});
+						});
+					});
 				case 'senpai':
 					schoolIntro(doof);
 				case 'roses':
@@ -1195,8 +1262,6 @@ class PlayState extends MusicBeatState
 					spaceIntro(doof);
 				case 'weightless':
 					FlxG.sound.play(Paths.sound('Holocheer'));
-					spaceIntro(doof);
-				case 'event-horizon':
 					spaceIntro(doof);
 				default:
 					startCountdown();
@@ -1319,6 +1384,11 @@ class PlayState extends MusicBeatState
 		senpaiEvil.scrollFactor.set();
 		senpaiEvil.updateHitbox();
 		senpaiEvil.screenCenter();
+
+		if (StringTools.replace(PlayState.SONG.song, " ", "-").toLowerCase() == 'event-horizon')
+		{
+			remove(black);
+		}
 
 		new FlxTimer().start(0.1, function(tmr:FlxTimer)
 		{
@@ -2604,6 +2674,8 @@ class PlayState extends MusicBeatState
         
 			var camPos:FlxPoint = new FlxPoint(dad.getGraphicMidpoint().x, dad.getGraphicMidpoint().y);
 
+			var voidTrail = new FlxTrail(dad, null, 2, 4, 0.25, 0.069);
+
 			if(curBeat < 460)
 			{
 				switch (curBeat)
@@ -2671,10 +2743,21 @@ class PlayState extends MusicBeatState
 						FlxTween.tween(spaceBGflash, {alpha: 1.0}, 0.2, 
 							{ease: FlxEase.expoOut});
 
+						if(FlxG.save.data.distractions){
+						//	add(voidTrail);
+							}
+
 					case 393:
 
 						FlxTween.tween(spaceBGflash, {alpha: 0.0}, 0.8, 
 							{ease: FlxEase.quadInOut});
+
+				    case 456:
+
+						if(FlxG.save.data.distractions){
+						//	remove(voidTrail);
+							}
+
 
 /*						spaceBGflash.alpha = 1;
 
@@ -4246,6 +4329,13 @@ class PlayState extends MusicBeatState
 		if (curBeat >= 7 && curBeat < 8 && curSong == 'Event Horizon')
 		{
 			boyfriend.playAnim('hey', true);
+
+			dad.playAnim('seethe', true);
+		}
+
+		if (curBeat >= 391 && curBeat < 392 && curSong == 'Event Horizon')
+		{
+			dad.playAnim('seethe', true);
 		}
 
 		switch (curStage)
@@ -4281,6 +4371,14 @@ class PlayState extends MusicBeatState
 						trainCooldown += 1;						
 				}
 
+		/*		if (curBeat % 8 == 4 && FlxG.random.bool(30) && !trainMoving && trainCooldown > 8)
+				{
+					if(FlxG.save.data.distractions){
+						trainCooldown = FlxG.random.int(-4, 0);
+						trainStart();
+					}
+				}
+		*/
 			case "philly":
 				if(FlxG.save.data.distractions){
 					if (!trainMoving)
