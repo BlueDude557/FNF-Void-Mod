@@ -1231,12 +1231,12 @@ class PlayState extends MusicBeatState
 					new FlxTimer().start(0.1, function(tmr:FlxTimer)
 					{
 						FlxG.sound.play(Paths.sound('madVoidSting'));
-						camFollow.y = 380;
+						camFollow.y = 400;
 						camFollow.x += -730;
 						FlxG.camera.focusOn(camFollow.getPosition());
 						FlxG.camera.zoom = 1.0;
 
-						dad.playAnim('wink', true);
+						dad.playAnim('sickintro', true);
 
 						new FlxTimer().start(0.8, function(tmr:FlxTimer)
 						{
@@ -1669,7 +1669,10 @@ class PlayState extends MusicBeatState
 			ana.hitJudge = Ratings.CalculateRating(noteDiff, Math.floor((PlayStateChangeables.safeFrames / 60) * 1000));
 			ana.nearestNote = [coolNote.strumTime,coolNote.noteData,coolNote.sustainLength];
 		}
-		
+    /*	else if (!FlxG.save.data.ghost)
+		{	
+			noteMiss(data,null);
+		}    */
 	}
 
 	var songStarted = false;

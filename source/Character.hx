@@ -515,6 +515,8 @@ class Character extends FlxSprite
 				animation.addByPrefix('wink', 'Void Wink', 12, false);
 				animation.addByPrefix('seethe', 'Void Seethe', 24, false);
 
+				animation.addByPrefix('sickintro', 'Void Intro', 12, false);
+
 		        addOffset('idle');
 		        addOffset("singUP", -47, 24);
 		        addOffset("singRIGHT", 26, -30);
@@ -526,6 +528,7 @@ class Character extends FlxSprite
 		        addOffset("singDOWN-alt", -30, -27);
 				addOffset("wink", -170, -55);
 				addOffset("seethe", -170, -55);
+				addOffset("sickintro", -170, -55);
 
 		        playAnim('idle');
         }
