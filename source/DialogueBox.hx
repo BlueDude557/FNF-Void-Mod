@@ -248,7 +248,7 @@ class DialogueBox extends FlxSpriteGroup
 		//	if (spacebox.animation.curAnim.name == 'normal')
 		//	{	
 		//		if (portraitLeft.animation.curAnim.name == 'voidnormal' || portraitLeft.animation.curAnim.name == 'voidsmug' || portraitLeft.animation.curAnim.name == 'voidumm' || portraitLeft.animation.curAnim.name == 'voidwornout')
-					swagDialogue.sounds = [FlxG.sound.load(Paths.soundRandom('Vtext', 1, 2), FlxG.random.float(0.1, 0.2))];
+					swagDialogue.sounds = [FlxG.sound.load(Paths.sound('VnormText'), 0.4)];
 
 			/*	if (portraitLeft.animation.curAnim.name == 'voidmad' || portraitLeft.animation.curAnim.name == 'voidrage')
 					swagDialogue.sounds = [FlxG.sound.load(Paths.sound('VmadText'), 0.4)];
