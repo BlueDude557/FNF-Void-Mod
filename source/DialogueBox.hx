@@ -27,6 +27,10 @@ class DialogueBox extends FlxSpriteGroup
 
 	var dropText:FlxText;
 
+	var vnormTextsound:String;
+	var vmadTextsound:String;
+	var bfTextsound:String;
+
 	public var finishThing:Void->Void;
 
 	var portraitLeft:FlxSprite;
@@ -154,6 +158,10 @@ class DialogueBox extends FlxSpriteGroup
 
 		if (PlayState.SONG.song.toLowerCase()=='asteroids' || PlayState.SONG.song.toLowerCase()=='weightless' || PlayState.SONG.song.toLowerCase()=='event horizon')
         {
+			vnormTextsound = 'VnormText';
+			vmadTextsound = 'VmadText';
+			bfTextsound = 'BfText';
+
 			portraitLeft = new FlxSprite(180, 100);
 		    portraitLeft.frames = Paths.getSparrowAtlas('space/voidPics');
 		    portraitLeft.animation.addByPrefix('voidnormal', 'Void Normal', 20, false);
@@ -245,46 +253,7 @@ class DialogueBox extends FlxSpriteGroup
 			swagDialogue = new FlxTypeText(253, 510, Std.int(FlxG.width * 0.6), "", 40);
 			swagDialogue.font = 'Exo Bold';
 		    swagDialogue.color = 0xFFF1B9FF;
-		//	if (spacebox.animation.curAnim.name == 'normal')
-		//	{	
-		//		if (portraitLeft.animation.curAnim.name == 'voidnormal' || portraitLeft.animation.curAnim.name == 'voidsmug' || portraitLeft.animation.curAnim.name == 'voidumm' || portraitLeft.animation.curAnim.name == 'voidwornout')
-					swagDialogue.sounds = [FlxG.sound.load(Paths.sound('VnormText'), 0.4)];
-
-			/*	if (portraitLeft.animation.curAnim.name == 'voidmad' || portraitLeft.animation.curAnim.name == 'voidrage')
-					swagDialogue.sounds = [FlxG.sound.load(Paths.sound('VmadText'), 0.4)];
-
-				if (portraitRight.animation.curAnim.name == 'bfnormal' || portraitRight.animation.curAnim.name == 'bfsmug')
-					swagDialogue.sounds = [FlxG.sound.load(Paths.sound('BfText'), 0.4)];
-			}*/
-			/*	switch (portraitLeft.animation.curAnim.name)
-				{
-					case 'voidnormal':
-						swagDialogue.sounds = [FlxG.sound.load(Paths.sound('VnormText'), 0.4)];
-				
-					case 'voidsmug':
-						swagDialogue.sounds = [FlxG.sound.load(Paths.sound('VnormText'), 0.4)];
-
-					case 'voidumm':
-						swagDialogue.sounds = [FlxG.sound.load(Paths.sound('VnormText'), 0.4)];
-
-					case 'voidwornout':
-						swagDialogue.sounds = [FlxG.sound.load(Paths.sound('VnormText'), 0.4)];
-
-					case 'voidmad':
-						swagDialogue.sounds = [FlxG.sound.load(Paths.sound('VmadText'), 0.4)];
-
-					case 'voidrage':
-						swagDialogue.sounds = [FlxG.sound.load(Paths.sound('VmadText'), 0.4)];
-				}
-
-				switch (portraitRight.animation.curAnim.name)
-				{
-					case 'bfnormal':
-						swagDialogue.sounds = [FlxG.sound.load(Paths.sound('BfText'), 0.4)];
-
-					case 'bfsmug':
-						swagDialogue.sounds = [FlxG.sound.load(Paths.sound('BfText'), 0.4)];
-				}    */
+		    swagDialogue.sounds = [FlxG.sound.load(Paths.sound('Textsounds'+vnormTextsound), 0.5)];
 			add(swagDialogue);
 		}
 
@@ -424,6 +393,7 @@ class DialogueBox extends FlxSpriteGroup
 				}
 		//all my void dialogue pics ^-^
 			case 'v1':
+				swagDialogue.sounds = [FlxG.sound.load(Paths.sound('Textsounds/'+vnormTextsound), 0.5)];
 				portraitRight.visible = false;
 				if (!portraitLeft.visible)
 				{
@@ -432,6 +402,7 @@ class DialogueBox extends FlxSpriteGroup
 				portraitLeft.animation.play('voidnormal');
 
 		    case 'v2':
+				swagDialogue.sounds = [FlxG.sound.load(Paths.sound('Textsounds/'+vnormTextsound), 0.5)];
 				portraitRight.visible = false;
 				if (!portraitLeft.visible)
 				{
@@ -440,6 +411,7 @@ class DialogueBox extends FlxSpriteGroup
 				portraitLeft.animation.play('voidsmug');
 
 			case 'v3':
+				swagDialogue.sounds = [FlxG.sound.load(Paths.sound('Textsounds/'+vnormTextsound), 0.5)];
 				portraitRight.visible = false;
 				if (!portraitLeft.visible)
 				{
@@ -448,6 +420,7 @@ class DialogueBox extends FlxSpriteGroup
 				portraitLeft.animation.play('voidumm');
 
 			case 'v4':
+				swagDialogue.sounds = [FlxG.sound.load(Paths.sound('Textsounds/'+vnormTextsound), 0.5)];
 				portraitRight.visible = false;
 				if (!portraitLeft.visible)
 				{
@@ -456,6 +429,7 @@ class DialogueBox extends FlxSpriteGroup
 				portraitLeft.animation.play('voidwornout');
 
 			case 'v5':
+				swagDialogue.sounds = [FlxG.sound.load(Paths.sound('Textsounds/'+vmadTextsound), 0.5)];
 				portraitRight.visible = false;
 				if (!portraitLeft.visible)
 				{
@@ -464,6 +438,7 @@ class DialogueBox extends FlxSpriteGroup
 				portraitLeft.animation.play('voidmad');
 
 			case 'v6':
+				swagDialogue.sounds = [FlxG.sound.load(Paths.sound('Textsounds/'+vmadTextsound), 0.5)];
 				portraitRight.visible = false;
 				if (!portraitLeft.visible)
 				{
@@ -472,6 +447,7 @@ class DialogueBox extends FlxSpriteGroup
 				portraitLeft.animation.play('voidrage');
 
 			case 'bf1':
+				swagDialogue.sounds = [FlxG.sound.load(Paths.sound('Textsounds/'+bfTextsound), 0.5)];
 				portraitLeft.visible = false;
 				if (!portraitRight.visible)
 				{
@@ -480,6 +456,7 @@ class DialogueBox extends FlxSpriteGroup
 				portraitRight.animation.play('bfnormal');
 
 			case 'bf2':
+				swagDialogue.sounds = [FlxG.sound.load(Paths.sound('Textsounds/'+bfTextsound), 0.5)];
 				portraitLeft.visible = false;
 				if (!portraitRight.visible)
 				{
