@@ -19,6 +19,7 @@ class EndWeekSubState extends MusicBeatState
 	{
 		super.create();
 		var bg:FlxSprite = new FlxSprite().loadGraphic(Paths.image('voidend', 'shared'));
+		bg.antialiasing = true;
 		bg.screenCenter();
 		add(bg);
 
