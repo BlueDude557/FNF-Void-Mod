@@ -1102,11 +1102,22 @@ class PlayState extends MusicBeatState
 		// healthBar
 		add(healthBar);
 
-		// Add Kade Engine watermark
-		kadeEngineWatermark = new FlxText(4,healthBarBG.y + 50,0,SONG.song + " - " + CoolUtil.difficultyFromInt(storyDifficulty) + (Main.watermarks ? " | KE " + MainMenuState.kadeEngineVer : ""), 16);
-		kadeEngineWatermark.setFormat(Paths.font("vcr.ttf"), 16, FlxColor.WHITE, RIGHT, FlxTextBorderStyle.OUTLINE,FlxColor.BLACK);
-		kadeEngineWatermark.scrollFactor.set();
-		add(kadeEngineWatermark);
+		if (PlayState.SONG.song.toLowerCase()=='asteroids' || PlayState.SONG.song.toLowerCase()=='weightless' || PlayState.SONG.song.toLowerCase()=='event horizon')
+		{
+			// Add Void Mod watermark
+			kadeEngineWatermark = new FlxText(4,healthBarBG.y + 50,0,SONG.song + " - " + CoolUtil.difficultyFromInt(storyDifficulty) + (Main.watermarks ? " | VsVoid by Starbreak" : ""), 16);
+			kadeEngineWatermark.setFormat(Paths.font("vcr.ttf"), 16, FlxColor.WHITE, RIGHT, FlxTextBorderStyle.OUTLINE,FlxColor.BLACK);
+			kadeEngineWatermark.scrollFactor.set();
+			add(kadeEngineWatermark);
+		}
+		else
+		{
+			// Add Kade Engine watermark
+			kadeEngineWatermark = new FlxText(4,healthBarBG.y + 50,0,SONG.song + " - " + CoolUtil.difficultyFromInt(storyDifficulty) + (Main.watermarks ? " | KE " + MainMenuState.kadeEngineVer : ""), 16);
+			kadeEngineWatermark.setFormat(Paths.font("vcr.ttf"), 16, FlxColor.WHITE, RIGHT, FlxTextBorderStyle.OUTLINE,FlxColor.BLACK);
+			kadeEngineWatermark.scrollFactor.set();
+			add(kadeEngineWatermark);
+		}
 
 		if (PlayStateChangeables.useDownscroll)
 			kadeEngineWatermark.y = FlxG.height * 0.9 + 45;
@@ -2640,8 +2651,39 @@ class PlayState extends MusicBeatState
 			}
 		}
 
+		if (curSong == 'Asteroids')
+		{
+
+			var blackFade:FlxSprite = new FlxSprite(-500, -300).makeGraphic(FlxG.width * 2, FlxG.height * 2, FlxColor.BLACK);
+			blackFade.scrollFactor.set();
+			blackFade.alpha = 0;
+			blackFade.active = false;
+			add(blackFade);
+	
+			if(curBeat < 280)
+			{
+				switch (curBeat)
+				{
+					case 271:
+
+						if (isStoryMode)
+						{
+							FlxTween.tween(blackFade, {alpha: 1.0}, 1.9, 
+							{ease: FlxEase.quadIn});
+						}
+				}
+			}
+		}
+
 		if (curSong == 'Weightless')
 		{
+
+			var blackFade:FlxSprite = new FlxSprite(-500, -300).makeGraphic(FlxG.width * 2, FlxG.height * 2, FlxColor.BLACK);
+			blackFade.scrollFactor.set();
+			blackFade.alpha = 0;
+			blackFade.active = false;
+			add(blackFade);
+
 			if(curBeat < 240)
             {
 			    switch (curBeat)
@@ -2655,6 +2697,13 @@ class PlayState extends MusicBeatState
 				    	gfSpeed = 2;
 				    case 104:
 				    	gfSpeed = 1;
+					case 237:
+
+						if (isStoryMode)
+						{
+							FlxTween.tween(blackFade, {alpha: 1.0}, 2.2, 
+							{ease: FlxEase.quadIn});
+						}
 				}		
 			}
 		}
@@ -4277,11 +4326,20 @@ class PlayState extends MusicBeatState
 	
 		}
 
-		iconP1.setGraphicSize(Std.int(iconP1.width + 30));
-		iconP2.setGraphicSize(Std.int(iconP2.width + 30));
+	//	iconP1.setGraphicSize(Std.int(iconP1.width + 30));
+	//	iconP2.setGraphicSize(Std.int(iconP2.width + 30));
+
+		iconP1.setGraphicSize(Std.int(iconP1.width = 180));
+		iconP2.setGraphicSize(Std.int(iconP2.width = 180));
 			
 		iconP1.updateHitbox();
 		iconP2.updateHitbox();
+
+		FlxTween.tween(iconP1, {width: 150}, 0.15, 
+			{ease: FlxEase.quartOut});
+
+		FlxTween.tween(iconP2, {width: 150}, 0.15, 
+			{ease: FlxEase.quartOut});
 
 		if (curBeat % gfSpeed == 0)
 		{

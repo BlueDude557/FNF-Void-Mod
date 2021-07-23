@@ -333,7 +333,7 @@ class TitleState extends MusicBeatState
 				{
 					returnedData[0] = data.substring(0, data.indexOf(';'));
 					returnedData[1] = data.substring(data.indexOf('-'), data.length);
-				  	if (!MainMenuState.kadeEngineVer.contains(returnedData[0].trim()) && !OutdatedSubState.leftState && MainMenuState.nightly == "")
+			/*     	if (!MainMenuState.kadeEngineVer.contains(returnedData[0].trim()) && !OutdatedSubState.leftState && MainMenuState.nightly == "")
 					{
 						trace('outdated lmao! ' + returnedData[0] + ' != ' + MainMenuState.kadeEngineVer);
 						OutdatedSubState.needVer = returnedData[0];
@@ -341,7 +341,7 @@ class TitleState extends MusicBeatState
 						FlxG.switchState(new OutdatedSubState());
 					}
 					else
-					{
+			*/		{
 						FlxG.switchState(new MainMenuState());
 					}
 				}
@@ -443,6 +443,7 @@ class TitleState extends MusicBeatState
 			// credTextShit.screenCenter();
 			case 9:
 				createCoolText([curWacky[0]]);
+				kadelogo.visible = false;
 			// credTextShit.visible = true;
 			case 11:
 				addMoreText(curWacky[1]);
