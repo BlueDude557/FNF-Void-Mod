@@ -33,7 +33,7 @@ class EndWeekSubState extends MusicBeatState
 			+ "\nactually thought this was kind of easy, there's another challenge..."
 			+ "\nMORE COMING SOON!",
 			28);
-			//Are you crazy enough to beat OBLIVION?		
+			//Are you crazy enough to beat the true A.C. Void?		
 		txt.setFormat("VCR OSD Mono", 28, FlxColor.fromRGB(200, 200, 200), CENTER);
 		txt.borderColor = FlxColor.BLACK;
 		txt.borderSize = 4;
@@ -58,6 +58,8 @@ class EndWeekSubState extends MusicBeatState
 			transOut = FlxTransitionableState.defaultTransOut;
 
 			leftState = true;
+
+			Conductor.changeBPM(102);
 			FlxG.switchState(new MainMenuState());
 		}
 		super.update(elapsed);

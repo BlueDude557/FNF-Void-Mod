@@ -400,18 +400,7 @@ class Character extends FlxSprite
 
 				animation.addByPrefix('sickintro', 'Void Intro', 12, false);
 
-		        addOffset('idle');
-		        addOffset("singUP", -47, 24);
-		        addOffset("singRIGHT", 26, -30);
-		        addOffset("singLEFT", -20, 16);
-		        addOffset("singDOWN", -31, -29);
-		        addOffset("singUP-alt", -47, 56);
-		        addOffset("singRIGHT-alt", -28, -16);
-		        addOffset("singLEFT-alt", -10, 15);
-		        addOffset("singDOWN-alt", -30, -27);
-				addOffset("wink", -170, -55);
-				addOffset("seethe", -170, -55);
-				addOffset("sickintro", -170, -55);
+				loadOffsetFile(curCharacter);
 
 		        playAnim('idle');
         }
