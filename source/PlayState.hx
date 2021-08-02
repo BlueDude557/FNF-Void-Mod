@@ -1416,8 +1416,8 @@ class PlayState extends MusicBeatState
 					new FlxTimer().start(0.1, function(tmr:FlxTimer)
 					{
 						FlxG.sound.play(Paths.sound('madVoidSting'));
-						camFollow.y = 400;
-						camFollow.x += -730;
+						camFollow.y = 250;
+						camFollow.x = dad.getMidpoint().x;
 						FlxG.camera.focusOn(camFollow.getPosition());
 						FlxG.camera.zoom = 1.0;
 
@@ -3107,6 +3107,8 @@ class PlayState extends MusicBeatState
 
 		if (curSong == 'Asteroids')
 		{
+			if (curBeat % 4 == 2 && SONG.notes[Math.floor(curStep / 16)].mustHitSection && dad.animation.curAnim.name == 'idle' && dad.curCharacter == 'void')
+				dad.playAnim('idle');
 
 			var blackFade:FlxSprite = new FlxSprite(-500, -300).makeGraphic(FlxG.width * 2, FlxG.height * 2, FlxColor.BLACK);
 			blackFade.scrollFactor.set();
@@ -3130,8 +3132,13 @@ class PlayState extends MusicBeatState
 		}
 
 		if (curSong == 'Weightless')
-		{
-
+		{	
+			if (dad.animation.curAnim.name != "wink")
+			{
+				if (curBeat % 4 == 2 && SONG.notes[Math.floor(curStep / 16)].mustHitSection && dad.animation.curAnim.name == 'idle' && dad.curCharacter == 'void')
+					dad.playAnim('idle');
+			}
+		
 			var blackFade:FlxSprite = new FlxSprite(-500, -300).makeGraphic(FlxG.width * 2, FlxG.height * 2, FlxColor.BLACK);
 			blackFade.scrollFactor.set();
 			blackFade.alpha = 0;
@@ -3164,6 +3171,8 @@ class PlayState extends MusicBeatState
 
 		if (curSong == 'Event Horizon')
 		{
+			if (curBeat % 4 == 2 && SONG.notes[Math.floor(curStep / 16)].mustHitSection && dad.animation.curAnim.name == 'idle' && dad.curCharacter == 'void')
+				dad.playAnim('idle');
 
 		/*	var coolflash:FlxSprite = new FlxSprite(-450, -410).loadGraphic(Paths.image('space/coolflash'));
 			coolflash.setGraphicSize(Std.int(coolflash.width * 1.5));
@@ -4916,7 +4925,7 @@ class PlayState extends MusicBeatState
 			// Conductor.changeBPM(SONG.bpm);
 
 			// Dad doesnt interupt his own notes
-			if ((SONG.notes[Math.floor(curStep / 16)].mustHitSection || !dad.animation.curAnim.name.startsWith("sing")) && dad.curCharacter != 'gf')
+			if ((SONG.notes[Math.floor(curStep / 16)].mustHitSection || !dad.animation.curAnim.name.startsWith("sing")) && dad.curCharacter != 'gf' && dad.animation.curAnim.name != 'wink')
 				if (curBeat % idleBeat == 0 || dad.curCharacter == "spooky")
 					dad.dance(idleToBeat);
 		}
@@ -4982,7 +4991,7 @@ class PlayState extends MusicBeatState
 
 		if (curBeat >= 66 && curBeat < 67 && curSong == 'Asteroids')
 		{
-			dad.playAnim('wink', true);
+			//dad.playAnim('wink', true);
 		}
 		if (curBeat >= 18 && curBeat < 19 && curSong == 'Weightless')
 		{

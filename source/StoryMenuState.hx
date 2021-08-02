@@ -40,7 +40,7 @@ class StoryMenuState extends MusicBeatState
 	}
 	var curDifficulty:Int = 1;
 
-	public static var weekUnlocked:Array<Bool> = [true, true, true, true, true, true, true, true];
+	public static var weekUnlocked:Array<Bool> = [];
 
 	var weekCharacters:Array<Dynamic> = [
 		['', 'bf', 'gf'],
@@ -74,7 +74,7 @@ class StoryMenuState extends MusicBeatState
 
 	function unlockWeeks():Array<Bool>
 	{
-		var weeks:Array<Bool> = [];
+		var weeks:Array<Bool> = [true,true,true,true,true,true,true,true,false];
 		#if debug
 		for(i in 0...weekNames.length)
 			weeks.push(true);

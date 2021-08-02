@@ -132,7 +132,7 @@ class TitleState extends MusicBeatState
 			logoBl = new FlxSprite(-150, 1500);
 			logoBl.frames = Paths.getSparrowAtlas('KadeEngineLogoBumpin');
 		} else {*/
-			logoBl = new FlxSprite(-110, -70);
+			logoBl = new FlxSprite(-80, 30);
 			logoBl.frames = Paths.getSparrowAtlas('logoBumpin');
 			logoBl.setGraphicSize(Std.int(logoBl.width * 0.9));
 	//	}
@@ -210,7 +210,7 @@ class TitleState extends MusicBeatState
 
 		if(FlxG.save.data.antialiasing)
 			{
-				ngSpr.antialiasing = true;
+			//	ngSpr.antialiasing = true;
 				kadelogo.antialiasing = true;
 			}
 
