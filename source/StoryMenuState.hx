@@ -35,7 +35,7 @@ class StoryMenuState extends MusicBeatState
 			['Cocoa', 'Eggnog', 'Winter Horrorland'],
 			['Senpai', 'Roses', 'Thorns'],
 			['Asteroids', 'Weightless', 'Event Horizon'],
-			['...']
+			['Singularity', 'Oblivion']
 		];
 	}
 	var curDifficulty:Int = 1;
@@ -51,7 +51,7 @@ class StoryMenuState extends MusicBeatState
 		['parents-christmas', 'bf', 'gf'],
 		['senpai', 'bf', 'gf'],
 		['void', 'bf', 'gf'],
-		['void', 'bf', 'gf']
+		['ACvoid', 'bf', 'gf']
 	];
 
 	var weekNames:Array<String> = CoolUtil.coolTextFile(Paths.txt('data/weekNames'));
@@ -74,7 +74,7 @@ class StoryMenuState extends MusicBeatState
 
 	function unlockWeeks():Array<Bool>
 	{
-		var weeks:Array<Bool> = [true,true,true,true,true,true,true,true,false];
+		var weeks:Array<Bool> = [true,true,true,true,true,true,true,true,true];
 		#if debug
 		for(i in 0...weekNames.length)
 			weeks.push(true);
@@ -127,8 +127,9 @@ class StoryMenuState extends MusicBeatState
 		rankText.screenCenter(X);
 
 		var ui_tex = Paths.getSparrowAtlas('campaign_menu_UI_assets');
-		var yellowBG:FlxSprite = new FlxSprite(0, 56).makeGraphic(FlxG.width, 400, 0xFFF9CF51);
-
+		//It's not yellow anymore lol
+		var yellowBG:FlxSprite = new FlxSprite(0, 56).makeGraphic(FlxG.width, 400, 0xFFAE43F1);
+		//Original color: #F9CF51
 		grpWeekText = new FlxTypedGroup<MenuItem>();
 		add(grpWeekText);
 

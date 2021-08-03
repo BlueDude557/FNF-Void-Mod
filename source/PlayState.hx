@@ -4924,7 +4924,6 @@ class PlayState extends MusicBeatState
 			// else
 			// Conductor.changeBPM(SONG.bpm);
 
-			//lol hi
 			// Dad doesnt interupt his own notes
 			if ((SONG.notes[Math.floor(curStep / 16)].mustHitSection || !dad.animation.curAnim.name.startsWith("sing")) && dad.curCharacter != 'gf' && dad.animation.curAnim.name != 'wink')
 				if (curBeat % idleBeat == 0 || dad.curCharacter == "spooky")
