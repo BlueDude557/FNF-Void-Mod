@@ -1336,6 +1336,7 @@ class PlayState extends MusicBeatState
 
 		strumLineNotes.cameras = [camHUD];
 		notes.cameras = [camHUD];
+		//darkMatter.cameras = [camHUD];
 		healthBar.cameras = [camHUD];
 		healthBarBG.cameras = [camHUD];
 		iconP1.cameras = [camHUD];
@@ -3274,7 +3275,7 @@ class PlayState extends MusicBeatState
 							}
 
 
-/*						spaceBGflash.alpha = 1;
+				/*		spaceBGflash.alpha = 1;
 
 						new FlxTimer().start(0.1, function(tmr:FlxTimer)
 							{
@@ -3289,7 +3290,18 @@ class PlayState extends MusicBeatState
 				}	
 			}		
 			
-		}		
+		}	
+		
+		if (curSong == 'Oblivion')
+		{
+			if (curBeat % 4 == 2 && SONG.notes[Math.floor(curStep / 16)].mustHitSection && dad.animation.curAnim.name == 'idle' && dad.curCharacter == 'void')
+				dad.playAnim('idle');
+
+			if (dad.animation.curAnim.name.endsWith('alt'))
+			{
+				FlxG.camera.shake(0.005, 0.06, null, true, null);
+			}
+		}
 		
 		if (health <= 0 && !cannotDie)
 		{

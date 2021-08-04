@@ -208,7 +208,7 @@ class DialogueBox extends FlxSpriteGroup
 		    spacebox.updateHitbox();
 		    add(spacebox);
 
-			arrowSelect = new FlxSprite(810, 800).loadGraphic(Paths.image('space/arrow_textbox'));
+			arrowSelect = new FlxSprite(10, 100).loadGraphic(Paths.image('space/arrow_textbox'));
 			arrowSelect.setGraphicSize(Std.int(arrowSelect.width * 1.1));
 			arrowSelect.antialiasing = true;
 		    add(arrowSelect);

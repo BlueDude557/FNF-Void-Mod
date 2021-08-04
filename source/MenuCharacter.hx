@@ -32,7 +32,7 @@ class MenuCharacter extends FlxSprite
 		'parents-christmas' => new CharacterSetting(100, 130, 1.8),
 		'senpai' => new CharacterSetting(-40, -45, 1.4),
 		'void' => new CharacterSetting(10, 70, 1.9),
-		'ACvoid' => new CharacterSetting(10, 70, 1.9)
+		'ac-void' => new CharacterSetting(10, 70, 1.9)
 
 	];
 
@@ -66,7 +66,7 @@ class MenuCharacter extends FlxSprite
 		animation.addByPrefix('parents-christmas', "Parent Christmas Idle", 24, false);
 		animation.addByPrefix('senpai', "SENPAI idle Black Lines", 24, false);
 		animation.addByPrefix('void', "void idle Black Lines", 24, false);
-		animation.addByPrefix('ACvoid', "ACvoid idle Black Lines", 24, false);
+		animation.addByPrefix('ac-void', "ACvoid idle Black Lines", 24, false);
 
 		setGraphicSize(Std.int(width * scale));
 		updateHitbox();
