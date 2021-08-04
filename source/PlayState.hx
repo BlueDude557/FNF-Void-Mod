@@ -1113,6 +1113,9 @@ class PlayState extends MusicBeatState
 			case 'void':
 				dad.x -= 540;
 				dad.y -= 20;
+			case 'ac-void':
+				dad.x -= 540;
+				dad.y -= 20;
 		}
 
 		boyfriend = new Boyfriend(770, 450, SONG.player1);
@@ -3027,6 +3030,9 @@ class PlayState extends MusicBeatState
 						camFollow.x = dad.getMidpoint().x - 100;
 					case 'void':
 						camFollow.y = dad.getMidpoint().y;
+					case 'ac-void':
+						camFollow.y = dad.getMidpoint().y;
+						camFollow.x = dad.getMidpoint().x - 50;
 				}
 			}
 
