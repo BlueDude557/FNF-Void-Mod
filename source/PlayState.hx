@@ -1272,7 +1272,7 @@ class PlayState extends MusicBeatState
 		// healthBar
 		add(healthBar);
 
-		if (PlayState.SONG.song.toLowerCase()=='asteroids' || PlayState.SONG.song.toLowerCase()=='weightless' || PlayState.SONG.song.toLowerCase()=='event horizon')
+		if (PlayState.SONG.song.toLowerCase()=='asteroids' || PlayState.SONG.song.toLowerCase()=='weightless' || PlayState.SONG.song.toLowerCase()=='event horizon' || PlayState.SONG.song.toLowerCase()=='singularity' || PlayState.SONG.song.toLowerCase()=='oblivion')
 		{
 			// Add Void Mod watermark
 			kadeEngineWatermark = new FlxText(4,healthBarBG.y + 50,0,SONG.song + " - " + CoolUtil.difficultyFromInt(storyDifficulty) + (Main.watermarks ? " | VsVoid by Starbreak" : ""), 16);
@@ -1339,7 +1339,7 @@ class PlayState extends MusicBeatState
 
 		strumLineNotes.cameras = [camHUD];
 		notes.cameras = [camHUD];
-		//darkMatter.cameras = [camHUD];
+		//noteVortex.cameras = [camHUD];
 		healthBar.cameras = [camHUD];
 		healthBarBG.cameras = [camHUD];
 		iconP1.cameras = [camHUD];
