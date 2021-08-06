@@ -2326,6 +2326,28 @@ class PlayState extends MusicBeatState
 						}
 					babyArrow.setGraphicSize(Std.int(babyArrow.width * 0.7));
 
+				case 'dark':
+					babyArrow.frames = Paths.getSparrowAtlas('NOTE_assets_dark');
+					for (j in 0...4)
+					{
+						babyArrow.animation.addByPrefix(dataColor[j], 'arrow' + dataSuffix[j]);	
+					}
+
+					var lowerDir:String = dataSuffix[i].toLowerCase();
+
+					babyArrow.animation.addByPrefix('static', 'arrow' + dataSuffix[i]);
+					babyArrow.animation.addByPrefix('pressed', lowerDir + ' press', 24, false);
+					babyArrow.animation.addByPrefix('confirm', lowerDir + ' confirm', 24, false);
+
+					babyArrow.x += Note.swagWidth * i;
+
+					if(FlxG.save.data.antialiasing)
+						{
+							babyArrow.antialiasing = true;
+						}
+					babyArrow.setGraphicSize(Std.int(babyArrow.width * 0.7));
+
+
 				default:
 					babyArrow.frames = Paths.getSparrowAtlas('NOTE_assets');
 					for (j in 0...4)
@@ -3031,8 +3053,7 @@ class PlayState extends MusicBeatState
 					case 'void':
 						camFollow.y = dad.getMidpoint().y;
 					case 'ac-void':
-						camFollow.y = dad.getMidpoint().y;
-						camFollow.x = dad.getMidpoint().x - 50;
+						camFollow.y = dad.getMidpoint().y - 50;
 				}
 			}
 
@@ -3300,13 +3321,43 @@ class PlayState extends MusicBeatState
 		
 		if (curSong == 'Oblivion')
 		{
-			if (curBeat % 4 == 2 && SONG.notes[Math.floor(curStep / 16)].mustHitSection && dad.animation.curAnim.name == 'idle' && dad.curCharacter == 'void')
+			if (curBeat % 4 == 2 && SONG.notes[Math.floor(curStep / 16)].mustHitSection && dad.animation.curAnim.name == 'idle' && dad.curCharacter == 'ac-void')
 				dad.playAnim('idle');
+		
+				if (dad.animation.curAnim.name.endsWith('alt'))
+				{
+					if (curBeat < 600)
+					{	
+						if (curBeat < 586)
+						{
+							camGame.shake(0.005, 0.06, null, true, null);
 
-			if (dad.animation.curAnim.name.endsWith('alt'))
+							camHUD.shake(0.006, 0.06, null, true, null);
+		
+							health -= 0.0006;
+						}
+						else
+						{
+							camGame.shake(0.007, 0.06, null, true, null);
+
+							camHUD.shake(0.009, 0.06, null, true, null);	
+						}
+					}
+				}
+
+		/*	new FlxTimer().start(0.4, function(tmr:FlxTimer)
 			{
-				FlxG.camera.shake(0.005, 0.06, null, true, null);
-			}
+
+				if (dad.animation.curAnim.name.endsWith('alt'))
+				{
+					health -= 0.05;
+				}
+				else
+				{
+					health -= 0;
+				}
+			
+			}, 0);*/
 		}
 		
 		if (health <= 0 && !cannotDie)
