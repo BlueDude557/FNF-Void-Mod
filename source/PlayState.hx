@@ -168,6 +168,8 @@ class PlayState extends MusicBeatState
 	private var totalPlayed:Int = 0;
 	private var ss:Bool = false;
 
+	private var noteVortex:FlxSprite;
+
 	private var healthBarBG:FlxSprite;
 	private var healthBar:FlxBar;
 	private var songPositionBar:Float = 0;
@@ -476,6 +478,10 @@ class PlayState extends MusicBeatState
 				dialogue = CoolUtil.coolTextFile(Paths.txt('data/weightless/weightlessDialogue'));
 			case 'event-horizon':
 				dialogue = CoolUtil.coolTextFile(Paths.txt('data/event-horizon/event-horizonDialogue'));
+			case 'singularity':
+				dialogue = CoolUtil.coolTextFile(Paths.txt('data/singularity/singularityDialogue'));
+			case 'oblivion':
+				dialogue = CoolUtil.coolTextFile(Paths.txt('data/oblivion/oblivionDialogue'));
 		}
 
 		// defaults if no stage was found in chart
@@ -1183,6 +1189,18 @@ class PlayState extends MusicBeatState
 		doof.scrollFactor.set();
 		doof.finishThing = startCountdown;
 
+		noteVortex = new FlxSprite(0, 0).loadGraphic(Paths.image('space/vortex'));
+	//	noteVortex.frames = Paths.getSparrowAtlas('space/holoBop');
+	//	noteVortex.animation.addByPrefix('bop', 'Holo Boppers', 24, false);
+		noteVortex.antialiasing = true;
+		noteVortex.setGraphicSize(Std.int(noteVortex.width * 1.2));
+		noteVortex.screenCenter(X);
+		noteVortex.scrollFactor.set();
+		noteVortex.alpha = 0;
+
+		if (PlayState.SONG.song.toLowerCase()=='oblivion')
+		add(noteVortex);
+
 		Conductor.songPosition = -5000;
 
 		strumLine = new FlxSprite(0, 50).makeGraphic(FlxG.width, 10);
@@ -1337,9 +1355,9 @@ class PlayState extends MusicBeatState
 		iconP2.y = healthBar.y - (iconP2.height / 2);
 		add(iconP2);
 
+		noteVortex.cameras = [camHUD];
 		strumLineNotes.cameras = [camHUD];
 		notes.cameras = [camHUD];
-		//noteVortex.cameras = [camHUD];
 		healthBar.cameras = [camHUD];
 		healthBarBG.cameras = [camHUD];
 		iconP1.cameras = [camHUD];
@@ -3344,20 +3362,36 @@ class PlayState extends MusicBeatState
 						}
 					}
 				}
-
-		/*	new FlxTimer().start(0.4, function(tmr:FlxTimer)
-			{
-
-				if (dad.animation.curAnim.name.endsWith('alt'))
-				{
-					health -= 0.05;
-				}
-				else
-				{
-					health -= 0;
-				}
 			
-			}, 0);*/
+			if(curBeat < 610)
+			{
+				switch (curBeat)
+				{
+					case 12:
+
+					//	noteVortex.alpha = 1;
+
+					case 198:
+
+					FlxTween.tween(FlxG.camera, {zoom: 0.9}, 0.45, 
+						{ease: FlxEase.expoOut});
+
+					case 420:
+
+					FlxTween.tween(FlxG.camera, {zoom: 1.0}, 1.0, 
+						{ease: FlxEase.expoOut});
+
+					case 468:
+
+					FlxTween.tween(FlxG.camera, {zoom: 1.0}, 1.0, 
+						{ease: FlxEase.expoOut});
+
+					case 488:
+
+					FlxTween.tween(FlxG.camera, {zoom: 1.0}, 1.0, 
+						{ease: FlxEase.expoOut});
+				}
+			}
 		}
 		
 		if (health <= 0 && !cannotDie)
@@ -3835,6 +3869,8 @@ class PlayState extends MusicBeatState
 				campaignScore += Math.round(songScore);
 
 				storyPlaylist.remove(storyPlaylist[0]);
+
+				//Pre-Oblivion cutscene HERE (i think)
 
 				if (storyPlaylist.length <= 0)
 				{
@@ -5003,11 +5039,21 @@ class PlayState extends MusicBeatState
 
 		if (FlxG.save.data.camzoom)
 		{
-			// HARDCODING FOR MILF ZOOMS!
+			// HARDCODING FOR MILF (and event horizon) ZOOMS!
 			if (curSong.toLowerCase() == 'milf' && curBeat >= 168 && curBeat < 200 && camZooming && FlxG.camera.zoom < 1.35 || curSong.toLowerCase() == 'event horizon' && curBeat >= 392 && curBeat < 456 && camZooming && FlxG.camera.zoom < 1.35)
 			{
 				FlxG.camera.zoom += 0.015;
 				camHUD.zoom += 0.03;
+			}
+
+			// HARDCODING FOR OBLIVION ZOOMS! lol
+			if (curSong.toLowerCase() == 'oblivion')
+			{
+				if (curBeat >= 456 && curBeat < 468 && camZooming && FlxG.camera.zoom < 1.35 || curBeat >= 472 && curBeat < 488 && camZooming && FlxG.camera.zoom < 1.35)
+				{
+					FlxG.camera.zoom += 0.015;
+					camHUD.zoom += 0.03;
+				}
 			}
 
 			if (camZooming && FlxG.camera.zoom < 1.35 && curBeat % 4 == 0)
