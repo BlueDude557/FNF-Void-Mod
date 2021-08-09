@@ -59,7 +59,7 @@ Created by:
 Special thanks to:
 - [TuxSuper](https://gamebanana.com/members/1787500) - LIFESAVER Source Code Guide
 - [Slinkous](https://slinkousart.github.io) - Coding Help
-- [KadeDeve](https://twitter.com/KadeDeveloper) - Made KadeEngine (of course)
+- [KadeDev](https://twitter.com/KadeDeveloper) - Made KadeEngine (of course)
 
 ### Shoutouts
 - [GWebDev](https://github.com/GrowtopiaFli) - Video Code
