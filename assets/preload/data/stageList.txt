@@ -7,3 +7,5 @@ mallEvil
 school
 schoolEvil
 space
+darkSpace
+theVoid

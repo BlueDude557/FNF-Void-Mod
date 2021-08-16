@@ -208,13 +208,14 @@ class ResultsScreen extends FlxSubState
                 {
                     //FlxG.sound.playMusic(Paths.music('freakyMenu'));
 
+                    Conductor.changeBPM(120);
                     FlxG.switchState(new EndWeekSubState());
                 }
                 else
                 {
                     //FlxG.sound.playMusic(Paths.music('freakyMenu'));
 
-                    Conductor.changeBPM(102);
+                    Conductor.changeBPM(120);
                     FlxG.switchState(new MainMenuState());
                 }
             }

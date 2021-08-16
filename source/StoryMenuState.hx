@@ -35,7 +35,7 @@ class StoryMenuState extends MusicBeatState
 			['Cocoa', 'Eggnog', 'Winter Horrorland'],
 			['Senpai', 'Roses', 'Thorns'],
 			['Asteroids', 'Weightless', 'Event Horizon'],
-			['Singularity', 'Oblivion']
+			['Singularity', 'Null', 'Oblivion']
 		];
 	}
 	var curDifficulty:Int = 1;

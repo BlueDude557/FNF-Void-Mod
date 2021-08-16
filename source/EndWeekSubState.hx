@@ -59,7 +59,7 @@ class EndWeekSubState extends MusicBeatState
 
 			leftState = true;
 
-			Conductor.changeBPM(102);
+			Conductor.changeBPM(120);
 			FlxG.switchState(new MainMenuState());
 		}
 		super.update(elapsed);
