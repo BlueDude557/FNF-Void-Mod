@@ -10,13 +10,9 @@
 :v4: You won, man. Barely. But you WON. And I was gonna let that be the end of it.
 :v5: Hell, I would've been glad to never see your stupid face again. But you just had to come back to rub it in, didn't you?
 :v6: You really think this is funny? You think I'm a joke??
-:v7: ...You just stepped too close to a black hole, buddy. And I'm not letting you get away this time. 
-:bf1: oh look another mod character that gets mad and crazy lol
-:v6: HEY. THIS MOD WAS IN DEVELOPMENT FOR A LONG TIME, IT WASN'T AS PLAYED OUT A FEW MONTHS AGO.
-:bf2: yeah whatevs
-:bf2:
-:bf1: i mean beep lol
-:v7: Alright, look. I didn't want to do this. It's been getting harder and harder to keep this form stable nowadays...
-:v7: But if this is what it takes to teach you a lesson, it's your funeral, man.
-:v7: You wanna go? Sure, let's go. Until either you drop where you stand...
-:v8: ...Or you force me to get SERIOUS.
+:v6: .....
+:v7: Sure. Yeah, sounds good. Y-yeah... Let's do it! You little... You p-punk...
+:bf3: ...Bah doo? Beep?
+:v2: WHAT? What, you changed your mind or something?? Huh?? C'mon ya wuss, don't worry about me! I'm fine, stupid! Heh...
+:v2: You wanna go? Sure, let's go. Until either you drop where you stand...
+:v7: ...Or you force me to get SERIOUS.

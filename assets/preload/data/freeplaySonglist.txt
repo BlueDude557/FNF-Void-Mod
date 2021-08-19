@@ -20,5 +20,6 @@ Thorns:spirit:6
 Asteroids:void:7
 Weightless:void:7
 Event Horizon:void:7
-Singularity:ac-void:8
+Singularity:void:8
+Null:void:8
 Oblivion:ac-void:8

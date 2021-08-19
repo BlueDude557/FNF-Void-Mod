@@ -26,4 +26,12 @@
 	<SubTexture name="Void Rage instance 10001" x="2500" y="500" width="500" height="498"/>
 	<SubTexture name="Void Rage instance 10002" x="2500" y="1000" width="500" height="498"/>
 	<SubTexture name="Void Rage instance 10003" x="2500" y="1000" width="500" height="498"/>
+        <SubTexture name="Void Crazy instance 10000" x="3000" y="0" width="500" height="498"/>
+	<SubTexture name="Void Crazy instance 10001" x="3000" y="500" width="500" height="498"/>
+	<SubTexture name="Void Crazy instance 10002" x="3000" y="1000" width="500" height="498"/>
+	<SubTexture name="Void Crazy instance 10003" x="3000" y="1000" width="500" height="498"/>
+        <SubTexture name="Void Dark instance 10000" x="3500" y="0" width="500" height="498"/>
+	<SubTexture name="Void Dark instance 10001" x="3500" y="500" width="500" height="498"/>
+	<SubTexture name="Void Dark instance 10002" x="3500" y="1000" width="500" height="498"/>
+	<SubTexture name="Void Dark instance 10003" x="3500" y="1000" width="500" height="498"/>
 </TextureAtlas>
