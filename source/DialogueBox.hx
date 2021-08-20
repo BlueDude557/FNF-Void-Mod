@@ -29,6 +29,8 @@ class DialogueBox extends FlxSpriteGroup
 
 	var vnormTextsound:String;
 	var vmadTextsound:String;
+	var acnormTextsound:String;
+	var acyellTextsound:String;
 	var bfTextsound:String;
 
 	public var finishThing:Void->Void;
@@ -128,6 +130,20 @@ class DialogueBox extends FlxSpriteGroup
 				spacebox.antialiasing = true;
 				spacebox.animation.addByPrefix('spaceOpen', 'Text Box Appear', 20, false);
 				spacebox.animation.addByIndices('normal', 'Text Box Appear', [6], "", 24);
+
+			case 'singularity':
+				hasDialog = true;
+				spacebox.frames = Paths.getSparrowAtlas('space/dialogueBox-space');
+				spacebox.antialiasing = true;
+				spacebox.animation.addByPrefix('spaceOpen', 'Text Box Appear', 20, false);
+				spacebox.animation.addByIndices('normal', 'Text Box Appear', [6], "", 24);
+
+			case 'null':
+				hasDialog = true;
+				spacebox.frames = Paths.getSparrowAtlas('space/dialogueBox-space');
+				spacebox.antialiasing = true;
+				spacebox.animation.addByPrefix('spaceOpen', 'Text Box Appear', 20, false);
+				spacebox.animation.addByIndices('normal', 'Text Box Appear', [6], "", 24);
 			}
 
 		this.dialogueList = dialogueList;	
@@ -155,32 +171,54 @@ class DialogueBox extends FlxSpriteGroup
 		    add(portraitRight);
 		    portraitRight.visible = false;
 	    }
-
-		if (PlayState.SONG.song.toLowerCase()=='asteroids' || PlayState.SONG.song.toLowerCase()=='weightless' || PlayState.SONG.song.toLowerCase()=='event horizon')
+		else
         {
 			vnormTextsound = 'VnormText';
 			vmadTextsound = 'VmadText';
+			acnormTextsound = 'ACnormText';
+			acyellTextsound = 'ACyellText';
 			bfTextsound = 'BfText';
 
-			portraitLeft = new FlxSprite(180, 100);
-		    portraitLeft.frames = Paths.getSparrowAtlas('space/voidPics');
-		    portraitLeft.animation.addByPrefix('voidnormal', 'Void Normal', 20, false);
-			portraitLeft.animation.addByPrefix('voidsmug', 'Void Smug', 20, false);
-			portraitLeft.animation.addByPrefix('voidumm', 'Void Umm', 20, false);
-			portraitLeft.animation.addByPrefix('voidwornout', 'Void Worn Out', 20, false);
-			portraitLeft.animation.addByPrefix('voidmad', 'Void Mad', 20, false);
-			portraitLeft.animation.addByPrefix('voidrage', 'Void Rage', 20, false);
-			portraitLeft.antialiasing = true;
-		    portraitLeft.setGraphicSize(Std.int(portraitLeft.width * 0.8));
-		    portraitLeft.updateHitbox();
-		    portraitLeft.scrollFactor.set();
-		    add(portraitLeft);
-		    portraitLeft.visible = false;
+			if (PlayState.SONG.song.toLowerCase()=='oblivion')
+			{
+				portraitLeft = new FlxSprite(180, 100);
+				portraitLeft.frames = Paths.getSparrowAtlas('space/acvoidPics');
+				portraitLeft.animation.addByPrefix('acvoidnormal', 'Void Normal', 20, false);
+				portraitLeft.animation.addByPrefix('acvoidmad', 'Void Mad', 20, false);
+				portraitLeft.animation.addByPrefix('acvoidyell', 'Void Yell', 20, true);
+				portraitLeft.antialiasing = true;
+				portraitLeft.setGraphicSize(Std.int(portraitLeft.width * 0.8));
+				portraitLeft.updateHitbox();
+				portraitLeft.scrollFactor.set();
+				add(portraitLeft);
+				portraitLeft.visible = false;
+			}
+			else
+			{
+				portraitLeft = new FlxSprite(180, 100);
+				portraitLeft.frames = Paths.getSparrowAtlas('space/voidPics');
+				portraitLeft.animation.addByPrefix('voidnormal', 'Void Normal', 20, false);
+				portraitLeft.animation.addByPrefix('voidsmug', 'Void Smug', 20, false);
+				portraitLeft.animation.addByPrefix('voidumm', 'Void Umm', 20, false);
+				portraitLeft.animation.addByPrefix('voidwornout', 'Void Worn Out', 20, false);
+				portraitLeft.animation.addByPrefix('voidmad', 'Void Mad', 20, false);
+				portraitLeft.animation.addByPrefix('voidrage', 'Void Rage', 20, false);
+				portraitLeft.animation.addByPrefix('voidcrazy', 'Void Crazy', 20, false);
+				portraitLeft.animation.addByPrefix('voiddark', 'Void Dark', 20, false);
+				portraitLeft.antialiasing = true;
+				portraitLeft.setGraphicSize(Std.int(portraitLeft.width * 0.8));
+				portraitLeft.updateHitbox();
+				portraitLeft.scrollFactor.set();
+				add(portraitLeft);
+				portraitLeft.visible = false;
+			}
 
 		    portraitRight = new FlxSprite(760, 110);
 	  	    portraitRight.frames = Paths.getSparrowAtlas('space/bfPics');
 		    portraitRight.animation.addByPrefix('bfnormal', 'Bf Normal', 20, false);
 			portraitRight.animation.addByPrefix('bfsmug', 'Bf Smug', 20, false);
+			portraitRight.animation.addByPrefix('bfumm', 'Bf Umm', 20, false);
+			portraitRight.animation.addByPrefix('bfready', 'Bf Ready', 20, false);
 			portraitRight.antialiasing = true;
 		    portraitRight.setGraphicSize(Std.int(portraitRight.width * 0.8));
 		    portraitRight.updateHitbox();
@@ -199,8 +237,20 @@ class DialogueBox extends FlxSpriteGroup
 			handSelect = new FlxSprite(FlxG.width * 0.9, FlxG.height * 0.9).loadGraphic(Paths.image('weeb/pixelUI/hand_textbox'));
 		    add(handSelect);
 		}
+		if (PlayState.SONG.song.toLowerCase()=='oblivion')
+		{
+			spacebox.animation.play('spaceOpen');
+			spacebox.antialiasing = true;
+			spacebox.setGraphicSize(Std.int(spacebox.width * 1.5));
+			spacebox.updateHitbox();
+			add(spacebox);
 
-		if (PlayState.SONG.song.toLowerCase()=='asteroids' || PlayState.SONG.song.toLowerCase()=='weightless' || PlayState.SONG.song.toLowerCase()=='event horizon')
+			arrowSelect = new FlxSprite(1000, 500).loadGraphic(Paths.image('space/arrow_textbox'));
+			arrowSelect.setGraphicSize(Std.int(arrowSelect.width * 0.3));
+			arrowSelect.antialiasing = true;
+			add(arrowSelect);
+		}
+		else
 	    {
 			spacebox.animation.play('spaceOpen');
 		    spacebox.antialiasing = true;
@@ -208,8 +258,8 @@ class DialogueBox extends FlxSpriteGroup
 		    spacebox.updateHitbox();
 		    add(spacebox);
 
-			arrowSelect = new FlxSprite(10, 100).loadGraphic(Paths.image('space/arrow_textbox'));
-			arrowSelect.setGraphicSize(Std.int(arrowSelect.width * 1.1));
+			arrowSelect = new FlxSprite(1000, 500).loadGraphic(Paths.image('space/arrow_textbox'));
+			arrowSelect.setGraphicSize(Std.int(arrowSelect.width * 0.3));
 			arrowSelect.antialiasing = true;
 		    add(arrowSelect);
 		}
@@ -242,8 +292,20 @@ class DialogueBox extends FlxSpriteGroup
 		    swagDialogue.sounds = [FlxG.sound.load(Paths.sound('pixelText'), 0.6)];
 		    add(swagDialogue);
 		}
+		if (PlayState.SONG.song.toLowerCase()=='oblivion')
+		{
+			dropText = new FlxText(258, 515, Std.int(FlxG.width * 0.6), "", 40);
+			dropText.font = 'Exo Bold';
+			dropText.color = 0xFF020222;
+			add(dropText);
 
-		if (PlayState.SONG.song.toLowerCase()=='asteroids' || PlayState.SONG.song.toLowerCase()=='weightless' || PlayState.SONG.song.toLowerCase()=='event horizon')
+			swagDialogue = new FlxTypeText(253, 510, Std.int(FlxG.width * 0.6), "", 40);
+			swagDialogue.font = 'Exo Bold';
+		    swagDialogue.color = 0xFFF1B9FF;
+		    swagDialogue.sounds = [FlxG.sound.load(Paths.sound('Textsounds'+vnormTextsound), 0.5)];
+			add(swagDialogue);
+		}
+		else
 		{
 			dropText = new FlxText(258, 515, Std.int(FlxG.width * 0.6), "", 40);
 			dropText.font = 'Exo Bold';
@@ -310,9 +372,8 @@ class DialogueBox extends FlxSpriteGroup
 			if (PlayState.SONG.song.toLowerCase()=='senpai' || PlayState.SONG.song.toLowerCase()=='roses' || PlayState.SONG.song.toLowerCase()=='thorns')
             {
 				FlxG.sound.play(Paths.sound('clickText'), 0.8);
-			}
-				
-			if (PlayState.SONG.song.toLowerCase()=='asteroids' || PlayState.SONG.song.toLowerCase()=='weightless' || PlayState.SONG.song.toLowerCase()=='event horizon')
+			}				
+			else
 			{
 				FlxG.sound.play(Paths.sound('clickTextSpace'), 0.8);
 		    }
@@ -446,6 +507,51 @@ class DialogueBox extends FlxSpriteGroup
 				}
 				portraitLeft.animation.play('voidrage');
 
+			case 'v7':
+				swagDialogue.sounds = [FlxG.sound.load(Paths.sound('Textsounds/'+vnormTextsound), 0.5)];
+				portraitRight.visible = false;
+				if (!portraitLeft.visible)
+				{
+					portraitLeft.visible = true;
+				}
+				portraitLeft.animation.play('voidcrazy');
+
+			case 'v8':
+				swagDialogue.sounds = [FlxG.sound.load(Paths.sound('Textsounds/'+vnormTextsound), 0.5)];
+				portraitRight.visible = false;
+				if (!portraitLeft.visible)
+				{
+					portraitLeft.visible = true;
+				}
+				portraitLeft.animation.play('voiddark');
+
+			case 'ac1':
+				swagDialogue.sounds = [FlxG.sound.load(Paths.sound('Textsounds/'+acnormTextsound), 0.5)];
+				portraitRight.visible = false;
+				if (!portraitLeft.visible)
+				{
+					portraitLeft.visible = true;
+				}
+				portraitLeft.animation.play('acvoidnormal');
+
+			case 'ac2':
+				swagDialogue.sounds = [FlxG.sound.load(Paths.sound('Textsounds/'+acnormTextsound), 0.5)];
+				portraitRight.visible = false;
+				if (!portraitLeft.visible)
+				{
+					portraitLeft.visible = true;
+				}
+				portraitLeft.animation.play('acvoidmad');
+
+			case 'ac3':
+				swagDialogue.sounds = [FlxG.sound.load(Paths.sound('Textsounds/'+acyellTextsound), 0.5)];
+				portraitRight.visible = false;
+				if (!portraitLeft.visible)
+				{
+					portraitLeft.visible = true;
+				}
+				portraitLeft.animation.play('acvoidyell');
+
 			case 'bf1':
 				swagDialogue.sounds = [FlxG.sound.load(Paths.sound('Textsounds/'+bfTextsound), 0.5)];
 				portraitLeft.visible = false;
@@ -463,6 +569,24 @@ class DialogueBox extends FlxSpriteGroup
 					portraitRight.visible = true;
 				}
 				portraitRight.animation.play('bfsmug');
+
+			case 'bf3':
+				swagDialogue.sounds = [FlxG.sound.load(Paths.sound('Textsounds/'+bfTextsound), 0.5)];
+				portraitLeft.visible = false;
+				if (!portraitRight.visible)
+				{
+					portraitRight.visible = true;
+				}
+				portraitRight.animation.play('bfumm');
+
+			case 'bf4':
+				swagDialogue.sounds = [FlxG.sound.load(Paths.sound('Textsounds/'+bfTextsound), 0.5)];
+				portraitLeft.visible = false;
+				if (!portraitRight.visible)
+				{
+					portraitRight.visible = true;
+				}
+				portraitRight.animation.play('bfready');
 		}
 	}
 

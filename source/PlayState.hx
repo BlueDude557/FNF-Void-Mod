@@ -225,6 +225,8 @@ class PlayState extends MusicBeatState
 
 	var spaceBGflash:FlxSprite;
 	var holoBoppers:FlxSprite;
+	var darkSpaceBG:FlxSprite;
+	var bgBreak:FlxSprite;
 
 	public static var campaignScore:Int = 0;
 
@@ -858,97 +860,269 @@ class PlayState extends MusicBeatState
 						bg.scrollFactor.set(0.8, 0.9);
 						bg.scale.set(6, 6);
 						add(bg);
-			}
-			case 'space': 
-			{
-					curStage = 'space';
-
-					defaultCamZoom = 0.70;
-
-					var spaceBG:FlxSprite = new FlxSprite(-450, -160).loadGraphic(Paths.image('space/spaceBG'));
-					spaceBG.setGraphicSize(Std.int(spaceBG.width * 1.5));
-					spaceBG.updateHitbox();
-					spaceBG.antialiasing = true;
-					spaceBG.scrollFactor.set(0.1, 0.1);
-					spaceBG.active = false;
-					add(spaceBG);
-					
-					spaceBGflash = new FlxSprite(-450, -160).loadGraphic(Paths.image('space/spaceBGflash'));
-					spaceBGflash.setGraphicSize(Std.int(spaceBGflash.width * 1.5));
-					spaceBGflash.updateHitbox();
-					spaceBGflash.antialiasing = true;
-					spaceBGflash.scrollFactor.set(0.1, 0.1);
-					spaceBGflash.alpha = 0;
-					if(FlxG.save.data.distractions){
-						add(spaceBGflash);
 					}
-		
-					holoBoppers = new FlxSprite(-410, -360);
-					holoBoppers.frames = Paths.getSparrowAtlas('space/holoBop');
-					holoBoppers.animation.addByPrefix('bop', 'Holo Boppers', 24, false);
-					holoBoppers.antialiasing = true;
-					holoBoppers.scrollFactor.set(0.2, 0.2);
-					holoBoppers.setGraphicSize(Std.int(holoBoppers.width * 1.2));
-					holoBoppers.updateHitbox();
-					if(FlxG.save.data.distractions){
-						add(holoBoppers);
-					}		
-					
-					new FlxTimer().start(3.2, function(tmr:FlxTimer)
+				case 'space': 
 					{
-						if(holoBoppers.y == -330) FlxTween.tween(holoBoppers, {y: -360}, 3.1, 
-							{ease: FlxEase.quadInOut});
-						else  FlxTween.tween(holoBoppers, {y: -330}, 3.1, 
-							{ease: FlxEase.quadInOut});
-					}, 0);
+						curStage = 'space';
 
-					phillyTrain = new FlxSprite(2000, -50).loadGraphic(Paths.image('space/zippyrocks'));
-					if(FlxG.save.data.distractions){
-						add(phillyTrain);
+						defaultCamZoom = 0.70;
+
+						var spaceBG:FlxSprite = new FlxSprite(-450, -160).loadGraphic(Paths.image('space/spaceBG'));
+						spaceBG.setGraphicSize(Std.int(spaceBG.width * 1.5));
+						spaceBG.updateHitbox();
+						spaceBG.antialiasing = true;
+						spaceBG.scrollFactor.set(0.1, 0.1);
+						spaceBG.active = false;
+						add(spaceBG);
+						
+						spaceBGflash = new FlxSprite(-450, -160).loadGraphic(Paths.image('space/spaceBGflash'));
+						spaceBGflash.setGraphicSize(Std.int(spaceBGflash.width * 1.5));
+						spaceBGflash.updateHitbox();
+						spaceBGflash.antialiasing = true;
+						spaceBGflash.scrollFactor.set(0.1, 0.1);
+						spaceBGflash.alpha = 0;
+						if(FlxG.save.data.distractions){
+							add(spaceBGflash);
+						}
+			
+						holoBoppers = new FlxSprite(-410, -360);
+						holoBoppers.frames = Paths.getSparrowAtlas('space/holoBop');
+						holoBoppers.animation.addByPrefix('bop', 'Holo Boppers', 24, false);
+						holoBoppers.antialiasing = true;
+						holoBoppers.scrollFactor.set(0.2, 0.2);
+						holoBoppers.setGraphicSize(Std.int(holoBoppers.width * 1.2));
+						holoBoppers.updateHitbox();
+						if(FlxG.save.data.distractions){
+							add(holoBoppers);
+						}		
+						
+						new FlxTimer().start(3.2, function(tmr:FlxTimer)
+						{
+							if(holoBoppers.y == -330) FlxTween.tween(holoBoppers, {y: -360}, 3.1, 
+								{ease: FlxEase.quadInOut});
+							else  FlxTween.tween(holoBoppers, {y: -330}, 3.1, 
+								{ease: FlxEase.quadInOut});
+						}, 0);
+
+						var spacerocks:FlxSprite = new FlxSprite(-360, -30).loadGraphic(Paths.image('space/spacerocks'));	
+						spacerocks.updateHitbox();			
+						spacerocks.antialiasing = true;
+						spacerocks.scrollFactor.set(0.4, 0.4);
+						spacerocks.active = false;
+						add(spacerocks);
+
+						new FlxTimer().start(3, function(tmr:FlxTimer)
+						{
+							if(spacerocks.y == -65) FlxTween.tween(spacerocks, {y: -30}, 2.9, 
+								{ease: FlxEase.quadInOut});
+							else  FlxTween.tween(spacerocks, {y: -65}, 2.9, 
+								{ease: FlxEase.quadInOut});
+						}, 0);
+
+						var spacestage:FlxSprite = new FlxSprite(-500, -220).loadGraphic(Paths.image('space/spacestage'));
+						spacestage.setGraphicSize(Std.int(spacestage.width * 1.2));
+						spacestage.updateHitbox();
+						spacestage.antialiasing = true;
+						spacestage.active = false;
+						add(spacestage);
+
+						var spacerocksFG:FlxSprite = new FlxSprite(-1620, -160).loadGraphic(Paths.image('space/spacerocksFG'));
+						spacerocksFG.setGraphicSize(Std.int(spacerocksFG.width * 1.3));
+						spacerocksFG.updateHitbox();			
+						spacerocksFG.antialiasing = true;
+						spacerocksFG.scrollFactor.set(1.6, 1.6);
+						spacerocksFG.active = false;
+						add(spacerocksFG);
+
+						new FlxTimer().start(3, function(tmr:FlxTimer)
+						{
+							if(spacerocksFG.y == -120) FlxTween.tween(spacerocksFG, {y: -160}, 2.9, 
+								{ease: FlxEase.quadInOut});
+							else  FlxTween.tween(spacerocksFG, {y: -120}, 2.9, 
+								{ease: FlxEase.quadInOut});
+						}, 0);
 					}
-
-					trainSound = new FlxSound().loadEmbedded(Paths.sound('asteroids_pass'));
-					FlxG.sound.list.add(trainSound);
-								
-
-					var spacerocks:FlxSprite = new FlxSprite(-360, -30).loadGraphic(Paths.image('space/spacerocks'));	
-					spacerocks.updateHitbox();			
-					spacerocks.antialiasing = true;
-					spacerocks.scrollFactor.set(0.4, 0.4);
-					spacerocks.active = false;
-					add(spacerocks);
-
-					new FlxTimer().start(3, function(tmr:FlxTimer)
+				case 'darkSpace': 
 					{
-						if(spacerocks.y == -65) FlxTween.tween(spacerocks, {y: -30}, 2.9, 
-							{ease: FlxEase.quadInOut});
-						else  FlxTween.tween(spacerocks, {y: -65}, 2.9, 
-							{ease: FlxEase.quadInOut});
-					}, 0);
+						curStage = 'darkSpace';
 
-					var spacestage:FlxSprite = new FlxSprite(-500, -220).loadGraphic(Paths.image('space/spacestage'));
-					spacestage.setGraphicSize(Std.int(spacestage.width * 1.2));
-					spacestage.updateHitbox();
-					spacestage.antialiasing = true;
-					spacestage.active = false;
-					add(spacestage);
+						defaultCamZoom = 0.60;
 
-					var spacerocksFG:FlxSprite = new FlxSprite(-1620, -160).loadGraphic(Paths.image('space/spacerocksFG'));
-					spacerocksFG.setGraphicSize(Std.int(spacerocksFG.width * 1.3));
-					spacerocksFG.updateHitbox();			
-					spacerocksFG.antialiasing = true;
-					spacerocksFG.scrollFactor.set(1.6, 1.6);
-					spacerocksFG.active = false;
-					add(spacerocksFG);
+						darkSpaceBG = new FlxSprite(-470, -220);
+						darkSpaceBG.frames = Paths.getSparrowAtlas('space/darkSpaceBG');
+						darkSpaceBG.animation.addByPrefix('bloop', 'Bg Bloop', 6, true);
+						darkSpaceBG.updateHitbox();
+						darkSpaceBG.antialiasing = true;
+						darkSpaceBG.scrollFactor.set(0.1, 0.1);
+						darkSpaceBG.setGraphicSize(Std.int(darkSpaceBG.width * 1.6));
+						darkSpaceBG.updateHitbox();
+						add(darkSpaceBG);
 
-					new FlxTimer().start(3, function(tmr:FlxTimer)
+						darkSpaceBG.animation.play('bloop', true);
+			
+						var holoEmpty = new FlxSprite(-410, -360).loadGraphic(Paths.image('space/holoEmpty'));
+						holoEmpty.setGraphicSize(Std.int(holoEmpty.width * 1.2));
+						holoEmpty.updateHitbox();
+						holoEmpty.antialiasing = true;
+						holoEmpty.scrollFactor.set(0.2, 0.2);
+						holoEmpty.updateHitbox();
+						holoEmpty.active = false;
+						add(holoEmpty);		
+						
+						new FlxTimer().start(3.2, function(tmr:FlxTimer)
+						{
+							if(holoEmpty.y == -330) FlxTween.tween(holoEmpty, {y: -360}, 3.1, 
+								{ease: FlxEase.quadInOut});
+							else  FlxTween.tween(holoEmpty, {y: -330}, 3.1, 
+								{ease: FlxEase.quadInOut});
+						}, 0);
+
+						phillyTrain = new FlxSprite(2000, -50).loadGraphic(Paths.image('space/zippyrocks'));
+						if(FlxG.save.data.distractions){
+							add(phillyTrain);
+						}
+
+						trainSound = new FlxSound().loadEmbedded(Paths.sound('asteroids_pass'));
+						FlxG.sound.list.add(trainSound);
+									
+						var spacerocks:FlxSprite = new FlxSprite(-360, -30).loadGraphic(Paths.image('space/darkSpacerocks'));	
+						spacerocks.updateHitbox();			
+						spacerocks.antialiasing = true;
+						spacerocks.scrollFactor.set(0.4, 0.4);
+						spacerocks.active = false;
+						add(spacerocks);
+
+						new FlxTimer().start(3, function(tmr:FlxTimer)
+						{
+							if(spacerocks.y == -65) FlxTween.tween(spacerocks, {y: -30}, 2.9, 
+								{ease: FlxEase.quadInOut});
+							else  FlxTween.tween(spacerocks, {y: -65}, 2.9, 
+								{ease: FlxEase.quadInOut});
+						}, 0);
+
+						// bgBreak = new FlxSprite(-470, -220);
+						// bgBreak.frames = Paths.getSparrowAtlas('space/bgBreak');
+						// bgBreak.animation.addByPrefix('--', '-----', 24, false);
+
+						// bgBreak.setGraphicSize(Std.int(bgBreak.width * 1.6));
+						// bgBreak.updateHitbox();
+						// bgBreak.antialiasing = true;
+						// bgBreak.scrollFactor.set(0.1, 0.1);
+						// add(bgBreak);
+
+						var spacestage:FlxSprite = new FlxSprite(-500, -220).loadGraphic(Paths.image('space/spacestage'));
+						spacestage.setGraphicSize(Std.int(spacestage.width * 1.2));
+						spacestage.updateHitbox();
+						spacestage.antialiasing = true;
+						spacestage.active = false;
+						add(spacestage);
+
+						var spacerocksFG:FlxSprite = new FlxSprite(-1620, -160).loadGraphic(Paths.image('space/spacerocksFG'));
+						spacerocksFG.setGraphicSize(Std.int(spacerocksFG.width * 1.3));
+						spacerocksFG.updateHitbox();			
+						spacerocksFG.antialiasing = true;
+						spacerocksFG.scrollFactor.set(1.6, 1.6);
+						spacerocksFG.active = false;
+						add(spacerocksFG);
+
+						new FlxTimer().start(3, function(tmr:FlxTimer)
+						{
+							if(spacerocksFG.y == -120) FlxTween.tween(spacerocksFG, {y: -160}, 2.9, 
+								{ease: FlxEase.quadInOut});
+							else  FlxTween.tween(spacerocksFG, {y: -120}, 2.9, 
+								{ease: FlxEase.quadInOut});
+						}, 0);
+					}
+				case 'theVoid': 
 					{
-						if(spacerocksFG.y == -120) FlxTween.tween(spacerocksFG, {y: -160}, 2.9, 
-							{ease: FlxEase.quadInOut});
-						else  FlxTween.tween(spacerocksFG, {y: -120}, 2.9, 
-							{ease: FlxEase.quadInOut});
-					}, 0);
-			}
+						curStage = 'theVoid';
+
+						defaultCamZoom = 0.60;
+
+						var spaceBG:FlxSprite = new FlxSprite(-450, -160).loadGraphic(Paths.image('space/spaceBG'));
+						spaceBG.setGraphicSize(Std.int(spaceBG.width * 1.5));
+						spaceBG.updateHitbox();
+						spaceBG.antialiasing = true;
+						spaceBG.scrollFactor.set(0.1, 0.1);
+						spaceBG.active = false;
+						add(spaceBG);
+						
+						spaceBGflash = new FlxSprite(-450, -160).loadGraphic(Paths.image('space/spaceBGflash'));
+						spaceBGflash.setGraphicSize(Std.int(spaceBGflash.width * 1.5));
+						spaceBGflash.updateHitbox();
+						spaceBGflash.antialiasing = true;
+						spaceBGflash.scrollFactor.set(0.1, 0.1);
+						spaceBGflash.alpha = 0;
+						if(FlxG.save.data.distractions){
+							add(spaceBGflash);
+						}
+			
+						holoBoppers = new FlxSprite(-410, -360);
+						holoBoppers.frames = Paths.getSparrowAtlas('space/holoBop');
+						holoBoppers.animation.addByPrefix('bop', 'Holo Boppers', 24, false);
+						holoBoppers.antialiasing = true;
+						holoBoppers.scrollFactor.set(0.2, 0.2);
+						holoBoppers.setGraphicSize(Std.int(holoBoppers.width * 1.2));
+						holoBoppers.updateHitbox();
+						if(FlxG.save.data.distractions){
+							add(holoBoppers);
+						}		
+						
+						new FlxTimer().start(3.2, function(tmr:FlxTimer)
+						{
+							if(holoBoppers.y == -330) FlxTween.tween(holoBoppers, {y: -360}, 3.1, 
+								{ease: FlxEase.quadInOut});
+							else  FlxTween.tween(holoBoppers, {y: -330}, 3.1, 
+								{ease: FlxEase.quadInOut});
+						}, 0);
+
+						phillyTrain = new FlxSprite(2000, -50).loadGraphic(Paths.image('space/zippyrocks'));
+						if(FlxG.save.data.distractions){
+							add(phillyTrain);
+						}
+
+						trainSound = new FlxSound().loadEmbedded(Paths.sound('asteroids_pass'));
+						FlxG.sound.list.add(trainSound);
+									
+
+						var spacerocks:FlxSprite = new FlxSprite(-360, -30).loadGraphic(Paths.image('space/spacerocks'));	
+						spacerocks.updateHitbox();			
+						spacerocks.antialiasing = true;
+						spacerocks.scrollFactor.set(0.4, 0.4);
+						spacerocks.active = false;
+						add(spacerocks);
+
+						new FlxTimer().start(3, function(tmr:FlxTimer)
+						{
+							if(spacerocks.y == -65) FlxTween.tween(spacerocks, {y: -30}, 2.9, 
+								{ease: FlxEase.quadInOut});
+							else  FlxTween.tween(spacerocks, {y: -65}, 2.9, 
+								{ease: FlxEase.quadInOut});
+						}, 0);
+
+						var spacestage:FlxSprite = new FlxSprite(-500, -220).loadGraphic(Paths.image('space/spacestage'));
+						spacestage.setGraphicSize(Std.int(spacestage.width * 1.2));
+						spacestage.updateHitbox();
+						spacestage.antialiasing = true;
+						spacestage.active = false;
+						add(spacestage);
+
+						var spacerocksFG:FlxSprite = new FlxSprite(-1620, -160).loadGraphic(Paths.image('space/spacerocksFG'));
+						spacerocksFG.setGraphicSize(Std.int(spacerocksFG.width * 1.3));
+						spacerocksFG.updateHitbox();			
+						spacerocksFG.antialiasing = true;
+						spacerocksFG.scrollFactor.set(1.6, 1.6);
+						spacerocksFG.active = false;
+						add(spacerocksFG);
+
+						new FlxTimer().start(3, function(tmr:FlxTimer)
+						{
+							if(spacerocksFG.y == -120) FlxTween.tween(spacerocksFG, {y: -160}, 2.9, 
+								{ease: FlxEase.quadInOut});
+							else  FlxTween.tween(spacerocksFG, {y: -120}, 2.9, 
+								{ease: FlxEase.quadInOut});
+						}, 0);
+					}
 		
 
 						/* 
@@ -1469,6 +1643,8 @@ class PlayState extends MusicBeatState
 					spaceIntro(doof);
 				case 'weightless':
 					FlxG.sound.play(Paths.sound('Holocheer'));
+					spaceIntro(doof);
+				case 'singularity':
 					spaceIntro(doof);
 				default:
 					startCountdown();
@@ -3356,9 +3532,9 @@ class PlayState extends MusicBeatState
 						}
 						else
 						{
-							camGame.shake(0.007, 0.06, null, true, null);
+							camGame.shake(0.008, 0.06, null, true, null);
 
-							camHUD.shake(0.009, 0.06, null, true, null);	
+							camHUD.shake(0.01, 0.06, null, true, null);	
 						}
 					}
 				}
@@ -3373,7 +3549,7 @@ class PlayState extends MusicBeatState
 
 					case 198:
 
-					FlxTween.tween(FlxG.camera, {zoom: 0.9}, 0.45, 
+					FlxTween.tween(FlxG.camera, {zoom: 0.9}, 0.38, 
 						{ease: FlxEase.expoOut});
 
 					case 420:
@@ -3388,7 +3564,7 @@ class PlayState extends MusicBeatState
 
 					case 488:
 
-					FlxTween.tween(FlxG.camera, {zoom: 1.0}, 1.0, 
+					FlxTween.tween(FlxG.camera, {zoom: 1.0}, 0.85, 
 						{ease: FlxEase.expoOut});
 				}
 			}
@@ -3892,7 +4068,7 @@ class PlayState extends MusicBeatState
 					else
 					{
 						FlxG.sound.playMusic(Paths.music('freakyMenu'));
-						Conductor.changeBPM(102);
+						Conductor.changeBPM(120);
 						FlxG.switchState(new StoryMenuState());
 					}
 
