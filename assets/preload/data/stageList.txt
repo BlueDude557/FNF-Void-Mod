@@ -8,4 +8,4 @@ school
 schoolEvil
 space
 darkSpace
-theVoid
+oblivion
