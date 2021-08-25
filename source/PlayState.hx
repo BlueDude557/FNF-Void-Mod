@@ -227,6 +227,7 @@ class PlayState extends MusicBeatState
 	var holoBoppers:FlxSprite;
 	var darkSpaceBG:FlxSprite;
 	var bgBreak:FlxSprite;
+	var oblivionBG:FlxSprite;
 
 	public static var campaignScore:Int = 0;
 
@@ -892,9 +893,7 @@ class PlayState extends MusicBeatState
 						holoBoppers.scrollFactor.set(0.2, 0.2);
 						holoBoppers.setGraphicSize(Std.int(holoBoppers.width * 1.2));
 						holoBoppers.updateHitbox();
-						if(FlxG.save.data.distractions){
-							add(holoBoppers);
-						}		
+						add(holoBoppers);		
 						
 						new FlxTimer().start(3.2, function(tmr:FlxTimer)
 						{
@@ -1033,48 +1032,38 @@ class PlayState extends MusicBeatState
 								{ease: FlxEase.quadInOut});
 						}, 0);
 					}
-				case 'theVoid': 
+				case 'oblivion': 
 					{
-						curStage = 'theVoid';
+						curStage = 'oblivion';
 
 						defaultCamZoom = 0.60;
+						
+						var oblivionSpace:FlxSprite = new FlxSprite(30, -140).loadGraphic(Paths.image('space/oblivionSpace'));
+						oblivionSpace.setGraphicSize(Std.int(oblivionSpace.width * 1.5));
+						oblivionSpace.updateHitbox();
+						oblivionSpace.antialiasing = true;
+						oblivionSpace.scrollFactor.set(0.1, 0.1);
+						oblivionSpace.active = false;
+						add(oblivionSpace);
 
-						var spaceBG:FlxSprite = new FlxSprite(-450, -160).loadGraphic(Paths.image('space/spaceBG'));
-						spaceBG.setGraphicSize(Std.int(spaceBG.width * 1.5));
-						spaceBG.updateHitbox();
-						spaceBG.antialiasing = true;
-						spaceBG.scrollFactor.set(0.1, 0.1);
-						spaceBG.active = false;
-						add(spaceBG);
+						oblivionBG = new FlxSprite(-720, -210);
+						oblivionBG.frames = Paths.getSparrowAtlas('space/oblivionBG');
+						oblivionBG.animation.addByPrefix('bop', 'BG Bop', 24, false);
+						oblivionBG.antialiasing = true;
+						oblivionBG.scrollFactor.set(0.2, 0.2);
+						oblivionBG.setGraphicSize(Std.int(oblivionBG.width * 1.8));
+						oblivionBG.updateHitbox();
+						add(oblivionBG);
 						
-						spaceBGflash = new FlxSprite(-450, -160).loadGraphic(Paths.image('space/spaceBGflash'));
-						spaceBGflash.setGraphicSize(Std.int(spaceBGflash.width * 1.5));
-						spaceBGflash.updateHitbox();
-						spaceBGflash.antialiasing = true;
-						spaceBGflash.scrollFactor.set(0.1, 0.1);
-						spaceBGflash.alpha = 0;
-						if(FlxG.save.data.distractions){
-							add(spaceBGflash);
-						}
-			
-						holoBoppers = new FlxSprite(-410, -360);
-						holoBoppers.frames = Paths.getSparrowAtlas('space/holoBop');
-						holoBoppers.animation.addByPrefix('bop', 'Holo Boppers', 24, false);
-						holoBoppers.antialiasing = true;
-						holoBoppers.scrollFactor.set(0.2, 0.2);
-						holoBoppers.setGraphicSize(Std.int(holoBoppers.width * 1.2));
-						holoBoppers.updateHitbox();
-						if(FlxG.save.data.distractions){
-							add(holoBoppers);
-						}		
-						
-						new FlxTimer().start(3.2, function(tmr:FlxTimer)
-						{
-							if(holoBoppers.y == -330) FlxTween.tween(holoBoppers, {y: -360}, 3.1, 
-								{ease: FlxEase.quadInOut});
-							else  FlxTween.tween(holoBoppers, {y: -330}, 3.1, 
-								{ease: FlxEase.quadInOut});
-						}, 0);
+						// spaceBGflash = new FlxSprite(-450, -160).loadGraphic(Paths.image('space/spaceBGflash'));
+						// spaceBGflash.setGraphicSize(Std.int(spaceBGflash.width * 1.5));
+						// spaceBGflash.updateHitbox();
+						// spaceBGflash.antialiasing = true;
+						// spaceBGflash.scrollFactor.set(0.1, 0.1);
+						// spaceBGflash.alpha = 0;
+						// if(FlxG.save.data.distractions){
+						// 	add(spaceBGflash);
+						// }	
 
 						phillyTrain = new FlxSprite(2000, -50).loadGraphic(Paths.image('space/zippyrocks'));
 						if(FlxG.save.data.distractions){
@@ -1083,22 +1072,6 @@ class PlayState extends MusicBeatState
 
 						trainSound = new FlxSound().loadEmbedded(Paths.sound('asteroids_pass'));
 						FlxG.sound.list.add(trainSound);
-									
-
-						var spacerocks:FlxSprite = new FlxSprite(-360, -30).loadGraphic(Paths.image('space/spacerocks'));	
-						spacerocks.updateHitbox();			
-						spacerocks.antialiasing = true;
-						spacerocks.scrollFactor.set(0.4, 0.4);
-						spacerocks.active = false;
-						add(spacerocks);
-
-						new FlxTimer().start(3, function(tmr:FlxTimer)
-						{
-							if(spacerocks.y == -65) FlxTween.tween(spacerocks, {y: -30}, 2.9, 
-								{ease: FlxEase.quadInOut});
-							else  FlxTween.tween(spacerocks, {y: -65}, 2.9, 
-								{ease: FlxEase.quadInOut});
-						}, 0);
 
 						var spacestage:FlxSprite = new FlxSprite(-500, -220).loadGraphic(Paths.image('space/spacestage'));
 						spacestage.setGraphicSize(Std.int(spacestage.width * 1.2));
@@ -3528,7 +3501,7 @@ class PlayState extends MusicBeatState
 
 							camHUD.shake(0.006, 0.06, null, true, null);
 		
-							health -= 0.0006;
+							health -= 0.0009;
 						}
 						else
 						{
@@ -5316,6 +5289,11 @@ class PlayState extends MusicBeatState
 			dad.playAnim('seethe', true);
 		}
 
+		if (curBeat >= 352 && curBeat < 353 && curSong == 'Singularity')
+		{
+			dad.playAnim('seethe', true);
+		}
+
 		switch (curStage)
 		{
 			case 'school':
@@ -5360,6 +5338,11 @@ class PlayState extends MusicBeatState
 					}
 				}
 		*/
+			case 'oblivion':
+				if(FlxG.save.data.distractions){
+					oblivionBG.animation.play('bop', true);						
+				}
+
 			case "philly":
 				if (FlxG.save.data.distractions)
 				{
