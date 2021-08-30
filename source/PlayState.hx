@@ -947,7 +947,7 @@ class PlayState extends MusicBeatState
 
 						defaultCamZoom = 0.60;
 
-						darkSpaceBG = new FlxSprite(-470, -220);
+						darkSpaceBG = new FlxSprite(-480, -220);
 						darkSpaceBG.frames = Paths.getSparrowAtlas('space/darkSpaceBG');
 						darkSpaceBG.animation.addByPrefix('bloop', 'Bg Bloop', 6, true);
 						darkSpaceBG.updateHitbox();
@@ -1054,6 +1054,15 @@ class PlayState extends MusicBeatState
 						oblivionBG.setGraphicSize(Std.int(oblivionBG.width * 1.8));
 						oblivionBG.updateHitbox();
 						add(oblivionBG);
+
+						var holoBroken = new FlxSprite(-410, -360).loadGraphic(Paths.image('space/holoBroken'));
+						holoBroken.setGraphicSize(Std.int(holoBroken.width * 1.2));
+						holoBroken.updateHitbox();
+						holoBroken.antialiasing = true;
+						holoBroken.scrollFactor.set(0.2, 0.2);
+						holoBroken.updateHitbox();
+						holoBroken.active = false;
+						add(holoBroken);		
 						
 						// spaceBGflash = new FlxSprite(-450, -160).loadGraphic(Paths.image('space/spaceBGflash'));
 						// spaceBGflash.setGraphicSize(Std.int(spaceBGflash.width * 1.5));
@@ -5291,7 +5300,7 @@ class PlayState extends MusicBeatState
 
 		if (curBeat >= 352 && curBeat < 353 && curSong == 'Singularity')
 		{
-			dad.playAnim('seethe', true);
+			dad.animation.play('seethe', true, false, 0);
 		}
 
 		switch (curStage)
