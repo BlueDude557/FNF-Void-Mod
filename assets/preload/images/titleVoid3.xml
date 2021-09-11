@@ -1,0 +1,20 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TextureAtlas imagePath="titleVoid3.png">
+	<!-- Created with Adobe Animate version 20.0.0.17400 -->
+	<!-- http://www.adobe.com/products/animate.html -->
+	<SubTexture name="void bumpin0000" x="0" y="0" width="800" height="800"/>
+	<SubTexture name="void bumpin0001" x="800" y="0" width="800" height="800"/>
+	<SubTexture name="void bumpin0002" x="800" y="0" width="800" height="800"/>
+	<SubTexture name="void bumpin0003" x="1600" y="0" width="800" height="800"/>
+	<SubTexture name="void bumpin0004" x="1600" y="0" width="800" height="800"/>
+	<SubTexture name="void bumpin0005" x="2400" y="0" width="800" height="800"/>
+	<SubTexture name="void bumpin0006" x="2400" y="0" width="800" height="800"/>
+	<SubTexture name="void bumpin0007" x="3200" y="0" width="800" height="800"/>
+	<SubTexture name="void bumpin0008" x="3200" y="0" width="800" height="800"/>
+	<SubTexture name="void bumpin0009" x="4000" y="0" width="800" height="800"/>
+	<SubTexture name="void bumpin0010" x="4000" y="0" width="800" height="800"/>
+	<SubTexture name="void bumpin0011" x="4000" y="0" width="800" height="800"/>
+	<SubTexture name="void bumpin0012" x="4000" y="0" width="800" height="800"/>
+	<SubTexture name="void bumpin0013" x="4000" y="0" width="800" height="800"/>
+	<SubTexture name="void bumpin0014" x="4000" y="0" width="800" height="800"/>
+</TextureAtlas>
