@@ -115,6 +115,7 @@ class TitleState extends MusicBeatState
 
 	var logoBl:FlxSprite;
 	var gfDance:FlxSprite;
+	var titleVoid:FlxSprite;
 	var danceLeft:Bool = false;
 	var titleText:FlxSprite;
 
@@ -145,15 +146,25 @@ class TitleState extends MusicBeatState
 		// logoBl.screenCenter();
 		// logoBl.color = FlxColor.BLACK;
 
-		gfDance = new FlxSprite(FlxG.width * 0.4, FlxG.height * 0.07);
-		gfDance.frames = Paths.getSparrowAtlas('gfDanceTitle' + FlxG.random.int(1, 4));
-		gfDance.animation.addByIndices('danceLeft', 'gfDance', [30, 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14], "", 24, false);
-		gfDance.animation.addByIndices('danceRight', 'gfDance', [15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29], "", 24, false);
+		// gfDance = new FlxSprite(FlxG.width * 0.4, FlxG.height * 0.07);
+		// gfDance.frames = Paths.getSparrowAtlas('gfDanceTitle' + FlxG.random.int(1, 4));
+		// gfDance.animation.addByIndices('danceLeft', 'gfDance', [30, 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14], "", 24, false);
+		// gfDance.animation.addByIndices('danceRight', 'gfDance', [15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29], "", 24, false);
+		// if(FlxG.save.data.antialiasing)
+		// 	{
+		// 		gfDance.antialiasing = true;
+		// 	}
+		// add(gfDance);
+
+		titleVoid = new FlxSprite(540, -30);
+		titleVoid.frames = Paths.getSparrowAtlas('titleVoid' + FlxG.random.int(1, 5));
+		titleVoid.setGraphicSize(Std.int(titleVoid.width * 0.85));
+		titleVoid.animation.addByPrefix('bop', 'void bumpin', 24, false);
 		if(FlxG.save.data.antialiasing)
 			{
-				gfDance.antialiasing = true;
+				titleVoid.antialiasing = true;
 			}
-		add(gfDance);
+		add(titleVoid);
 		add(logoBl);
 
 		titleText = new FlxSprite(100, FlxG.height * 0.8);
@@ -390,12 +401,13 @@ class TitleState extends MusicBeatState
 		super.beatHit();
 
 		logoBl.animation.play('bump', true);
-		danceLeft = !danceLeft;
+		titleVoid.animation.play('bop', true);
+		// danceLeft = !danceLeft;
 
-		if (danceLeft)
-			gfDance.animation.play('danceRight');
-		else
-			gfDance.animation.play('danceLeft');
+		// if (danceLeft)
+		// 	gfDance.animation.play('danceRight');
+		// else
+		// 	gfDance.animation.play('danceLeft');
 
 		FlxG.log.add(curBeat);
 
