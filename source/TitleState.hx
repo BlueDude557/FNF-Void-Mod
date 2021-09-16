@@ -156,9 +156,9 @@ class TitleState extends MusicBeatState
 		// 	}
 		// add(gfDance);
 
-		titleVoid = new FlxSprite(540, -30);
+		titleVoid = new FlxSprite(540, -20);
 		titleVoid.frames = Paths.getSparrowAtlas('titleVoid' + FlxG.random.int(1, 5));
-		titleVoid.setGraphicSize(Std.int(titleVoid.width * 0.85));
+		titleVoid.setGraphicSize(Std.int(titleVoid.width * 0.87));
 		titleVoid.animation.addByPrefix('bop', 'void bumpin', 24, false);
 		if(FlxG.save.data.antialiasing)
 			{

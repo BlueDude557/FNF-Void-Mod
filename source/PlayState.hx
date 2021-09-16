@@ -191,7 +191,7 @@ class PlayState extends MusicBeatState
 	var notesHitArray:Array<Date> = [];
 	var currentFrames:Int = 0;
 	var idleToBeat:Bool = true; // change if bf and dad would idle to the beat of the song
-	var idleBeat:Int = 4; // how frequently bf and dad would play their idle animation(1 - every beat, 2 - every 2 beats and so on)
+	var idleBeat:Int = 2; // how frequently bf and dad would play their idle animation(1 - every beat, 2 - every 2 beats and so on)
 
 	public var dialogue:Array<String> = ['dad:blah blah blah', 'bf:coolswag'];
 
@@ -227,7 +227,9 @@ class PlayState extends MusicBeatState
 	var holoBoppers:FlxSprite;
 	var darkSpaceBG:FlxSprite;
 	var bgBreak:FlxSprite;
-	var oblivionBG:FlxSprite;
+	var bgGlitch:FlxSprite;
+	var neoBoppin:FlxSprite;
+	//var oblivionBG:FlxSprite;
 
 	public static var campaignScore:Int = 0;
 
@@ -483,6 +485,8 @@ class PlayState extends MusicBeatState
 				dialogue = CoolUtil.coolTextFile(Paths.txt('data/event-horizon/event-horizonDialogue'));
 			case 'singularity':
 				dialogue = CoolUtil.coolTextFile(Paths.txt('data/singularity/singularityDialogue'));
+			case 'null':
+				dialogue = CoolUtil.coolTextFile(Paths.txt('data/null/nullDialogue'));
 			case 'oblivion':
 				dialogue = CoolUtil.coolTextFile(Paths.txt('data/oblivion/oblivionDialogue'));
 		}
@@ -947,17 +951,30 @@ class PlayState extends MusicBeatState
 
 						defaultCamZoom = 0.60;
 
-						darkSpaceBG = new FlxSprite(-480, -220);
-						darkSpaceBG.frames = Paths.getSparrowAtlas('space/darkSpaceBG');
-						darkSpaceBG.animation.addByPrefix('bloop', 'Bg Bloop', 6, true);
-						darkSpaceBG.updateHitbox();
-						darkSpaceBG.antialiasing = true;
-						darkSpaceBG.scrollFactor.set(0.1, 0.1);
-						darkSpaceBG.setGraphicSize(Std.int(darkSpaceBG.width * 1.6));
-						darkSpaceBG.updateHitbox();
-						add(darkSpaceBG);
+						if (PlayState.SONG.song.toLowerCase()=='null')
+						{	
+							darkSpaceBG = new FlxSprite(-480, -220);
+							darkSpaceBG.frames = Paths.getSparrowAtlas('space/darkSpaceBG');
+							darkSpaceBG.animation.addByPrefix('bloop', 'Bg Bloop', 6, true);
+							darkSpaceBG.updateHitbox();
+							darkSpaceBG.antialiasing = true;
+							darkSpaceBG.scrollFactor.set(0.1, 0.1);
+							darkSpaceBG.setGraphicSize(Std.int(darkSpaceBG.width * 1.6));
+							darkSpaceBG.updateHitbox();
+							add(darkSpaceBG);
 
-						darkSpaceBG.animation.play('bloop', true);
+							darkSpaceBG.animation.play('bloop', true);
+						}
+						else
+						{
+							var tintedSpaceBG:FlxSprite = new FlxSprite(-480, -220).loadGraphic(Paths.image('space/tintedSpaceBG'));
+							tintedSpaceBG.setGraphicSize(Std.int(tintedSpaceBG.width * 1.6));
+							tintedSpaceBG.updateHitbox();
+							tintedSpaceBG.antialiasing = true;
+							tintedSpaceBG.scrollFactor.set(0.1, 0.1);
+							tintedSpaceBG.active = false;
+							add(tintedSpaceBG);
+						}
 			
 						var holoEmpty = new FlxSprite(-410, -360).loadGraphic(Paths.image('space/holoEmpty'));
 						holoEmpty.setGraphicSize(Std.int(holoEmpty.width * 1.2));
@@ -1038,29 +1055,52 @@ class PlayState extends MusicBeatState
 
 						defaultCamZoom = 0.60;
 						
-						var oblivionSpace:FlxSprite = new FlxSprite(30, -140).loadGraphic(Paths.image('space/oblivionSpace'));
-						oblivionSpace.setGraphicSize(Std.int(oblivionSpace.width * 1.5));
-						oblivionSpace.updateHitbox();
-						oblivionSpace.antialiasing = true;
-						oblivionSpace.scrollFactor.set(0.1, 0.1);
-						oblivionSpace.active = false;
-						add(oblivionSpace);
+						// var oblivionSpace:FlxSprite = new FlxSprite(30, -140).loadGraphic(Paths.image('space/oblivionSpace'));
+						// oblivionSpace.setGraphicSize(Std.int(oblivionSpace.width * 1.5));
+						// oblivionSpace.updateHitbox();
+						// oblivionSpace.antialiasing = true;
+						// oblivionSpace.scrollFactor.set(0.1, 0.1);
+						// oblivionSpace.active = false;
+						// add(oblivionSpace);
 
-						oblivionBG = new FlxSprite(-720, -210);
-						oblivionBG.frames = Paths.getSparrowAtlas('space/oblivionBG');
-						oblivionBG.animation.addByPrefix('bop', 'BG Bop', 24, false);
-						oblivionBG.antialiasing = true;
-						oblivionBG.scrollFactor.set(0.2, 0.2);
-						oblivionBG.setGraphicSize(Std.int(oblivionBG.width * 1.8));
-						oblivionBG.updateHitbox();
-						add(oblivionBG);
+						// oblivionBG = new FlxSprite(-720, -210);
+						// oblivionBG.frames = Paths.getSparrowAtlas('space/oblivionBG');
+						// oblivionBG.animation.addByPrefix('bop', 'BG Bop', 24, false);
+						// oblivionBG.antialiasing = true;
+						// oblivionBG.scrollFactor.set(0.2, 0.2);
+						// oblivionBG.setGraphicSize(Std.int(oblivionBG.width * 1.8));
+						// oblivionBG.updateHitbox();
+						// add(oblivionBG);
+
+						var oblivionDark1 = new FlxSprite(-720, -240).loadGraphic(Paths.image('space/oblivionDark1'));
+						oblivionDark1.setGraphicSize(Std.int(oblivionDark1.width * 1.25));
+						oblivionDark1.updateHitbox();
+						oblivionDark1.antialiasing = true;
+						oblivionDark1.scrollFactor.set(0.1, 0.1);
+						oblivionDark1.active = false;
+						add(oblivionDark1);
+
+						var oblivionDark2 = new FlxSprite(-720, -240).loadGraphic(Paths.image('space/oblivionDark2'));
+						oblivionDark2.setGraphicSize(Std.int(oblivionDark2.width * 1.4));
+						oblivionDark2.updateHitbox();
+						oblivionDark2.antialiasing = true;
+						oblivionDark2.scrollFactor.set(0.22, 0.22);
+						oblivionDark2.active = false;
+						add(oblivionDark2);
+
+						var oblivionDark3 = new FlxSprite(-720, -240).loadGraphic(Paths.image('space/oblivionDark3'));
+						oblivionDark3.setGraphicSize(Std.int(oblivionDark3.width * 1.6));
+						oblivionDark3.updateHitbox();
+						oblivionDark3.antialiasing = true;
+						oblivionDark3.scrollFactor.set(0.35, 0.35);
+						oblivionDark3.active = false;
+						add(oblivionDark3);
 
 						var holoBroken = new FlxSprite(-410, -360).loadGraphic(Paths.image('space/holoBroken'));
 						holoBroken.setGraphicSize(Std.int(holoBroken.width * 1.2));
 						holoBroken.updateHitbox();
 						holoBroken.antialiasing = true;
-						holoBroken.scrollFactor.set(0.2, 0.2);
-						holoBroken.updateHitbox();
+						holoBroken.scrollFactor.set(0.45, 0.45);
 						holoBroken.active = false;
 						add(holoBroken);		
 						
@@ -1074,6 +1114,18 @@ class PlayState extends MusicBeatState
 						// 	add(spaceBGflash);
 						// }	
 
+						bgGlitch = new FlxSprite(-820, -680);
+						bgGlitch.frames = Paths.getSparrowAtlas('space/bgGlitch');
+						bgGlitch.animation.addByPrefix('glitch', 'Glitch FX', 10, true);
+						bgGlitch.antialiasing = true;
+						bgGlitch.scrollFactor.set(0.3, 0.3);
+						bgGlitch.setGraphicSize(Std.int(bgGlitch.width * 1.1));
+						bgGlitch.updateHitbox();
+						bgGlitch.alpha = 0;
+						add(bgGlitch);
+
+						bgGlitch.animation.play('glitch', true);
+
 						phillyTrain = new FlxSprite(2000, -50).loadGraphic(Paths.image('space/zippyrocks'));
 						if(FlxG.save.data.distractions){
 							add(phillyTrain);
@@ -1081,6 +1133,15 @@ class PlayState extends MusicBeatState
 
 						trainSound = new FlxSound().loadEmbedded(Paths.sound('asteroids_pass'));
 						FlxG.sound.list.add(trainSound);
+
+						neoBoppin = new FlxSprite(-540, -240);
+						neoBoppin.frames = Paths.getSparrowAtlas('space/neoBop');
+						neoBoppin.animation.addByPrefix('bop', 'Neo Boppin', 24, false);
+						neoBoppin.antialiasing = true;
+						neoBoppin.scrollFactor.set(0.5, 0.5);
+						neoBoppin.setGraphicSize(Std.int(neoBoppin.width * 1.2));
+						neoBoppin.updateHitbox();
+						add(neoBoppin);		
 
 						var spacestage:FlxSprite = new FlxSprite(-500, -220).loadGraphic(Paths.image('space/spacestage'));
 						spacestage.setGraphicSize(Std.int(spacestage.width * 1.2));
@@ -1627,6 +1688,8 @@ class PlayState extends MusicBeatState
 					FlxG.sound.play(Paths.sound('Holocheer'));
 					spaceIntro(doof);
 				case 'singularity':
+					spaceIntro(doof);
+				case 'null':
 					spaceIntro(doof);
 				default:
 					startCountdown();
@@ -3311,8 +3374,8 @@ class PlayState extends MusicBeatState
 
 		if (curSong == 'Asteroids')
 		{
-			if (curBeat % 4 == 2 && SONG.notes[Math.floor(curStep / 16)].mustHitSection && dad.animation.curAnim.name == 'idle' && dad.curCharacter == 'void')
-				dad.playAnim('idle');
+			// if (curBeat % 4 == 2 && SONG.notes[Math.floor(curStep / 16)].mustHitSection && dad.animation.curAnim.name == 'idle' && dad.curCharacter == 'void')
+			// 	dad.playAnim('idle');
 
 			var blackFade:FlxSprite = new FlxSprite(-500, -300).makeGraphic(FlxG.width * 2, FlxG.height * 2, FlxColor.BLACK);
 			blackFade.scrollFactor.set();
@@ -3337,11 +3400,11 @@ class PlayState extends MusicBeatState
 
 		if (curSong == 'Weightless')
 		{	
-			if (dad.animation.curAnim.name != "wink")
-			{
-				if (curBeat % 4 == 2 && SONG.notes[Math.floor(curStep / 16)].mustHitSection && dad.animation.curAnim.name == 'idle' && dad.curCharacter == 'void')
-					dad.playAnim('idle');
-			}
+			// if (dad.animation.curAnim.name != "wink")
+			// {
+			// 	if (curBeat % 4 == 2 && SONG.notes[Math.floor(curStep / 16)].mustHitSection && dad.animation.curAnim.name == 'idle' && dad.curCharacter == 'void')
+			// 		dad.playAnim('idle');
+			// }
 		
 			var blackFade:FlxSprite = new FlxSprite(-500, -300).makeGraphic(FlxG.width * 2, FlxG.height * 2, FlxColor.BLACK);
 			blackFade.scrollFactor.set();
@@ -3375,8 +3438,8 @@ class PlayState extends MusicBeatState
 
 		if (curSong == 'Event Horizon')
 		{
-			if (curBeat % 4 == 2 && SONG.notes[Math.floor(curStep / 16)].mustHitSection && dad.animation.curAnim.name == 'idle' && dad.curCharacter == 'void')
-				dad.playAnim('idle');
+			// if (curBeat % 4 == 2 && SONG.notes[Math.floor(curStep / 16)].mustHitSection && dad.animation.curAnim.name == 'idle' && dad.curCharacter == 'void')
+			// 	dad.playAnim('idle');
 
 		/*	var coolflash:FlxSprite = new FlxSprite(-450, -410).loadGraphic(Paths.image('space/coolflash'));
 			coolflash.setGraphicSize(Std.int(coolflash.width * 1.5));
@@ -3494,11 +3557,36 @@ class PlayState extends MusicBeatState
 			}		
 			
 		}	
+
+		if (curSong == 'Singularity')
+		{
+
+			//if(curBeat < 460)	
+			{
+				switch (curBeat)
+				{
+					case 12:
+				}
+			}
+		}
+
+		if (curSong == 'Null')
+		{
+
+			//if(curBeat < 460)	
+			{
+				switch (curBeat)
+				{
+					case 12:
+				}
+			}
+
+		}
 		
 		if (curSong == 'Oblivion')
 		{
-			if (curBeat % 4 == 2 && SONG.notes[Math.floor(curStep / 16)].mustHitSection && dad.animation.curAnim.name == 'idle' && dad.curCharacter == 'ac-void')
-				dad.playAnim('idle');
+			// if (curBeat % 4 == 2 && SONG.notes[Math.floor(curStep / 16)].mustHitSection && dad.animation.curAnim.name == 'idle' && dad.curCharacter == 'ac-void')
+			// 	dad.playAnim('idle');
 		
 				if (dad.animation.curAnim.name.endsWith('alt'))
 				{
@@ -3529,15 +3617,35 @@ class PlayState extends MusicBeatState
 
 					//	noteVortex.alpha = 1;
 
+					case 136:
+
+						bgGlitch.alpha = 0.7;
+
 					case 198:
 
 					FlxTween.tween(FlxG.camera, {zoom: 0.9}, 0.38, 
 						{ease: FlxEase.expoOut});
 
+					case 232:
+
+						defaultCamZoom = 0.60;
+
+					case 256:
+
+						defaultCamZoom = 0.60;
+
+					case 392:
+
+						bgGlitch.alpha = 0;
+
 					case 420:
 
 					FlxTween.tween(FlxG.camera, {zoom: 1.0}, 1.0, 
 						{ease: FlxEase.expoOut});
+
+					case 456:
+
+						bgGlitch.alpha = 0.7;
 
 					case 468:
 
@@ -3548,6 +3656,17 @@ class PlayState extends MusicBeatState
 
 					FlxTween.tween(FlxG.camera, {zoom: 1.0}, 0.85, 
 						{ease: FlxEase.expoOut});
+
+					case 520:
+
+						bgGlitch.alpha = 0;
+
+					case 600:
+
+						FlxG.camera.flash(FlxColor.WHITE, 2);
+
+						curStage = 'darkSpace';
+						player1 = 'bf';
 				}
 			}
 		}
@@ -5266,11 +5385,11 @@ class PlayState extends MusicBeatState
 		{
 			//dad.playAnim('wink', true);
 		}
+
 		if (curBeat >= 18 && curBeat < 19 && curSong == 'Weightless')
 		{
 			dad.playAnim('wink', true);
 		}
-
 		if (curBeat >= 232 && curBeat < 233 && curSong == 'Weightless')
 		{   
 			if(!triggeredAlready)
@@ -5280,7 +5399,6 @@ class PlayState extends MusicBeatState
 			}
 			else triggeredAlready = false;
 		}
-
 		if (curBeat >= 234 && curBeat < 235 && curSong == 'Weightless')
 		{
 			boyfriend.playAnim('hey', true);
@@ -5292,7 +5410,6 @@ class PlayState extends MusicBeatState
 
 			dad.playAnim('seethe', true);
 		}
-
 		if (curBeat >= 391 && curBeat < 392 && curSong == 'Event Horizon')
 		{
 			dad.playAnim('seethe', true);
@@ -5302,6 +5419,11 @@ class PlayState extends MusicBeatState
 		{
 			dad.animation.play('seethe', true, false, 0);
 		}
+
+		if (curBeat >= 232 && curBeat < 256 && curSong == 'Oblivion')
+			{
+				defaultCamZoom = 0.75;
+			}
 
 		switch (curStage)
 		{
@@ -5349,7 +5471,8 @@ class PlayState extends MusicBeatState
 		*/
 			case 'oblivion':
 				if(FlxG.save.data.distractions){
-					oblivionBG.animation.play('bop', true);						
+					//oblivionBG.animation.play('bop', true);
+					neoBoppin.animation.play('bop', true);						
 				}
 
 			case "philly":
