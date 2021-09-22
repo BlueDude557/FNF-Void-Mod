@@ -23,3 +23,4 @@ Event Horizon:void:7
 Singularity:void:8
 Null:void:8
 Oblivion:ac-void:8
+Stardust:void:9
