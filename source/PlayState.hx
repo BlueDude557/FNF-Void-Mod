@@ -1507,9 +1507,17 @@ class PlayState extends MusicBeatState
 		// healthBar
 		add(healthBar);
 
-		if (PlayState.SONG.song.toLowerCase()=='asteroids' || PlayState.SONG.song.toLowerCase()=='weightless' || PlayState.SONG.song.toLowerCase()=='event horizon' || PlayState.SONG.song.toLowerCase()=='singularity' || PlayState.SONG.song.toLowerCase()=='oblivion')
+		if (PlayState.SONG.song.toLowerCase()=='asteroids' || PlayState.SONG.song.toLowerCase()=='weightless' || PlayState.SONG.song.toLowerCase()=='event horizon')
 		{
 			// Add Void Mod watermark
+			kadeEngineWatermark = new FlxText(4,healthBarBG.y + 50,0,SONG.song + " - " + CoolUtil.difficultyFromInt(storyDifficulty) + (Main.watermarks ? " | VsVoid by Starbreak" : ""), 16);
+			kadeEngineWatermark.setFormat(Paths.font("vcr.ttf"), 16, FlxColor.WHITE, RIGHT, FlxTextBorderStyle.OUTLINE,FlxColor.BLACK);
+			kadeEngineWatermark.scrollFactor.set();
+			add(kadeEngineWatermark);
+		}
+		if (PlayState.SONG.song.toLowerCase()=='singularity' || PlayState.SONG.song.toLowerCase()=='null' || PlayState.SONG.song.toLowerCase()=='oblivion' || PlayState.SONG.song.toLowerCase()=='stardust')
+		{
+			// Add Void Mod watermark (But for week 2 whatevs)
 			kadeEngineWatermark = new FlxText(4,healthBarBG.y + 50,0,SONG.song + " - " + CoolUtil.difficultyFromInt(storyDifficulty) + (Main.watermarks ? " | VsVoid by Starbreak" : ""), 16);
 			kadeEngineWatermark.setFormat(Paths.font("vcr.ttf"), 16, FlxColor.WHITE, RIGHT, FlxTextBorderStyle.OUTLINE,FlxColor.BLACK);
 			kadeEngineWatermark.scrollFactor.set();
@@ -3626,10 +3634,6 @@ class PlayState extends MusicBeatState
 					FlxTween.tween(FlxG.camera, {zoom: 0.9}, 0.38, 
 						{ease: FlxEase.expoOut});
 
-					case 232:
-
-						defaultCamZoom = 0.60;
-
 					case 256:
 
 						defaultCamZoom = 0.60;
@@ -3663,10 +3667,11 @@ class PlayState extends MusicBeatState
 
 					case 600:
 
-						FlxG.camera.flash(FlxColor.WHITE, 2);
+						FlxG.camera.flash(FlxColor.WHITE, 3);
 
-						curStage = 'darkSpace';
-						player1 = 'bf';
+						SONG.stage = 'darkSpace';
+
+						SONG.player1 = 'bf';
 				}
 			}
 		}
@@ -5328,8 +5333,8 @@ class PlayState extends MusicBeatState
 			{
 				if (curBeat >= 456 && curBeat < 468 && camZooming && FlxG.camera.zoom < 1.35 || curBeat >= 472 && curBeat < 488 && camZooming && FlxG.camera.zoom < 1.35)
 				{
-					FlxG.camera.zoom += 0.015;
-					camHUD.zoom += 0.03;
+					FlxG.camera.zoom += 0.035;
+					camHUD.zoom += 0.05;
 				}
 			}
 
@@ -5421,9 +5426,9 @@ class PlayState extends MusicBeatState
 		}
 
 		if (curBeat >= 232 && curBeat < 256 && curSong == 'Oblivion')
-			{
-				defaultCamZoom = 0.75;
-			}
+		{
+			defaultCamZoom = 0.85;
+		}
 
 		switch (curStage)
 		{
