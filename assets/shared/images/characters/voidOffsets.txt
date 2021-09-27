@@ -1,4 +1,4 @@
-idle -170 -55
+idle -170 0
 singUP -170 -55
 singRIGHT -180 -55
 singLEFT -160 -55
