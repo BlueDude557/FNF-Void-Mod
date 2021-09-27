@@ -1,10 +1,10 @@
 idle -170 50
 singUP -170 50
-singRIGHT -240 50
+singRIGHT -210 50
 singLEFT -100 50
 singDOWN -170 50
 singUP-alt -170 100
-singRIGHT-alt -270 30
+singRIGHT-alt -300 30
 singLEFT-alt -80 50
 singDOWN-alt -170 50
 wink -170 -55
