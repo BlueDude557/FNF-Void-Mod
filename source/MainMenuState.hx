@@ -56,6 +56,7 @@ class MainMenuState extends MusicBeatState
 
 		if (!FlxG.sound.music.playing)
 		{
+			Conductor.changeBPM(120);
 			FlxG.sound.playMusic(Paths.music('freakyMenu'));
 		}
 
