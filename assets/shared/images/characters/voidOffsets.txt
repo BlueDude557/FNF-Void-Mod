@@ -3,7 +3,7 @@ singUP -170 50
 singRIGHT -210 50
 singLEFT -100 50
 singDOWN -170 50
-singUP-alt -150 90
+singUP-alt -130 90
 singRIGHT-alt -300 30
 singLEFT-alt -60 50
 singDOWN-alt -170 50
