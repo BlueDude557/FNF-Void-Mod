@@ -227,6 +227,9 @@ class PlayState extends MusicBeatState
 	var holoBoppers:FlxSprite;
 	var darkSpaceBG:FlxSprite;
 	var bgBreak:FlxSprite;
+	var oblivionDark1:FlxSprite;
+	var oblivionDark2:FlxSprite;
+	var oblivionDark3:FlxSprite;
 	var bgGlitch:FlxSprite;
 	var neoBoppin:FlxSprite;
 	//var oblivionBG:FlxSprite;
@@ -521,6 +524,17 @@ class PlayState extends MusicBeatState
 					else
 					{
 						stageCheck = 'school';
+					}
+				case 7:
+					stageCheck = 'space';
+				case 8:
+					if (songLowercase == 'oblivion')
+					{
+						stageCheck = 'oblivion';
+					}
+					else
+					{
+						stageCheck = 'darkSpace';
 					}
 					// i should check if its stage (but this is when none is found in chart anyway)
 			}
@@ -953,13 +967,13 @@ class PlayState extends MusicBeatState
 
 						if (PlayState.SONG.song.toLowerCase()=='null')
 						{	
-							darkSpaceBG = new FlxSprite(-480, -220);
+							darkSpaceBG = new FlxSprite(-500, -220);
 							darkSpaceBG.frames = Paths.getSparrowAtlas('space/darkSpaceBG');
 							darkSpaceBG.animation.addByPrefix('bloop', 'Bg Bloop', 6, true);
 							darkSpaceBG.updateHitbox();
 							darkSpaceBG.antialiasing = true;
 							darkSpaceBG.scrollFactor.set(0.1, 0.1);
-							darkSpaceBG.setGraphicSize(Std.int(darkSpaceBG.width * 1.6));
+							darkSpaceBG.setGraphicSize(Std.int(darkSpaceBG.width * 1.7));
 							darkSpaceBG.updateHitbox();
 							add(darkSpaceBG);
 
@@ -967,8 +981,8 @@ class PlayState extends MusicBeatState
 						}
 						else
 						{
-							var tintedSpaceBG:FlxSprite = new FlxSprite(-480, -220).loadGraphic(Paths.image('space/tintedSpaceBG'));
-							tintedSpaceBG.setGraphicSize(Std.int(tintedSpaceBG.width * 1.6));
+							var tintedSpaceBG:FlxSprite = new FlxSprite(-500, -220).loadGraphic(Paths.image('space/tintedSpaceBG'));
+							tintedSpaceBG.setGraphicSize(Std.int(tintedSpaceBG.width * 1.7));
 							tintedSpaceBG.updateHitbox();
 							tintedSpaceBG.antialiasing = true;
 							tintedSpaceBG.scrollFactor.set(0.1, 0.1);
@@ -1016,15 +1030,18 @@ class PlayState extends MusicBeatState
 								{ease: FlxEase.quadInOut});
 						}, 0);
 
-						// bgBreak = new FlxSprite(-470, -220);
-						// bgBreak.frames = Paths.getSparrowAtlas('space/bgBreak');
-						// bgBreak.animation.addByPrefix('--', '-----', 24, false);
+						bgBreak = new FlxSprite(-470, -220);
+						bgBreak.frames = Paths.getSparrowAtlas('space/bgBreak');
+						bgBreak.animation.addByPrefix('init', 'Initial', 12, false);
+						bgBreak.animation.addByPrefix('break1', '1st Break', 12, false);
+						bgBreak.animation.addByPrefix('break12', '2nd Break', 12, false);
+						bgBreak.setGraphicSize(Std.int(bgBreak.width * 1.3));
+						bgBreak.updateHitbox();
+						bgBreak.antialiasing = true;
+						bgBreak.scrollFactor.set(0.1, 0.1);
+						add(bgBreak);
 
-						// bgBreak.setGraphicSize(Std.int(bgBreak.width * 1.6));
-						// bgBreak.updateHitbox();
-						// bgBreak.antialiasing = true;
-						// bgBreak.scrollFactor.set(0.1, 0.1);
-						// add(bgBreak);
+						bgBreak.animation.play('init', true);
 
 						var spacestage:FlxSprite = new FlxSprite(-500, -220).loadGraphic(Paths.image('space/spacestage'));
 						spacestage.setGraphicSize(Std.int(spacestage.width * 1.2));
@@ -1055,6 +1072,14 @@ class PlayState extends MusicBeatState
 
 						defaultCamZoom = 0.60;
 						
+						var tintedSpaceBG:FlxSprite = new FlxSprite(-500, -220).loadGraphic(Paths.image('space/tintedSpaceBG'));
+						tintedSpaceBG.setGraphicSize(Std.int(tintedSpaceBG.width * 1.7));
+						tintedSpaceBG.updateHitbox();
+						tintedSpaceBG.antialiasing = true;
+						tintedSpaceBG.scrollFactor.set(0.1, 0.1);
+						tintedSpaceBG.active = false;
+						add(tintedSpaceBG);
+
 						// var oblivionSpace:FlxSprite = new FlxSprite(30, -140).loadGraphic(Paths.image('space/oblivionSpace'));
 						// oblivionSpace.setGraphicSize(Std.int(oblivionSpace.width * 1.5));
 						// oblivionSpace.updateHitbox();
@@ -1072,7 +1097,7 @@ class PlayState extends MusicBeatState
 						// oblivionBG.updateHitbox();
 						// add(oblivionBG);
 
-						var oblivionDark1 = new FlxSprite(-720, -240).loadGraphic(Paths.image('space/oblivionDark1'));
+						oblivionDark1 = new FlxSprite(-720, -240).loadGraphic(Paths.image('space/oblivionDark1'));
 						oblivionDark1.setGraphicSize(Std.int(oblivionDark1.width * 1.25));
 						oblivionDark1.updateHitbox();
 						oblivionDark1.antialiasing = true;
@@ -1080,7 +1105,7 @@ class PlayState extends MusicBeatState
 						oblivionDark1.active = false;
 						add(oblivionDark1);
 
-						var oblivionDark2 = new FlxSprite(-720, -240).loadGraphic(Paths.image('space/oblivionDark2'));
+						oblivionDark2 = new FlxSprite(-720, -240).loadGraphic(Paths.image('space/oblivionDark2'));
 						oblivionDark2.setGraphicSize(Std.int(oblivionDark2.width * 1.4));
 						oblivionDark2.updateHitbox();
 						oblivionDark2.antialiasing = true;
@@ -1088,7 +1113,7 @@ class PlayState extends MusicBeatState
 						oblivionDark2.active = false;
 						add(oblivionDark2);
 
-						var oblivionDark3 = new FlxSprite(-720, -240).loadGraphic(Paths.image('space/oblivionDark3'));
+						oblivionDark3 = new FlxSprite(-720, -240).loadGraphic(Paths.image('space/oblivionDark3'));
 						oblivionDark3.setGraphicSize(Std.int(oblivionDark3.width * 1.6));
 						oblivionDark3.updateHitbox();
 						oblivionDark3.antialiasing = true;
@@ -1334,10 +1359,10 @@ class PlayState extends MusicBeatState
 				dad.y += 100;
 				camPos.set(dad.getGraphicMidpoint().x + 300, dad.getGraphicMidpoint().y);
 			case 'void':
-				dad.x -= 540;
+				dad.x -= 510;
 				dad.y -= 20;
 			case 'ac-void':
-				dad.x -= 540;
+				dad.x -= 510;
 				dad.y -= 20;
 		}
 
@@ -1507,21 +1532,25 @@ class PlayState extends MusicBeatState
 		// healthBar
 		add(healthBar);
 
-		if (PlayState.SONG.song.toLowerCase()=='asteroids' || PlayState.SONG.song.toLowerCase()=='weightless' || PlayState.SONG.song.toLowerCase()=='event horizon')
+		if (PlayState.SONG.song.toLowerCase()=='asteroids' ||
+			PlayState.SONG.song.toLowerCase()=='weightless' ||
+			PlayState.SONG.song.toLowerCase()=='event horizon' ||
+			PlayState.SONG.song.toLowerCase()=='singularity' ||
+			PlayState.SONG.song.toLowerCase()=='null' ||
+			PlayState.SONG.song.toLowerCase()=='oblivion' ||
+			PlayState.SONG.song.toLowerCase()=='stardust')
 		{
 			// Add Void Mod watermark
-			kadeEngineWatermark = new FlxText(4,healthBarBG.y + 50,0,SONG.song + " - " + CoolUtil.difficultyFromInt(storyDifficulty) + (Main.watermarks ? " | VsVoid by Starbreak" : ""), 16);
+			kadeEngineWatermark = new FlxText(4,healthBarBG.y 
+				+ 50,0,
+				SONG.song
+				+ " - "
+				+ CoolUtil.difficultyFromInt(storyDifficulty)
+				+ (Main.watermarks ? " | VsVoid by Starbreak" : ""), 16);
 			kadeEngineWatermark.setFormat(Paths.font("vcr.ttf"), 16, FlxColor.WHITE, RIGHT, FlxTextBorderStyle.OUTLINE,FlxColor.BLACK);
 			kadeEngineWatermark.scrollFactor.set();
 			add(kadeEngineWatermark);
-		}
-		if (PlayState.SONG.song.toLowerCase()=='singularity' || PlayState.SONG.song.toLowerCase()=='null' || PlayState.SONG.song.toLowerCase()=='oblivion' || PlayState.SONG.song.toLowerCase()=='stardust')
-		{
-			// Add Void Mod watermark (But for week 2 whatevs)
-			kadeEngineWatermark = new FlxText(4,healthBarBG.y + 50,0,SONG.song + " - " + CoolUtil.difficultyFromInt(storyDifficulty) + (Main.watermarks ? " | VsVoid by Starbreak" : ""), 16);
-			kadeEngineWatermark.setFormat(Paths.font("vcr.ttf"), 16, FlxColor.WHITE, RIGHT, FlxTextBorderStyle.OUTLINE,FlxColor.BLACK);
-			kadeEngineWatermark.scrollFactor.set();
-			add(kadeEngineWatermark);
+
 		}
 		else
 		{
@@ -1644,16 +1673,10 @@ class PlayState extends MusicBeatState
 					blackScreen.scrollFactor.set();
 					add(blackScreen);
 					camHUD.visible = false;
+					camHUD.alpha = 0;
 
-					new FlxTimer().start(0.1, function(tmr:FlxTimer)
-					{
-						blackScreen.alpha -= 0.10;
-			
-						if (blackScreen.alpha > 0)
-						{
-							tmr.reset(0.1);			
-						}
-					});
+					FlxTween.tween(blackScreen, {alpha: 0.0}, 1, 
+						{ease: FlxEase.quadInOut});
 
 					if (blackScreen.alpha == 0)
 					{
@@ -1673,6 +1696,10 @@ class PlayState extends MusicBeatState
 						new FlxTimer().start(0.8, function(tmr:FlxTimer)
 						{
 							camHUD.visible = true;
+
+							FlxTween.tween(camHUD, {alpha: 1.0}, 0.6, 
+								{ease: FlxEase.quadInOut});
+
 							FlxTween.tween(FlxG.camera, {zoom: 0.70}, 2.7, {
 								ease: FlxEase.quadInOut,
 								onComplete: function(twn:FlxTween)
@@ -1820,23 +1847,16 @@ class PlayState extends MusicBeatState
 
 		if (StringTools.replace(PlayState.SONG.song, " ", "-").toLowerCase() == 'event-horizon')
 		{
-			remove(black);
+			black.alpha = 0;
 		}
 
-		new FlxTimer().start(0.1, function(tmr:FlxTimer)
+		new FlxTimer().start(0.08, function(tmr:FlxTimer)
 		{
-			black.alpha -= 0.10;
+			black.alpha -= 0.05;
 
 			if (black.alpha > 0)
 			{
-				if (StringTools.replace(PlayState.SONG.song, " ", "-").toLowerCase() == 'asteroids')
-				{
-					tmr.reset(0.15);
-				}
-				else
-				{
-					tmr.reset(0.1);
-				}			
+				tmr.reset(0.08);
 			}
 			else
 			{
@@ -1844,7 +1864,7 @@ class PlayState extends MusicBeatState
 				{
 					inCutscene = true;
 
-				/*	if (songLowercase == 'thorns')
+				/*	if (StringTools.replace(PlayState.SONG.song, " ", "-").toLowerCase() == 'oblivion')
 					{
 						add(senpaiEvil);
 						senpaiEvil.alpha = 0;
@@ -3298,9 +3318,11 @@ class PlayState extends MusicBeatState
 						camFollow.y = dad.getMidpoint().y - 430;
 						camFollow.x = dad.getMidpoint().x - 100;
 					case 'void':
-						camFollow.y = dad.getMidpoint().y;
+						camFollow.y = dad.getMidpoint().y - 40;
+						camFollow.x = dad.getMidpoint().x + 20;
 					case 'ac-void':
-						camFollow.y = dad.getMidpoint().y - 50;
+						camFollow.y = dad.getMidpoint().y - 70;
+						camFollow.x = dad.getMidpoint().x + 20;		
 				}
 			}
 
@@ -3399,7 +3421,7 @@ class PlayState extends MusicBeatState
 
 						if (isStoryMode)
 						{
-							FlxTween.tween(blackFade, {alpha: 1.0}, 1.9, 
+							FlxTween.tween(blackFade, {alpha: 1.0}, 2.2, 
 							{ease: FlxEase.quadIn});
 						}
 				}
@@ -3437,7 +3459,7 @@ class PlayState extends MusicBeatState
 
 						if (isStoryMode)
 						{
-							FlxTween.tween(blackFade, {alpha: 1.0}, 2.2, 
+							FlxTween.tween(blackFade, {alpha: 1.0}, 2.6, 
 							{ease: FlxEase.quadIn});
 						}
 				}		
@@ -3568,24 +3590,115 @@ class PlayState extends MusicBeatState
 
 		if (curSong == 'Singularity')
 		{
+			var blackFade:FlxSprite = new FlxSprite(-500, -300).makeGraphic(FlxG.width * 2, FlxG.height * 2, FlxColor.BLACK);
+			blackFade.scrollFactor.set();
+			blackFade.alpha = 0;
+			blackFade.active = false;
+			add(blackFade);
 
-			//if(curBeat < 460)	
+			if(curBeat < 420) //AYYYYY lol
 			{
 				switch (curBeat)
 				{
-					case 12:
+					case 4:
+
+						// remove(dad);
+						// dad = new Character(-510, -20, 'ac-void');
+						// add(dad);
+
+						// remove(boyfriend);
+						// boyfriend = new Boyfriend(770, 450, 'bf');
+						// add(boyfriend);
+
+					case 352:
+
+						FlxTween.tween(FlxG.camera, {zoom: 0.85}, 0.5, 
+							{ease: FlxEase.expoOut});
+
+						// remove(dad);
+						// dad = new Character(-510, -20, 'void');
+						// add(dad);
+
+					case 396:
+
+						if (isStoryMode)
+						{
+							FlxTween.tween(blackFade, {alpha: 1.0}, 2.8, 
+							{ease: FlxEase.quadIn});
+						}
 				}
 			}
 		}
 
 		if (curSong == 'Null')
 		{
+			var blackFade:FlxSprite = new FlxSprite(-500, -300).makeGraphic(FlxG.width * 2, FlxG.height * 2, FlxColor.BLACK);
+			blackFade.scrollFactor.set();
+			blackFade.alpha = 0;
+			blackFade.active = false;
+			add(blackFade);
 
-			//if(curBeat < 460)	
+			if(curBeat < 590)	
 			{
 				switch (curBeat)
 				{
-					case 12:
+					case 338:
+
+						camGame.shake(0.002, 0.5, null, true, null);
+
+					case 339:
+
+						camGame.shake(0.003, 0.5, null, true, null);
+
+					case 340:
+
+						FlxG.camera.flash(FlxColor.WHITE, 1.8);
+
+						new FlxTimer().start(0.3, function(tmr:FlxTimer)
+						{
+							bgBreak.animation.play('break1', true);
+
+						}, 1);
+
+						camGame.shake(0.005, 0.5, null, true, null);
+
+						camHUD.shake(0.003, 0.5, null, true, null);
+
+						FlxTween.tween(FlxG.camera, {zoom: 0.70}, 2.1, 
+							{ease: FlxEase.quadOut});
+
+				    case 422:
+
+						camGame.shake(0.003, 1.5, null, true, null);
+
+					case 424:
+
+						FlxG.camera.flash(FlxColor.WHITE, 1.2);
+
+						new FlxTimer().start(0.3, function(tmr:FlxTimer)
+						{
+							bgBreak.animation.play('break2', true);
+
+						}, 1);
+
+						camGame.shake(0.006, 0.5, null, true, null);
+
+						camHUD.shake(0.003, 0.5, null, true, null);
+					
+					case 528:
+					
+					case 564:
+
+						FlxTween.tween(FlxG.camera, {zoom: 1.0}, 4.2, 
+							{ease: FlxEase.quadIn});
+
+					case 572:
+
+						if (isStoryMode)
+						{
+							FlxTween.tween(blackFade, {alpha: 1.0}, 0.2, 
+							{ease: FlxEase.quadIn});
+						}
 				}
 			}
 
@@ -3598,9 +3711,9 @@ class PlayState extends MusicBeatState
 		
 				if (dad.animation.curAnim.name.endsWith('alt'))
 				{
-					if (curBeat < 600)
+					if (curBeat < 728)
 					{	
-						if (curBeat < 586)
+						if (curBeat < 712)
 						{
 							camGame.shake(0.005, 0.06, null, true, null);
 
@@ -3617,7 +3730,7 @@ class PlayState extends MusicBeatState
 					}
 				}
 			
-			if(curBeat < 610)
+			if(curBeat < 740)
 			{
 				switch (curBeat)
 				{
@@ -3665,13 +3778,31 @@ class PlayState extends MusicBeatState
 
 						bgGlitch.alpha = 0;
 
-					case 600:
+					case 584:
+
+						bgGlitch.alpha = 0.7;
+
+					case 696:
+
+						bgGlitch.alpha = 0;
+
+					case 728:
 
 						FlxG.camera.flash(FlxColor.WHITE, 3);
 
-						SONG.stage = 'darkSpace';
+						remove(oblivionDark1);
+						remove(oblivionDark2);
+						remove(oblivionDark3);
+						remove(bgGlitch);
+						remove(neoBoppin);
 
-						SONG.player1 = 'bf';
+						remove(gf);
+						gf = new Character(400, 130, 'gf');
+						add(gf);
+
+						remove(boyfriend);
+						boyfriend = new Boyfriend(770, 450, 'bf');
+						add(boyfriend);
 				}
 			}
 		}
@@ -5338,10 +5469,32 @@ class PlayState extends MusicBeatState
 				}
 			}
 
-			if (camZooming && FlxG.camera.zoom < 1.35 && curBeat % 4 == 0)
+			if (curSong.toLowerCase() == 'oblivion')
 			{
-				FlxG.camera.zoom += 0.015;
-				camHUD.zoom += 0.03;
+				if (bgGlitch.alpha > 0)
+				{
+					if (camZooming && FlxG.camera.zoom < 1.35 && curBeat < 600)
+					{
+						FlxG.camera.zoom += 0.025;
+						camHUD.zoom += 0.03;
+					}
+				}
+				else
+				{
+					if (camZooming && FlxG.camera.zoom < 1.35 && curBeat % 4 == 0)
+					{
+						FlxG.camera.zoom += 0.015;
+						camHUD.zoom += 0.03;
+					}
+				}
+			}
+			else
+			{
+				if (camZooming && FlxG.camera.zoom < 1.35 && curBeat % 4 == 0)
+				{
+					FlxG.camera.zoom += 0.015;
+					camHUD.zoom += 0.03;
+				}
 			}
 		}
 

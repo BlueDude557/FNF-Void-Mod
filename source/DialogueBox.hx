@@ -7,6 +7,8 @@ import flixel.graphics.frames.FlxAtlasFrames;
 import flixel.group.FlxSpriteGroup;
 import flixel.input.FlxKeyManager;
 import flixel.text.FlxText;
+import flixel.tweens.FlxEase;
+import flixel.tweens.FlxTween;
 import flixel.util.FlxColor;
 import flixel.util.FlxTimer;
 
@@ -70,15 +72,13 @@ class DialogueBox extends FlxSpriteGroup
 					bgFade.alpha = 0.7;
 			}, 5);
 		}
-
-		if (PlayState.SONG.song.toLowerCase()=='asteroids' || PlayState.SONG.song.toLowerCase()=='weightless' || PlayState.SONG.song.toLowerCase()=='event horizon')
+		else
 		{
-			new FlxTimer().start(0.83, function(tmr:FlxTimer)
+			new FlxTimer().start(1.1, function(tmr:FlxTimer)
 			{
-				bgFade.alpha += (3 / 12) * 0.5;
-				if (bgFade.alpha > 0.5)
-					bgFade.alpha = 0.5;
-			}, 5);
+				FlxTween.tween(bgFade, {alpha: 0.7}, 1.2, 
+					{ease: FlxEase.quadOut});
+			}, 1);
 		}
 
 		box = new FlxSprite(-20, 45);
@@ -139,6 +139,13 @@ class DialogueBox extends FlxSpriteGroup
 				spacebox.animation.addByIndices('normal', 'Text Box Appear', [6], "", 24);
 
 			case 'null':
+				hasDialog = true;
+				spacebox.frames = Paths.getSparrowAtlas('space/dialogueBox-space');
+				spacebox.antialiasing = true;
+				spacebox.animation.addByPrefix('spaceOpen', 'Text Box Appear', 20, false);
+				spacebox.animation.addByIndices('normal', 'Text Box Appear', [6], "", 24);
+
+			case 'oblivion':
 				hasDialog = true;
 				spacebox.frames = Paths.getSparrowAtlas('space/dialogueBox-space');
 				spacebox.antialiasing = true;
@@ -388,28 +395,49 @@ class DialogueBox extends FlxSpriteGroup
 					if (PlayState.SONG.song.toLowerCase() == 'senpai' || PlayState.SONG.song.toLowerCase() == 'thorns')
 						FlxG.sound.music.fadeOut(2.2, 0);
 
-					new FlxTimer().start(0.2, function(tmr:FlxTimer)
+					if (PlayState.SONG.song.toLowerCase() == 'senpai' || PlayState.SONG.song.toLowerCase() == 'roses' || PlayState.SONG.song.toLowerCase() == 'thorns')
 					{
-						if (PlayState.SONG.song.toLowerCase() == 'senpai' || PlayState.SONG.song.toLowerCase() == 'roses' || PlayState.SONG.song.toLowerCase() == 'thorns')
-						{	
-							box.alpha -= 1 / 5;
-							bgFade.alpha -= 1 / 5 * 0.7;
-						}
-						if (PlayState.SONG.song.toLowerCase()=='asteroids' || PlayState.SONG.song.toLowerCase()=='weightless' || PlayState.SONG.song.toLowerCase()=='event horizon')
+						new FlxTimer().start(0.2, function(tmr:FlxTimer)
 						{
-							spacebox.alpha -= 3 / 12;
-							bgFade.alpha -= 3 / 12 * 0.5;
-						}
-						portraitLeft.visible = false;
-						portraitRight.visible = false;
-						swagDialogue.alpha -= 1 / 5;
-						dropText.alpha = swagDialogue.alpha;
-					}, 5);
+							{	
+								box.alpha -= 1 / 5;
+								bgFade.alpha -= 1 / 5 * 0.7;
+							}
+
+							portraitLeft.visible = false;
+							portraitRight.visible = false;
+							swagDialogue.alpha -= 1 / 5;
+							dropText.alpha = swagDialogue.alpha;
+						}, 5);
+					}
+					else
+					{
+						FlxTween.tween(spacebox, {alpha: 0.0}, 1.2, 
+							{ease: FlxEase.quadInOut});
+
+						FlxTween.tween(bgFade, {alpha: 0.0}, 1.2, 
+							{ease: FlxEase.quadInOut});
+
+							FlxTween.tween(swagDialogue, {alpha: 0.0}, 0.9, 
+								{ease: FlxEase.quadInOut});
+							
+							FlxTween.tween(dropText, {alpha: 0.0}, 1.0, 
+								{ease: FlxEase.quadInOut});
+						
+						FlxTween.tween(portraitLeft, {alpha: 0.0}, 0.8, 
+								{ease: FlxEase.quadIn});
+	
+						FlxTween.tween(portraitRight, {alpha: 0.0}, 0.8, 
+								{ease: FlxEase.quadIn});
+					}
 
 					new FlxTimer().start(1.2, function(tmr:FlxTimer)
 					{
 						finishThing();
 						kill();
+
+						portraitLeft.visible = false;
+						portraitRight.visible = false;
 					});
 				}
 			}
