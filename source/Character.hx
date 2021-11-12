@@ -404,6 +404,23 @@ class Character extends FlxSprite
 
 		        playAnim('idle');
 
+			case 'mad-void':
+		        frames = Paths.getSparrowAtlas('characters/mad_void_assets');
+		        animation.addByPrefix('idle', 'Void Idle', 24, false);
+		        animation.addByPrefix('singUP', 'Void Up Note Chill', 20, false);
+		        animation.addByPrefix('singDOWN', 'Void Down Note Chill', 20, false);
+		        animation.addByPrefix('singLEFT', 'Void Left Note Chill', 20, false);
+		        animation.addByPrefix('singRIGHT', 'Void Right Note Chill', 26, false);
+
+		        animation.addByPrefix('singUP-alt', 'Void Up Note Hype', 20, false);
+		        animation.addByPrefix('singDOWN-alt', 'Void Down Note Hype', 20, false);
+		        animation.addByPrefix('singLEFT-alt', 'Void Left Note Hype', 20, false);
+		        animation.addByPrefix('singRIGHT-alt', 'Void Right Note Hype', 26, false);
+
+				loadOffsetFile(curCharacter);
+
+		        playAnim('idle');
+
 			case 'ac-void':
 				frames = Paths.getSparrowAtlas('characters/ac_void_assets');
 		        animation.addByPrefix('idle', 'Void Idle', 24, false);

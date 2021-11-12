@@ -16,4 +16,8 @@ senpai
 senpai-angry
 spirit
 void
+mad-void
+crazed-void
 ac-void
+accretions
+starbreak
