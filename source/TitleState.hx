@@ -416,10 +416,10 @@ class TitleState extends MusicBeatState
 			case 0:
 				deleteCoolText();
 			case 1:
-				createCoolText(['presented', 'by', 'the funkin crew']);
+				createCoolText(['presented by', 'StarbreakMusic']);
 
 			case 2:
-				addMoreText('and StarbreakMusic');
+				addMoreText('and the funkin crew');
 			// credTextShit.visible = true;
 			case 3:
 			//	addMoreText('and StarbreakMusic');
