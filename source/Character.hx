@@ -422,7 +422,7 @@ class Character extends FlxSprite
 		        playAnim('idle');
 
 			case 'crazed-void':
-		        frames = Paths.getSparrowAtlas('characters/mad_void_assets');
+		        frames = Paths.getSparrowAtlas('characters/crazed_void_assets');
 		        animation.addByPrefix('idle', 'Void Idle', 24, false);
 		        animation.addByPrefix('singUP', 'Void Up Note Chill', 20, false);
 		        animation.addByPrefix('singDOWN', 'Void Down Note Chill', 20, false);
