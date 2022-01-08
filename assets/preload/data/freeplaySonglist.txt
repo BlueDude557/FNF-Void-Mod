@@ -1,26 +1,7 @@
-Tutorial:gf:0
-Bopeebo:dad:1
-Fresh:dad:1
-Dad Battle:dad:1
-Spookeez:spooky:2
-South:spooky:2
-Monster:monster:2
-Pico:pico:3
-Philly Nice:pico:3
-Blammed:pico:3
-Satin Panties:mom:4
-High:mom:4
-Milf:mom:4
-Cocoa:parents-christmas:5
-Eggnog:parents-christmas:5
-Winter Horrorland:monster-christmas:5
-Senpai:senpai:6
-Roses:senpai:6
-Thorns:spirit:6
-Asteroids:void:7
-Weightless:void:7
-Event Horizon:void:7
-Singularity:void:8
-Null:mad-void:8
-Oblivion:ac-void:8
-Stardust:bf:9
+Asteroids:void:0
+Weightless:void:0
+Event Horizon:void:0
+Singularity:void:1
+Null:mad-void:1
+Oblivion:ac-void:1
+Stardust:bf:2
