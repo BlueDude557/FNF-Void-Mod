@@ -4,5 +4,5 @@ Event Horizon:void:0
 Singularity:void:1
 Null:mad-void:1
 Oblivion:ac-void:1
-Security:bf:2
-Stardust:bf:2
+Security:accretions:2
+Stardust:starbreak:2
