@@ -459,6 +459,20 @@ class Character extends FlxSprite
 				loadOffsetFile(curCharacter);
 
 		        playAnim('idle');
+
+			case 'accretions':
+		        frames = Paths.getSparrowAtlas('characters/accretions_assets');
+		        animation.addByPrefix('idle', 'Accretions Idle', 24, false);
+		        animation.addByPrefix('singUP', 'Accretions Up Note', 18, false);
+		        animation.addByPrefix('singDOWN', 'Accretions Down Note', 18, false);
+		        animation.addByPrefix('singLEFT', 'Accretions Left Note', 18, false);
+		        animation.addByPrefix('singRIGHT', 'Accretions Right Note', 18, false);
+
+				animation.addByPrefix('cough', 'Accretions Cough', 12, false);
+
+				//loadOffsetFile(curCharacter);
+
+		        playAnim('idle');
         }
 
 		dance();
