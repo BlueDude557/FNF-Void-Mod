@@ -1,12 +1,17 @@
-:ac1: ...It's good to be out. Finally.
-:ac1: Is this what you wanted? A real challenge?
-:bf3: ...Boop.
-:ac2: Pity. You really have no idea what you're up against here.
-:ac1: My fame has reached a critical mass. Won't be long 'till I've got every soul in the universe at my fingertips.
+:ac1: ...It's good to be out... Finally.
+:ac1: I was getting reeeaally tired of that stupid smug persona...
+:ac1: So is this what you wanted? A real challenge?
+:bf3: ...Boop?
+:ac2: Idiot. You really have no idea what you're up against. You're looking at the REAL A.C. Void.
+:ac1: This isn't about wealth, or fame... My influence has reached a critical mass.
+:ac1: It won't be long before I've got every soul in the universe at my fingertips...
 :ac1: ...That includes you, punk. AND your girl. If you knew your place, you'd sit back and be a spectator.
 :ac2: A NOBODY...
-:ac1: But if you really won't go without a fight, fine by me. Been a while since I've torn something apart.
+:ac1: I was hoping you'd learn this. But if you really won't go without a fight, fine by me.
+:ac2: Been a while since I've torn something apart...
 :bf4: Doo BEEP!
-:ac1: Pshh. Your stupidity is exhausting. You think you can hold your ground, punk?
-:ac2: You're not gonna be standing after this without clawing your way out with everything you got...
-:ac3: NOW COME FACE THE ALL-CONSUMING VOID!!!
+:ac1: Pshh. Your stupidity is exhausting. You really think you can hold your ground, then?
+:ac1: You're not gonna be standing after this without clawing your way out with everything you've got...
+:ac2: Feeling strong?
+:ac2: Come face...
+:ac3: THE ALL-CONSUMING VOID!!!

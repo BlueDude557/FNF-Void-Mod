@@ -1,14 +1,25 @@
-:v5: ...Why, you little...
+:v6: ...Why, you LITTLE...
 :v6: ...
-:v8: ...You just stepped too close to a black hole, buddy. And I'm not letting you get away this time. 
-:bf1: oh look another mod character that gets mad and crazy lol
-:v6: HEY. THIS MOD WAS IN DEVELOPMENT FOR A LONG TIME, IT WASN'T AS PLAYED OUT A FEW MONTHS AGO.
+:v8: ...You just stepped too close to a black hole, buddy. And you're not gettin' away this time.
+:v7: AGHH, NO! Chill, chill...
+:bf1: oh look another mod character that gets mad and crazy wow
+:v6: HEY! THIS MOD WAS IN THE WORKS FOR A LONG TIME, IT WASN'T THAT PLAYED OUT AT FIRST.
 :bf2: yeah whatevs
 :bf2:
 :bf1: i mean beep lol
-:v4: Alright, look. Imma' be honest... It's been killing me trying to just forget about our last match and move on.
-:v4: I NEED to beat you, but... It's been getting harder and harder to keep this form stable since the show...
-:v8: I'm more dangerous than you think, man. If I were to... "let loose", It'd be bad for me, AND my image. Like, BAD.
-:v8: But... Screw it. If this is what it takes to teach you a lesson, it's your funeral, man.
-:v6: Just know... If you actually have a brain in there, you'll quit while you're ahead and we can forget all this.
-:v7: So just STOP... Please...
+:v4: Alright, look. Imma' be honest... I would END you if I could, here and now. You'd be a distant memory.
+:v8: I'm so done with this. WITH YOU... But this stress is starting to pulling me apart.  
+:v8: ...It's been getting harder to keep this... form... stable since the show...
+:v5: I'm dangerous, man. More than you think. More than anyone does.
+:v8: But... I'm NOT letting that part of me out again... Not after that one time. Not again.
+:v8: ...
+:bf3: ...Boop?
+:v7: No... Screw it... S-Screw it! I-I'm just freakin' myself out, I'm fine!
+:v5: I am NOT losing. To. A. NOBODY. C'mon, punk! one more while we're at it, eh? You up for one more??
+:bf3: Beep! Dai bee, bo doo...
+:a1: Boss, the kid got his rematch, he said he's willin' to leave. Just let him go, you're gonna-
+:v6: I'M NOT "GONNA" ANYTHING. I'M. FINE.
+:a2: ...
+:v5: Listen. Everyone chill. We'll take it easy, let's do a nice, slow one this time.
+:v5: And I'm FINALLY gonna beat you this time, man. I AM.
+:v8: ...We'll keep going for as long as it takes.
