@@ -114,6 +114,7 @@ class TitleState extends MusicBeatState
 	}
 
 	var logoBl:FlxSprite;
+	var titleBG:FlxSprite;
 	var gfDance:FlxSprite;
 	var titleVoid:FlxSprite;
 	var danceLeft:Bool = false;
@@ -128,6 +129,14 @@ class TitleState extends MusicBeatState
 		// bg.setGraphicSize(Std.int(bg.width * 0.6));
 		// bg.updateHitbox();
 		add(bg);
+
+		titleBG = new FlxSprite(0, 1300).loadGraphic(Paths.image('titleBG'));
+		if(FlxG.save.data.antialiasing)
+			{
+				titleBG.antialiasing = true;
+			}
+		titleBG.updateHitbox();
+		add(titleBG);
 
 	/*	if (Main.watermarks) {
 			logoBl = new FlxSprite(-150, 1500);
@@ -378,6 +387,18 @@ class TitleState extends MusicBeatState
 		}
 	}
 
+	function createCoolTextKE(textArray:Array<String>)
+	{
+		for (i in 0...textArray.length)
+		{
+			var money:Alphabet = new Alphabet(0, 0, textArray[i], true, false);
+			money.screenCenter(X);
+			money.y += (i * 60) + 150;
+			credGroup.add(money);
+			textGroup.add(money);
+		}
+	}
+
 	function addMoreText(text:String)
 	{
 		var coolText:Alphabet = new Alphabet(0, 0, text, true, false);
@@ -416,10 +437,10 @@ class TitleState extends MusicBeatState
 			case 0:
 				deleteCoolText();
 			case 1:
-				createCoolText(['presented by', 'StarbreakMusic']);
+				createCoolText(['created by', 'StarbreakMusic']);
 
 			case 2:
-				addMoreText('and the funkin crew');
+				addMoreText('somehow');
 			// credTextShit.visible = true;
 			case 3:
 			//	addMoreText('and StarbreakMusic');
@@ -431,7 +452,7 @@ class TitleState extends MusicBeatState
 			// credTextShit.text = 'In association \nwith';
 			// credTextShit.screenCenter();
 			case 5:				
-				createCoolText(['Made in']);
+				createCoolTextKE(['Made in']);
 
 			case 7:
 				{
@@ -480,8 +501,10 @@ class TitleState extends MusicBeatState
 		{
 			remove(kadelogo);
 
-			FlxG.camera.flash(FlxColor.WHITE, 4);
+			FlxG.camera.flash(FlxColor.WHITE, 3.4);
 			remove(credGroup);
+
+			FlxTween.tween(titleBG,{y: 0}, 2.8, {ease: FlxEase.expoOut});
 
 			FlxTween.tween(logoBl,{y: -80}, 1.4, {ease: FlxEase.expoInOut});
 
