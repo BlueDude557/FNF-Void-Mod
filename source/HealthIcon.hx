@@ -51,6 +51,7 @@ class HealthIcon extends FlxSprite
 		animation.add('ac-void', [28, 29], 0, false, isPlayer);
 		animation.add('accretions', [30, 31], 0, false, isPlayer);
 		animation.add('starbreak', [32, 33], 0, false, isPlayer);
+		animation.add('starbreak-night', [32, 33], 0, false, isPlayer);
 		animation.play(char);
 
 		switch(char)

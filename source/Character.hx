@@ -461,18 +461,52 @@ class Character extends FlxSprite
 		        playAnim('idle');
 
 			case 'accretions':
-		        frames = Paths.getSparrowAtlas('characters/accretions_assets');
+		        frames = Paths.getSparrowAtlas('characters/accretion_assets');
 		        animation.addByPrefix('idle', 'Accretions Idle', 24, false);
-		        animation.addByPrefix('singUP', 'Accretions Up Note', 18, false);
-		        animation.addByPrefix('singDOWN', 'Accretions Down Note', 18, false);
-		        animation.addByPrefix('singLEFT', 'Accretions Left Note', 18, false);
-		        animation.addByPrefix('singRIGHT', 'Accretions Right Note', 18, false);
+		        animation.addByPrefix('singUP', 'Accretions Up Note', 12, false);
+		        animation.addByPrefix('singDOWN', 'Accretions Down Note', 12, false);
+		        animation.addByPrefix('singLEFT', 'Accretions Left Note', 12, false);
+		        animation.addByPrefix('singRIGHT', 'Accretions Right Note', 12, false);
 
 				animation.addByPrefix('cough', 'Accretions Cough', 12, false);
 
 				//loadOffsetFile(curCharacter);
 
 		        playAnim('idle');
+
+			case 'starbreak':
+		        frames = Paths.getSparrowAtlas('characters/starbreak_assets');
+		        animation.addByPrefix('idle', 'Star Idle', 24, false);
+		        animation.addByPrefix('singUP', 'Star Up Note Sing', 20, false);
+		        animation.addByPrefix('singDOWN', 'Star Down Note Sing', 20, false);
+		        animation.addByPrefix('singLEFT', 'Star Left Note Sing', 20, false);
+		        animation.addByPrefix('singRIGHT', 'Star Right Note Sing', 20, false);
+
+		        animation.addByPrefix('singUP-alt', 'Star Up Note Play', 20, false);
+		        animation.addByPrefix('singDOWN-alt', 'Star Down Note Play', 20, false);
+		        animation.addByPrefix('singLEFT-alt', 'Star Left Note Play', 20, false);
+		        animation.addByPrefix('singRIGHT-alt', 'Star Right Note Play', 20, false);
+
+				//loadOffsetFile(curCharacter);
+
+		        playAnim('idle');
+
+			case 'starbreak-night':
+				frames = Paths.getSparrowAtlas('characters/starbreak_night_assets');
+				animation.addByPrefix('idle', 'Star Idle', 24, false);
+				animation.addByPrefix('singUP', 'Star Up Note Sing', 20, false);
+				animation.addByPrefix('singDOWN', 'Star Down Note Sing', 20, false);
+				animation.addByPrefix('singLEFT', 'Star Left Note Sing', 20, false);
+				animation.addByPrefix('singRIGHT', 'Star Right Note Sing', 20, false);
+
+				animation.addByPrefix('singUP-alt', 'Star Up Note Play', 20, false);
+				animation.addByPrefix('singDOWN-alt', 'Star Down Note Play', 20, false);
+				animation.addByPrefix('singLEFT-alt', 'Star Left Note Play', 20, false);
+				animation.addByPrefix('singRIGHT-alt', 'Star Right Note Play', 20, false);
+
+				//loadOffsetFile(curCharacter);
+
+				playAnim('idle');
         }
 
 		dance();
