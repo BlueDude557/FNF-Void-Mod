@@ -3,9 +3,9 @@ singUP -170 50
 singRIGHT -200 50
 singLEFT -100 50
 singDOWN -180 50
-singUP-alt -170 170
-singRIGHT-alt -380 80
-singLEFT-alt 20 80
+singUP-alt -170 200
+singRIGHT-alt -410 80
+singLEFT-alt 50 80
 singDOWN-alt -170 50
 wink -170 -50
 seethe -170 -50
