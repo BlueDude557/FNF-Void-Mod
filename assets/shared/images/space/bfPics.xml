@@ -18,4 +18,12 @@
 	<SubTexture name="Bf Ready instance 10001" x="1500" y="500" width="500" height="490"/>
 	<SubTexture name="Bf Ready instance 10002" x="1500" y="1000" width="500" height="490"/>
 	<SubTexture name="Bf Ready instance 10003" x="1500" y="1000" width="500" height="490"/>
+        <SubTexture name="Accretion Normal instance 10000" x="2000" y="0" width="500" height="490"/>
+	<SubTexture name="Accretion Normal instance 10001" x="2000" y="500" width="500" height="490"/>
+	<SubTexture name="Accretion Normal instance 10002" x="2000" y="1000" width="500" height="490"/>
+	<SubTexture name="Accretion Normal instance 10003" x="2000" y="1000" width="500" height="490"/>
+        <SubTexture name="Accretion Umm instance 10000" x="2500" y="0" width="500" height="490"/>
+	<SubTexture name="Accretion Umm instance 10001" x="2500" y="500" width="500" height="490"/>
+	<SubTexture name="Accretion Umm instance 10002" x="2500" y="1000" width="500" height="490"/>
+	<SubTexture name="Accretion Umm instance 10003" x="2500" y="1000" width="500" height="490"/>
 </TextureAtlas>
