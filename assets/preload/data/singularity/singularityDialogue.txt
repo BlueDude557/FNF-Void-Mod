@@ -9,7 +9,7 @@
 :v3: ...A rematch?
 :v3: .....
 :bf2: ???
-:v5: You come here, you SOMEHOW survive the concert, and NOW you have the audacity to ask me for a REMATCH?? YOU-
+:v5: You come out here, survive MY concert, and NOW you have the audacity to ask me for A REMATCH?? YOU-
 :v4: Okayokayokay, CALM down...
 :v3: Look. You don't know how many spa days I've spent trying to get you off my mind since the concert.
 :v5: Hell, I would've been glad to never see your stupid face again. But you just had to come back to rub it in...
@@ -20,6 +20,6 @@
 :v7: ...Y'know... I-I don't know what I... Uh, got so worked up for...
 :bf3: ...Bah doo? Beep?
 :v7: Hey! I-I'm fine... Y'know uh, y-you did DECENT last time, yeah?
-:v2: Yeah right. Beginner's luck. Without an audience, now I can FOCUS. It's just you 'n me.
-:v1: ...And my Accretions, but I hardly pay attention to 'em anyway.
-:a2: (...Yeah. Thanks.)
+:v2: Yeah right. Beginner's luck. Without an audience, now I can FOCUS. It's just you 'n me, pal.
+:v1: ...And my Accretions, but I hardly pay attention to 'em anyway, sooo.
+:a2: (...Uh huh. Thanks.)
