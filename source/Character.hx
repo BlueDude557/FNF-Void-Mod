@@ -99,6 +99,25 @@ class Character extends FlxSprite
 				updateHitbox();
 				antialiasing = false;
 
+			case 'gf-night':
+				tex = Paths.getSparrowAtlas('gfNight','shared',true);
+				frames = tex;
+				animation.addByPrefix('cheer', 'GF Cheer', 24, false);
+				animation.addByPrefix('singLEFT', 'GF left note', 24, false);
+				animation.addByPrefix('singRIGHT', 'GF Right Note', 24, false);
+				animation.addByPrefix('singUP', 'GF Up Note', 24, false);
+				animation.addByPrefix('singDOWN', 'GF Down Note', 24, false);
+				animation.addByIndices('sad', 'gf sad', [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12], "", 24, false);
+				animation.addByIndices('danceLeft', 'GF Dancing Beat', [30, 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14], "", 24, false);
+				animation.addByIndices('danceRight', 'GF Dancing Beat', [15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29], "", 24, false);
+				animation.addByIndices('hairBlow', "GF Dancing Beat Hair blowing", [0, 1, 2, 3], "", 24);
+				animation.addByIndices('hairFall', "GF Dancing Beat Hair Landing", [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11], "", 24, false);
+				animation.addByPrefix('scared', 'GF FEAR', 24);
+
+				loadOffsetFile(curCharacter);
+
+				playAnim('danceRight');
+
 			case 'dad':
 				// DAD ANIMATION LOADING CODE
 				tex = Paths.getSparrowAtlas('DADDY_DEAREST','shared',true);
@@ -274,6 +293,36 @@ class Character extends FlxSprite
 				playAnim('idle');
 
 				flipX = true;
+
+			case 'bf-night':
+				var tex = Paths.getSparrowAtlas('bfNight','shared',true);
+				frames = tex;
+
+				trace(tex.frames.length);
+
+				animation.addByPrefix('idle', 'BF idle dance', 24, false);
+				animation.addByPrefix('singUP', 'BF NOTE UP0', 24, false);
+				animation.addByPrefix('singLEFT', 'BF NOTE LEFT0', 24, false);
+				animation.addByPrefix('singRIGHT', 'BF NOTE RIGHT0', 24, false);
+				animation.addByPrefix('singDOWN', 'BF NOTE DOWN0', 24, false);
+				animation.addByPrefix('singUPmiss', 'BF NOTE UP MISS', 24, false);
+				animation.addByPrefix('singLEFTmiss', 'BF NOTE LEFT MISS', 24, false);
+				animation.addByPrefix('singRIGHTmiss', 'BF NOTE RIGHT MISS', 24, false);
+				animation.addByPrefix('singDOWNmiss', 'BF NOTE DOWN MISS', 24, false);
+				animation.addByPrefix('hey', 'BF HEY', 24, false);
+
+				animation.addByPrefix('firstDeath', "BF dies", 24, false);
+				animation.addByPrefix('deathLoop', "BF Dead Loop", 24, false);
+				animation.addByPrefix('deathConfirm', "BF Dead confirm", 24, false);
+
+				animation.addByPrefix('scared', 'BF idle shaking', 24);
+
+				loadOffsetFile(curCharacter);
+
+				playAnim('idle');
+
+				flipX = true;
+
 			case 'bf-pixel':
 				frames = Paths.getSparrowAtlas('bfPixel','shared',true);
 				animation.addByPrefix('idle', 'BF IDLE', 24, false);
@@ -440,16 +489,16 @@ class Character extends FlxSprite
 
 			case 'ac-void':
 				frames = Paths.getSparrowAtlas('characters/ac_void_assets');
-		        animation.addByPrefix('idle', 'Void Idle', 24, false);
+		        animation.addByPrefix('idle', 'Void Idle', 16, false);
 		        animation.addByPrefix('singUP', 'Void Up Note Chill', 20, false);
 		        animation.addByPrefix('singDOWN', 'Void Down Note Chill', 20, false);
 		        animation.addByPrefix('singLEFT', 'Void Left Note Chill', 20, false);
-		        animation.addByPrefix('singRIGHT', 'Void Right Note Chill', 26, false);
+		        animation.addByPrefix('singRIGHT', 'Void Right Note Chill', 20, false);
 
 		        animation.addByPrefix('singUP-alt', 'Void Up Note Hype', 20, false);
 		        animation.addByPrefix('singDOWN-alt', 'Void Down Note Hype', 20, false);
 		        animation.addByPrefix('singLEFT-alt', 'Void Left Note Hype', 20, false);
-		        animation.addByPrefix('singRIGHT-alt', 'Void Right Note Hype', 26, false);
+		        animation.addByPrefix('singRIGHT-alt', 'Void Right Note Hype', 20, false);
 
 			//	animation.addByPrefix('wink', 'Void Wink', 12, false);
 			//	animation.addByPrefix('seethe', 'Void Seethe', 24, false);
@@ -477,32 +526,32 @@ class Character extends FlxSprite
 			case 'starbreak':
 		        frames = Paths.getSparrowAtlas('characters/starbreak_assets');
 		        animation.addByPrefix('idle', 'Star Idle', 24, false);
-		        animation.addByPrefix('singUP', 'Star Up Note Sing', 20, false);
-		        animation.addByPrefix('singDOWN', 'Star Down Note Sing', 20, false);
-		        animation.addByPrefix('singLEFT', 'Star Left Note Sing', 20, false);
-		        animation.addByPrefix('singRIGHT', 'Star Right Note Sing', 20, false);
+		        animation.addByPrefix('singUP', 'Star Up Note Sing', 12, false);
+		        animation.addByPrefix('singDOWN', 'Star Down Note Sing', 12, false);
+		        animation.addByPrefix('singLEFT', 'Star Left Note Sing', 12, false);
+		        animation.addByPrefix('singRIGHT', 'Star Right Note Sing', 12, false);
 
-		        animation.addByPrefix('singUP-alt', 'Star Up Note Play', 20, false);
-		        animation.addByPrefix('singDOWN-alt', 'Star Down Note Play', 20, false);
-		        animation.addByPrefix('singLEFT-alt', 'Star Left Note Play', 20, false);
-		        animation.addByPrefix('singRIGHT-alt', 'Star Right Note Play', 20, false);
+		        animation.addByPrefix('singUP-alt', 'Star Up Note Play', 12, false);
+		        animation.addByPrefix('singDOWN-alt', 'Star Down Note Play', 12, false);
+		        animation.addByPrefix('singLEFT-alt', 'Star Left Note Play', 12, false);
+		        animation.addByPrefix('singRIGHT-alt', 'Star Right Note Play', 12, false);
 
 				//loadOffsetFile(curCharacter);
 
 		        playAnim('idle');
 
 			case 'starbreak-night':
-				frames = Paths.getSparrowAtlas('characters/starbreak_night_assets');
+				frames = Paths.getSparrowAtlas('characters/starbreakNight');
 				animation.addByPrefix('idle', 'Star Idle', 24, false);
-				animation.addByPrefix('singUP', 'Star Up Note Sing', 20, false);
-				animation.addByPrefix('singDOWN', 'Star Down Note Sing', 20, false);
-				animation.addByPrefix('singLEFT', 'Star Left Note Sing', 20, false);
-				animation.addByPrefix('singRIGHT', 'Star Right Note Sing', 20, false);
+				animation.addByPrefix('singUP', 'Star Up Note Sing', 12, false);
+				animation.addByPrefix('singDOWN', 'Star Down Note Sing', 12, false);
+				animation.addByPrefix('singLEFT', 'Star Left Note Sing', 12, false);
+				animation.addByPrefix('singRIGHT', 'Star Right Note Sing', 12, false);
 
-				animation.addByPrefix('singUP-alt', 'Star Up Note Play', 20, false);
-				animation.addByPrefix('singDOWN-alt', 'Star Down Note Play', 20, false);
-				animation.addByPrefix('singLEFT-alt', 'Star Left Note Play', 20, false);
-				animation.addByPrefix('singRIGHT-alt', 'Star Right Note Play', 20, false);
+				animation.addByPrefix('singUP-alt', 'Star Up Note Play', 12, false);
+				animation.addByPrefix('singDOWN-alt', 'Star Down Note Play', 12, false);
+				animation.addByPrefix('singLEFT-alt', 'Star Left Note Play', 12, false);
+				animation.addByPrefix('singRIGHT-alt', 'Star Right Note Play', 12, false);
 
 				//loadOffsetFile(curCharacter);
 
