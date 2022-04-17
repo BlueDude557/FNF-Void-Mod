@@ -197,4 +197,25 @@
         <SubTexture name="Void Intro0026" x="3750" y="6500" width="750" height="850" frameX="0" frameY="0" frameWidth="750" frameHeight="850"/>
         <SubTexture name="Void Intro0027" x="2250" y="6500" width="750" height="850" frameX="0" frameY="0" frameWidth="750" frameHeight="850"/>
         <SubTexture name="Void Intro0028" x="2250" y="6500" width="750" height="850" frameX="0" frameY="0" frameWidth="750" frameHeight="850"/>
+        <SubTexture name="Void Confused0000" x="0" y="4800" width="750" height="850" frameX="0" frameY="0" frameWidth="750" frameHeight="850"/>
+        <SubTexture name="Void Pose0000" x="750" y="4800" width="750" height="850" frameX="0" frameY="0" frameWidth="750" frameHeight="850"/>
+        <SubTexture name="Void Pose0001" x="1500" y="4800" width="750" height="850" frameX="0" frameY="0" frameWidth="750" frameHeight="850"/>
+        <SubTexture name="Void Pose0002" x="2250" y="4800" width="750" height="850" frameX="0" frameY="0" frameWidth="750" frameHeight="850"/>
+        <SubTexture name="Void Pose0003" x="3000" y="4800" width="750" height="850" frameX="0" frameY="0" frameWidth="750" frameHeight="850"/>
+        <SubTexture name="Void Pose0004" x="3000" y="4800" width="750" height="850" frameX="0" frameY="0" frameWidth="750" frameHeight="850"/>
+        <SubTexture name="Void Pose0006" x="3000" y="4800" width="750" height="850" frameX="0" frameY="0" frameWidth="750" frameHeight="850"/>
+        <SubTexture name="Void Pose0007" x="3000" y="4800" width="750" height="850" frameX="0" frameY="0" frameWidth="750" frameHeight="850"/>
+        <SubTexture name="Void Pose0008" x="3000" y="4800" width="750" height="850" frameX="0" frameY="0" frameWidth="750" frameHeight="850"/>
+        <SubTexture name="Void Pose0009" x="3000" y="4800" width="750" height="850" frameX="0" frameY="0" frameWidth="750" frameHeight="850"/>
+        <SubTexture name="Void Pose0010" x="3000" y="4800" width="750" height="850" frameX="0" frameY="0" frameWidth="750" frameHeight="850"/>
+        <SubTexture name="Void Pose0011" x="3000" y="4800" width="750" height="850" frameX="0" frameY="0" frameWidth="750" frameHeight="850"/>
+        <SubTexture name="Void Pose0012" x="3000" y="4800" width="750" height="850" frameX="0" frameY="0" frameWidth="750" frameHeight="850"/>
+        <SubTexture name="Void PoseWink0000" x="3750" y="4800" width="750" height="850" frameX="0" frameY="0" frameWidth="750" frameHeight="850"/>
+        <SubTexture name="Void PoseWink0001" x="4500" y="4800" width="750" height="850" frameX="0" frameY="0" frameWidth="750" frameHeight="850"/>
+        <SubTexture name="Void PoseWink0002" x="5250" y="4800" width="750" height="850" frameX="0" frameY="0" frameWidth="750" frameHeight="850"/>
+        <SubTexture name="Void PoseWink0003" x="5250" y="4800" width="750" height="850" frameX="0" frameY="0" frameWidth="750" frameHeight="850"/>
+        <SubTexture name="Void PoseWink0004" x="5250" y="4800" width="750" height="850" frameX="0" frameY="0" frameWidth="750" frameHeight="850"/>
+        <SubTexture name="Void PoseWink0005" x="5250" y="4800" width="750" height="850" frameX="0" frameY="0" frameWidth="750" frameHeight="850"/>
+        <SubTexture name="Void PoseWink0006" x="5250" y="4800" width="750" height="850" frameX="0" frameY="0" frameWidth="750" frameHeight="850"/>
+        <SubTexture name="Void PoseWink0007" x="5250" y="4800" width="750" height="850" frameX="0" frameY="0" frameWidth="750" frameHeight="850"/>
 </TextureAtlas>
