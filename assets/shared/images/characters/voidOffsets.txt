@@ -9,4 +9,7 @@ singLEFT-alt -60 50
 singDOWN-alt -170 50
 wink -170 -50
 seethe -170 -50
+pose -170 -50
+pose-wink -170 -50
+confused -170 -50
 sickintro -170 -50
