@@ -1,8 +1,8 @@
 Asteroids:void:0
 Weightless:void:0
 Event Horizon:void:0
-Singularity:void:1
+Ultraviolet:void:1
 Null:mad-void:1
-Oblivion:ac-void:1
+Singularity:ac-void:1
 Security:accretions:2
 Stardust:starbreak:2
