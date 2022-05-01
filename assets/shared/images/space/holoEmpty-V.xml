@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<TextureAtlas imagePath="holoEmptyV.png">
+<TextureAtlas imagePath="holoEmpty-V.png">
 	<!-- Lol I literally just edited this in Notepad. The original was created with Adobe Animate version 20.0.0.17400 tho -->
 	<!-- http://www.adobe.com/products/animate.html -->
 	<SubTexture name="Holo Boppers0000" x="0" y="0" width="1729" height="955" frameX="0" frameY="0" frameWidth="1729" frameHeight="955"/>
