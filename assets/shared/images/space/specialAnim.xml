@@ -22,12 +22,12 @@
         <SubTexture name="Void PoseWink0005" x="5250" y="0" width="750" height="850" frameX="0" frameY="0" frameWidth="750" frameHeight="850"/>
         <SubTexture name="Void PoseWink0006" x="5250" y="0" width="750" height="850" frameX="0" frameY="0" frameWidth="750" frameHeight="850"/>
         <SubTexture name="Void PoseWink0007" x="5250" y="0" width="750" height="850" frameX="0" frameY="0" frameWidth="750" frameHeight="850"/>
-	<SubTexture name="Succ0000" x="0" y="850" width="750" height="850" frameX="0" frameY="0" frameWidth="1000" frameHeight="850"/>
-	<SubTexture name="Succ0001" x="1000" y="850" width="750" height="850" frameX="0" frameY="0" frameWidth="1000" frameHeight="850"/>
-	<SubTexture name="Succ0002" x="2000" y="850" width="750" height="850" frameX="0" frameY="0" frameWidth="1000" frameHeight="850"/>
-	<SubTexture name="Succ0003" x="3000" y="850" width="750" height="850" frameX="0" frameY="0" frameWidth="1000" frameHeight="850"/>
-	<SubTexture name="Succ0004" x="4000" y="850" width="750" height="850" frameX="0" frameY="0" frameWidth="1000" frameHeight="850"/>
-	<SubTexture name="Succ0005" x="5000" y="850" width="750" height="850" frameX="0" frameY="0" frameWidth="1000" frameHeight="850"/>
+	<SubTexture name="Succ0000" x="0" y="850" width="1000" height="850" frameX="0" frameY="0" frameWidth="1000" frameHeight="850"/>
+	<SubTexture name="Succ0001" x="1000" y="850" width="1000" height="850" frameX="0" frameY="0" frameWidth="1000" frameHeight="850"/>
+	<SubTexture name="Succ0002" x="2000" y="850" width="1000" height="850" frameX="0" frameY="0" frameWidth="1000" frameHeight="850"/>
+	<SubTexture name="Succ0003" x="3000" y="850" width="1000" height="850" frameX="0" frameY="0" frameWidth="1000" frameHeight="850"/>
+	<SubTexture name="Succ0004" x="4000" y="850" width="1000" height="850" frameX="0" frameY="0" frameWidth="1000" frameHeight="850"/>
+	<SubTexture name="Succ0005" x="5000" y="850" width="1000" height="850" frameX="0" frameY="0" frameWidth="1000" frameHeight="850"/>
         <SubTexture name="Deafeat0000" x="0" y="1700" width="750" height="850" frameX="0" frameY="0" frameWidth="750" frameHeight="850"/>
 	<SubTexture name="Deafeat0001" x="750" y="1700" width="750" height="850" frameX="0" frameY="0" frameWidth="750" frameHeight="850"/>
 	<SubTexture name="Deafeat0002" x="1500" y="1700" width="750" height="850" frameX="0" frameY="0" frameWidth="750" frameHeight="850"/>
