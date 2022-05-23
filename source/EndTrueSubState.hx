@@ -52,9 +52,9 @@ class EndTrueSubState extends MusicBeatState
 
 		new FlxTimer().start(3.4, function(tmr:FlxTimer)
 		{
-			if(txt.y == 395) FlxTween.tween(txt, {y: 380}, 3.3, 
+			if(txt.y == 355) FlxTween.tween(txt, {y: 340}, 3.3, 
 				{ease: FlxEase.quadInOut});
-			else  FlxTween.tween(txt, {y: 395}, 3.3, 
+			else  FlxTween.tween(txt, {y: 355}, 3.3, 
 				{ease: FlxEase.quadInOut});
 		}, 0);
 
