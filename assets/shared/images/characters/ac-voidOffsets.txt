@@ -7,6 +7,4 @@ singUP-alt -170 200
 singRIGHT-alt -410 80
 singLEFT-alt 50 80
 singDOWN-alt -170 50
-wink -170 -50
-seethe -170 -50
-sickintro -170 -50
+windup -170 -50
