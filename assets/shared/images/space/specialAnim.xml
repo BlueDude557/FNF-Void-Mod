@@ -47,5 +47,8 @@
 	<SubTexture name="Defeat0016" x="2250" y="2550" width="750" height="850" frameX="0" frameY="0" frameWidth="750" frameHeight="850"/>
 	<SubTexture name="Defeat0017" x="3000" y="2550" width="750" height="850" frameX="0" frameY="0" frameWidth="750" frameHeight="850"/>
 	<SubTexture name="Defeat0018" x="3750" y="2550" width="750" height="850" frameX="0" frameY="0" frameWidth="750" frameHeight="850"/>
-	<SubTexture name="Defeat0010" x="3750" y="2550" width="750" height="850" frameX="0" frameY="0" frameWidth="750" frameHeight="850"/>
+	<SubTexture name="Defeat0019" x="3750" y="2550" width="750" height="850" frameX="0" frameY="0" frameWidth="750" frameHeight="850"/>
+        <SubTexture name="Scream0000" x="0" y="3400" width="750" height="850" frameX="0" frameY="0" frameWidth="750" frameHeight="850"/>
+	<SubTexture name="Scream0001" x="750" y="3400" width="750" height="850" frameX="0" frameY="0" frameWidth="750" frameHeight="850"/>
+	<SubTexture name="Scream0002" x="1500" y="3400" width="750" height="850" frameX="0" frameY="0" frameWidth="750" frameHeight="850"/>
 </TextureAtlas>
