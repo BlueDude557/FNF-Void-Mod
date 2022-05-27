@@ -7,4 +7,4 @@ singUP-alt -170 200
 singRIGHT-alt -410 80
 singLEFT-alt 50 80
 singDOWN-alt -170 50
-windup -170 -150
+windup -170 -550
