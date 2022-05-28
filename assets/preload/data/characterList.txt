@@ -17,6 +17,8 @@ senpai-angry
 spirit
 void
 mad-void
+hurt-void
+darkcrazed-void
 crazed-void
 ac-void
 accretions

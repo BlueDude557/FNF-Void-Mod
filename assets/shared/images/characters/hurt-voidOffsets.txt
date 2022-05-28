@@ -1,0 +1,9 @@
+idle -170 50
+singUP -170 50
+singRIGHT -170 50
+singLEFT -170 50
+singDOWN -170 50
+flinch A -170 -50
+flinch B -170 -50
+snap A -170 -50
+snap B -170 -50

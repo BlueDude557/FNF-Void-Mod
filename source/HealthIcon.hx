@@ -27,6 +27,7 @@ class HealthIcon extends FlxSprite
 		animation.add('bf', [0, 1], 0, false, isPlayer);
 		animation.add('bf-car', [0, 1], 0, false, isPlayer);
 		animation.add('bf-christmas', [0, 1], 0, false, isPlayer);
+		animation.add('bf-night', [0, 1], 0, false, isPlayer);
 		animation.add('bf-pixel', [21, 21], 0, false, isPlayer);
 		animation.add('spooky', [2, 3], 0, false, isPlayer);
 		animation.add('pico', [4, 5], 0, false, isPlayer);
@@ -41,12 +42,15 @@ class HealthIcon extends FlxSprite
 		animation.add('bf-old', [14, 15], 0, false, isPlayer);
 		animation.add('gf', [16], 0, false, isPlayer);
 		animation.add('gf-christmas', [16], 0, false, isPlayer);
+		animation.add('gf-night', [16], 0, false, isPlayer);
 		animation.add('gf-pixel', [16], 0, false, isPlayer);
 		animation.add('parents-christmas', [17, 18], 0, false, isPlayer);
 		animation.add('monster', [19, 20], 0, false, isPlayer);
 		animation.add('monster-christmas', [19, 20], 0, false, isPlayer);
 		animation.add('void', [24, 25], 0, false, isPlayer);
 		animation.add('mad-void', [25, 26], 0, false, isPlayer);
+		animation.add('hurt-void', [26, 26], 0, false, isPlayer);
+		animation.add('darkcrazed-void', [27, 27], 0, false, isPlayer);
 		animation.add('crazed-void', [27, 27], 0, false, isPlayer);
 		animation.add('ac-void', [28, 29], 0, false, isPlayer);
 		animation.add('accretions', [30, 31], 0, false, isPlayer);

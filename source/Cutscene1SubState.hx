@@ -31,7 +31,7 @@ import flixel.group.FlxGroup.FlxTypedGroup;
 import flixel.input.gamepad.FlxGamepad;
 import lime.utils.Assets;
 
-class Cutscene2SubState extends MusicBeatState
+class Cutscene1SubState extends MusicBeatState
 {
 	public static var leftState:Bool = false;
 
@@ -55,8 +55,6 @@ class Cutscene2SubState extends MusicBeatState
 
 		void.animation.play('anim1', true);
 
-		FlxG.sound.play(Paths.sound('Ambience', 'shared'), 0.8);
-
 		var txt:FlxText = new FlxText(0, 600, FlxG.width,
 			"Press enter to skip",
 			24);
@@ -68,22 +66,28 @@ class Cutscene2SubState extends MusicBeatState
 		txt.alpha = 0.7;
 		add(txt);
 
-		new FlxTimer().start(0.9, function(tmr:FlxTimer)
+		new FlxTimer().start(0.3, function(tmr:FlxTimer)
 		{
-			FlxG.sound.play(Paths.sound('VoidVoiceline1', 'shared'), 1.0);
+			FlxG.sound.play(Paths.sound('VoidVoiceline1', 'shared'), 0.8);
 		}, 1);
 
 		new FlxTimer().start(1.5, function(tmr:FlxTimer)
 		{
 			FlxTween.tween(txt, {alpha: 0}, 1, 
 				{ease: FlxEase.quadIn});
+
 		}, 1);
 
-		new FlxTimer().start(1.8, function(tmr:FlxTimer)
+		new FlxTimer().start(2.2, function(tmr:FlxTimer)
 		{
 			FlxG.sound.play(Paths.sound('Whoosh', 'shared'), 1.0);
 
+		}, 1);
+
+		new FlxTimer().start(3.3, function(tmr:FlxTimer)
+		{
 			FlxTween.tween(void,{y: 0}, 3, {ease: FlxEase.expoOut});
+
 		}, 1);
 
 		new FlxTimer().start(6.5, function(tmr:FlxTimer)
@@ -99,7 +103,7 @@ class Cutscene2SubState extends MusicBeatState
 
 		}, 1);
 
-		new FlxTimer().start(10.2, function(tmr:FlxTimer)
+		new FlxTimer().start(10.4, function(tmr:FlxTimer)
 		{
 			void.alpha = 0;
 

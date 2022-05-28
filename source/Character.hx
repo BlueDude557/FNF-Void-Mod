@@ -17,6 +17,8 @@ class Character extends FlxSprite
 
 	public var holdTimer:Float = 0;
 
+	public var canSing:Bool = true;
+
 	public function new(x:Float, y:Float, ?character:String = "bf", ?isPlayer:Bool = false)
 	{
 		super(x, y);
@@ -311,11 +313,11 @@ class Character extends FlxSprite
 				animation.addByPrefix('singDOWNmiss', 'BF NOTE DOWN MISS', 24, false);
 				animation.addByPrefix('hey', 'BF HEY', 24, false);
 
-				animation.addByPrefix('firstDeath', "BF dies", 24, false);
-				animation.addByPrefix('deathLoop', "BF Dead Loop", 24, false);
-				animation.addByPrefix('deathConfirm', "BF Dead confirm", 24, false);
+				// animation.addByPrefix('firstDeath', "BF dies", 24, false);
+				// animation.addByPrefix('deathLoop', "BF Dead Loop", 24, false);
+				// animation.addByPrefix('deathConfirm', "BF Dead confirm", 24, false);
 
-				animation.addByPrefix('scared', 'BF idle shaking', 24);
+				// animation.addByPrefix('scared', 'BF idle shaking', 24);
 
 				loadOffsetFile(curCharacter);
 
@@ -446,8 +448,11 @@ class Character extends FlxSprite
 
 				animation.addByPrefix('wink', 'Void Wink', 12, false);
 				animation.addByPrefix('seethe', 'Void Seethe', 24, false);
+				animation.addByPrefix('pose', 'Void Pose', 20, false);
+				animation.addByPrefix('pose-wink', 'Void PoseWink', 12, false);
 
 				animation.addByPrefix('sickintro', 'Void Intro', 12, false);
+				animation.addByPrefix('confused', 'Void Confused', 12, false);
 
 				loadOffsetFile(curCharacter);
 
@@ -455,6 +460,46 @@ class Character extends FlxSprite
 
 			case 'mad-void':
 		        frames = Paths.getSparrowAtlas('characters/mad_void_assets');
+		        animation.addByPrefix('idle', 'Void Idle', 24, false);
+		        animation.addByPrefix('singUP', 'Void Up Note Chill', 20, false);
+		        animation.addByPrefix('singDOWN', 'Void Down Note Chill', 20, false);
+		        animation.addByPrefix('singLEFT', 'Void Left Note Chill', 20, false);
+		        animation.addByPrefix('singRIGHT', 'Void Right Note Chill', 26, false);
+
+		        animation.addByPrefix('singUP-alt', 'Void Up Note Hype', 20, false);
+		        animation.addByPrefix('singDOWN-alt', 'Void Down Note Hype', 20, false);
+		        animation.addByPrefix('singLEFT-alt', 'Void Left Note Hype', 20, false);
+		        animation.addByPrefix('singRIGHT-alt', 'Void Right Note Hype', 26, false);
+
+				loadOffsetFile(curCharacter);
+
+		        playAnim('idle');
+
+			case 'hurt-void':
+		        frames = Paths.getSparrowAtlas('characters/hurt_void_assets');
+		        animation.addByPrefix('idle', 'Void Idle', 24, false);
+		        animation.addByPrefix('singUP', 'Void Up Note Chill', 12, false);
+		        animation.addByPrefix('singDOWN', 'Void Down Note Chill', 12, false);
+		        animation.addByPrefix('singLEFT', 'Void Left Note Chill', 12, false);
+		        animation.addByPrefix('singRIGHT', 'Void Right Note Chill', 12, false);
+
+		        // animation.addByPrefix('singUP-alt', 'Void Up Note Hype', 20, false);
+		        // animation.addByPrefix('singDOWN-alt', 'Void Down Note Hype', 20, false);
+		        // animation.addByPrefix('singLEFT-alt', 'Void Left Note Hype', 20, false);
+		        // animation.addByPrefix('singRIGHT-alt', 'Void Right Note Hype', 26, false);
+
+				animation.addByPrefix('flinch A', 'Flinch A', 12, false);
+				animation.addByPrefix('flinch B', 'Flinch B', 12, false);
+
+				animation.addByPrefix('snap A', 'Snap A', 20, false);
+				animation.addByPrefix('snap B', 'Snap B', 12, false);
+
+				loadOffsetFile(curCharacter);
+
+		        playAnim('idle');
+
+			case 'darkcrazed-void':
+		        frames = Paths.getSparrowAtlas('characters/darkcrazed_void_assets');
 		        animation.addByPrefix('idle', 'Void Idle', 24, false);
 		        animation.addByPrefix('singUP', 'Void Up Note Chill', 20, false);
 		        animation.addByPrefix('singDOWN', 'Void Down Note Chill', 20, false);
@@ -499,6 +544,8 @@ class Character extends FlxSprite
 		        animation.addByPrefix('singDOWN-alt', 'Void Down Note Hype', 20, false);
 		        animation.addByPrefix('singLEFT-alt', 'Void Left Note Hype', 20, false);
 		        animation.addByPrefix('singRIGHT-alt', 'Void Right Note Hype', 20, false);
+
+				animation.addByPrefix('windup', 'Void Windup', 20, false);
 
 			//	animation.addByPrefix('wink', 'Void Wink', 12, false);
 			//	animation.addByPrefix('seethe', 'Void Seethe', 24, false);
@@ -636,7 +683,7 @@ class Character extends FlxSprite
 		{
 			switch (curCharacter)
 			{
-				case 'gf' | 'gf-christmas' | 'gf-car' | 'gf-pixel':
+				case 'gf' | 'gf-christmas' | 'gf-car' | 'gf-pixel' | 'gf-night':
 					if (!animation.curAnim.name.startsWith('hair'))
 					{
 						danced = !danced;
@@ -661,15 +708,34 @@ class Character extends FlxSprite
 
 	public function playAnim(AnimName:String, Force:Bool = false, Reversed:Bool = false, Frame:Int = 0):Void
 	{
-		animation.play(AnimName, Force, Reversed, Frame);
-
-		var daOffset = animOffsets.get(AnimName);
-		if (animOffsets.exists(AnimName))
+		if (canSing)
 		{
-			offset.set(daOffset[0], daOffset[1]);
+			animation.play(AnimName, Force, Reversed, Frame);
+
+			var daOffset = animOffsets.get(AnimName);
+			if (animOffsets.exists(AnimName))
+			{
+				offset.set(daOffset[0], daOffset[1]);
+			}
+			else
+				offset.set(0, 0);
 		}
-		else
-			offset.set(0, 0);
+		
+		if (!canSing)
+		{
+			if (!animation.curAnim.name.startsWith("sing"))
+			{
+				animation.play(AnimName, Force, Reversed, Frame);
+
+				var daOffset = animOffsets.get(AnimName);
+				if (animOffsets.exists(AnimName))
+				{
+					offset.set(daOffset[0], daOffset[1]);
+				}
+				else
+					offset.set(0, 0);
+			}
+		}
 
 		if (curCharacter == 'gf')
 		{
