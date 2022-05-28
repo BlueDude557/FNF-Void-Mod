@@ -3,7 +3,7 @@ singUP -170 50
 singRIGHT -170 50
 singLEFT -170 50
 singDOWN -170 50
-flinch A -170 -50
-flinch B -170 -50
-snap A -170 -50
-snap B -170 -50
+flinch -170 -50
+secondflinch -170 -50
+snap -170 -50
+secondsnap -170 -50
