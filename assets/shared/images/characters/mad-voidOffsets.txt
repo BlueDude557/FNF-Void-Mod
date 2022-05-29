@@ -10,3 +10,7 @@ singDOWN-alt -170 50
 wink -170 -50
 seethe -170 -50
 sickintro -170 -50
+flinch -170 -50
+secondflinch -170 -50
+snap -170 -50
+secondsnap -170 -50
