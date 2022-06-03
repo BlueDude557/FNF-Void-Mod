@@ -28,7 +28,7 @@ class StoryMenuState extends MusicBeatState
 	{
 		return [
 			['Asteroids', 'Weightless', 'Event Horizon'],
-			['Singularity', 'Null', 'Oblivion']
+			['Ultraviolet', 'Null', 'Singularity']
 		];
 	}
 	var curDifficulty:Int = 1;
@@ -371,7 +371,19 @@ class StoryMenuState extends MusicBeatState
 			PlayState.campaignScore = 0;
 			new FlxTimer().start(1, function(tmr:FlxTimer)
 			{
-				LoadingState.loadAndSwitchState(new PlayState(), true);
+				if (curWeek == 0)
+				{
+					FlxG.sound.music.stop();
+
+					FlxG.switchState(new Cutscene1SubState());
+				}
+
+				if (curWeek == 1)
+				{
+					FlxG.sound.music.stop();
+
+					FlxG.switchState(new Cutscene2SubState());
+				}
 			});
 		}
 	}

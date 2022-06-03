@@ -43,6 +43,12 @@ class FreeplayState extends MusicBeatState
 	var intendedScore:Int = 0;
 	var combo:String = '';
 
+	//hehe
+	var charInputs:String;
+	var secret:String = "STAR";
+
+	static var secretUnlocked:Bool = false;
+
 	private var grpSongs:FlxTypedGroup<Alphabet>;
 	private var curPlaying:Bool = false;
 
@@ -66,31 +72,60 @@ class FreeplayState extends MusicBeatState
 
 	override function create()
 	{
+	
 		var initSonglist = CoolUtil.coolTextFile(Paths.txt('data/freeplaySonglist'));
+
+		var altSonglist = CoolUtil.coolTextFile(Paths.txt('data/freeplaySonglistAlt'));
 
 		//var diffList = "";
 
 		songData = [];
 		songs = [];
 
-		for (i in 0...initSonglist.length)
+		if (!secretUnlocked)
 		{
-			var data:Array<String> = initSonglist[i].split(':');
-			var meta = new SongMetadata(data[0], Std.parseInt(data[2]), data[1]);
-			songs.push(meta);
-			var format = StringTools.replace(meta.songName, " ", "-");
-			switch (format) {
-				case 'Dad-Battle': format = 'Dadbattle';
-				case 'Philly-Nice': format = 'Philly';
+			for (i in 0...initSonglist.length)
+			{
+				var data:Array<String> = initSonglist[i].split(':');
+				var meta = new SongMetadata(data[0], Std.parseInt(data[2]), data[1]);
+				songs.push(meta);
+				var format = StringTools.replace(meta.songName, " ", "-");
+				switch (format) {
+					case 'Dad-Battle': format = 'Dadbattle';
+					case 'Philly-Nice': format = 'Philly';
+				}
+	
+				var diffs = [];
+				FreeplayState.loadDiff(0,format,meta.songName,diffs);
+				FreeplayState.loadDiff(1,format,meta.songName,diffs);
+				FreeplayState.loadDiff(2,format,meta.songName,diffs);
+				FreeplayState.songData.set(meta.songName,diffs);
+				trace('loaded diffs for ' + meta.songName);
+	
 			}
+		}
 
-			var diffs = [];
-			FreeplayState.loadDiff(0,format,meta.songName,diffs);
-			FreeplayState.loadDiff(1,format,meta.songName,diffs);
-			FreeplayState.loadDiff(2,format,meta.songName,diffs);
-			FreeplayState.songData.set(meta.songName,diffs);
-			trace('loaded diffs for ' + meta.songName);
-
+		if (secretUnlocked)
+		{
+			for (i in 0...altSonglist.length)
+			{
+				var data:Array<String> = altSonglist[i].split(':');
+				var meta = new SongMetadata(data[0], Std.parseInt(data[2]), data[1]);
+				songs.push(meta);
+				var format = StringTools.replace(meta.songName, " ", "-");
+				switch (format) {
+					case 'Dad-Battle': format = 'Dadbattle';
+					case 'Philly-Nice': format = 'Philly';
+				}
+	
+				var diffs = [];
+				FreeplayState.loadDiff(0,format,meta.songName,diffs);
+				FreeplayState.loadDiff(1,format,meta.songName,diffs);
+				FreeplayState.loadDiff(2,format,meta.songName,diffs);
+				FreeplayState.songData.set(meta.songName,diffs);
+				trace('loaded diffs for ' + meta.songName);
+	
+			}
 		}
 
 		trace("tryin to load sm files");
@@ -235,6 +270,8 @@ class FreeplayState extends MusicBeatState
 			trace(md);
 		 */
 
+		charInputs = "";
+
 		super.create();
 	}
 
@@ -285,6 +322,8 @@ class FreeplayState extends MusicBeatState
 		var accepted = FlxG.keys.justPressed.ENTER;
 
 		var gamepad:FlxGamepad = FlxG.gamepads.lastActive;
+
+		checkCodeInput();
 
 		if (gamepad != null)
 		{
@@ -489,6 +528,181 @@ class FreeplayState extends MusicBeatState
 			}
 		}
 	}
+
+	//Thanks to the Vs Retrospecter team for coding a sick password system
+	//IM SORRY FOR USING YOUR CODE
+	//CODING IS HARD
+	function checkCodeInput()
+		{
+			if (FlxG.keys.justPressed.ANY)
+			{
+				if (FlxG.keys.justPressed.A)
+				{
+					charInputs += 'A';
+				}
+				else if (FlxG.keys.justPressed.B)
+				{
+					charInputs += 'B';
+				}
+				else if (FlxG.keys.justPressed.C)
+				{
+					charInputs += 'C';
+				}
+				else if (FlxG.keys.justPressed.D)
+				{
+					charInputs += 'D';
+				}
+				else if (FlxG.keys.justPressed.E)
+				{
+					charInputs += 'E';
+				}
+				else if (FlxG.keys.justPressed.F)
+				{
+					charInputs += 'F';
+				}
+				else if (FlxG.keys.justPressed.G)
+				{
+					charInputs += 'G';
+				}
+				else if (FlxG.keys.justPressed.H)
+				{
+					charInputs += 'H';
+				}
+				else if (FlxG.keys.justPressed.I)
+				{
+					charInputs += 'I';
+				}
+				else if (FlxG.keys.justPressed.J)
+				{
+					charInputs += 'J';
+				}
+				else if (FlxG.keys.justPressed.K)
+				{
+					charInputs += 'K';
+				}
+				else if (FlxG.keys.justPressed.L)
+				{
+					charInputs += 'L';
+				}
+				else if (FlxG.keys.justPressed.M)
+				{
+					charInputs += 'M';
+				}
+				else if (FlxG.keys.justPressed.N)
+				{
+					charInputs += 'N';
+				}
+				else if (FlxG.keys.justPressed.O)
+				{
+					charInputs += 'O';
+				}
+				else if (FlxG.keys.justPressed.P)
+				{
+					charInputs += 'P';
+				}
+				else if (FlxG.keys.justPressed.Q)
+				{
+					charInputs += 'Q';
+				}
+				else if (FlxG.keys.justPressed.R)
+				{
+					charInputs += 'R';
+				}
+				else if (FlxG.keys.justPressed.S)
+				{
+					charInputs += 'S';
+				}
+				else if (FlxG.keys.justPressed.T)
+				{
+					charInputs += 'T';
+				}
+				else if (FlxG.keys.justPressed.U)
+				{
+					charInputs += 'U';
+				}
+				else if (FlxG.keys.justPressed.V)
+				{
+					charInputs += 'V';
+				}
+				else if (FlxG.keys.justPressed.W)
+				{
+					charInputs += 'W';
+				}
+				else if (FlxG.keys.justPressed.X)
+				{
+					charInputs += 'X';
+				}
+				else if (FlxG.keys.justPressed.Y)
+				{
+					charInputs += 'Y';
+				}
+				else if (FlxG.keys.justPressed.Z)
+				{
+					charInputs += 'Z';
+				}
+				else if (FlxG.keys.justPressed.ZERO)
+				{
+					charInputs += '0';
+				}
+				else if (FlxG.keys.justPressed.ONE)
+				{
+					charInputs += '1';
+				}
+				else if (FlxG.keys.justPressed.TWO)
+				{
+					charInputs += '2';
+				}
+				else if (FlxG.keys.justPressed.THREE)
+				{
+					charInputs += '3';
+				}
+				else if (FlxG.keys.justPressed.FOUR)
+				{
+					charInputs += '4';
+				}
+				else if (FlxG.keys.justPressed.FIVE)
+				{
+					charInputs += '5';
+				}
+				else if (FlxG.keys.justPressed.SIX)
+				{
+					charInputs += '6';
+				}
+				else if (FlxG.keys.justPressed.SEVEN)
+				{
+					charInputs += '7';
+				}
+				else if (FlxG.keys.justPressed.EIGHT)
+				{
+					charInputs += '8';
+				}
+				else if (FlxG.keys.justPressed.NINE)
+				{
+					charInputs += '9';
+				}
+	
+				if (secret.startsWith(charInputs))
+				{
+					if (charInputs == secret)
+					{
+						//fr tho this is kinda clunky but it works so i DO NOT CARE LOL
+						FlxG.sound.play(Paths.sound('Unlock', 'shared'), 1.0);
+
+						secretUnlocked = true;
+
+						FlxG.switchState(new MainMenuState());
+
+					}
+					else
+					{
+						if (charInputs.length >= 5)
+		
+						charInputs = '';
+					}
+					
+				}
+		    }
+	    }
 }
 
 class SongMetadata

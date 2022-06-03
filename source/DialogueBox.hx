@@ -34,6 +34,7 @@ class DialogueBox extends FlxSpriteGroup
 	var acnormTextsound:String;
 	var acyellTextsound:String;
 	var bfTextsound:String;
+	var accrTextsound:String;
 
 	public var finishThing:Void->Void;
 
@@ -55,6 +56,9 @@ class DialogueBox extends FlxSpriteGroup
 				FlxG.sound.music.fadeIn(1, 0, 0.8);
 			case 'thorns':
 				FlxG.sound.playMusic(Paths.music('LunchboxScary'), 0);
+				FlxG.sound.music.fadeIn(1, 0, 0.8);
+			case 'singularity':
+				FlxG.sound.playMusic(Paths.music('FinalAmbience'), 0);
 				FlxG.sound.music.fadeIn(1, 0, 0.8);
 		}
 
@@ -131,7 +135,7 @@ class DialogueBox extends FlxSpriteGroup
 				spacebox.animation.addByPrefix('spaceOpen', 'Text Box Appear', 20, false);
 				spacebox.animation.addByIndices('normal', 'Text Box Appear', [6], "", 24);
 
-			case 'singularity':
+			case 'ultraviolet':
 				hasDialog = true;
 				spacebox.frames = Paths.getSparrowAtlas('space/dialogueBox-space');
 				spacebox.antialiasing = true;
@@ -145,7 +149,7 @@ class DialogueBox extends FlxSpriteGroup
 				spacebox.animation.addByPrefix('spaceOpen', 'Text Box Appear', 20, false);
 				spacebox.animation.addByIndices('normal', 'Text Box Appear', [6], "", 24);
 
-			case 'oblivion':
+			case 'singularity':
 				hasDialog = true;
 				spacebox.frames = Paths.getSparrowAtlas('space/dialogueBox-space');
 				spacebox.antialiasing = true;
@@ -185,8 +189,9 @@ class DialogueBox extends FlxSpriteGroup
 			acnormTextsound = 'ACnormText';
 			acyellTextsound = 'ACyellText';
 			bfTextsound = 'BfText';
+			accrTextsound = 'AccrText';
 
-			if (PlayState.SONG.song.toLowerCase()=='oblivion')
+			if (PlayState.SONG.song.toLowerCase()=='singularity')
 			{
 				portraitLeft = new FlxSprite(180, 100);
 				portraitLeft.frames = Paths.getSparrowAtlas('space/acvoidPics');
@@ -226,6 +231,8 @@ class DialogueBox extends FlxSpriteGroup
 			portraitRight.animation.addByPrefix('bfsmug', 'Bf Smug', 20, false);
 			portraitRight.animation.addByPrefix('bfumm', 'Bf Umm', 20, false);
 			portraitRight.animation.addByPrefix('bfready', 'Bf Ready', 20, false);
+			portraitRight.animation.addByPrefix('accrnormal', 'Accretion Normal', 20, false);
+			portraitRight.animation.addByPrefix('accrumm', 'Accretion Umm', 20, false);
 			portraitRight.antialiasing = true;
 		    portraitRight.setGraphicSize(Std.int(portraitRight.width * 0.8));
 		    portraitRight.updateHitbox();
@@ -244,7 +251,7 @@ class DialogueBox extends FlxSpriteGroup
 			handSelect = new FlxSprite(FlxG.width * 0.9, FlxG.height * 0.9).loadGraphic(Paths.image('weeb/pixelUI/hand_textbox'));
 		    add(handSelect);
 		}
-		if (PlayState.SONG.song.toLowerCase()=='oblivion')
+		if (PlayState.SONG.song.toLowerCase()=='singularity')
 		{
 			spacebox.animation.play('spaceOpen');
 			spacebox.antialiasing = true;
@@ -299,16 +306,16 @@ class DialogueBox extends FlxSpriteGroup
 		    swagDialogue.sounds = [FlxG.sound.load(Paths.sound('pixelText'), 0.6)];
 		    add(swagDialogue);
 		}
-		if (PlayState.SONG.song.toLowerCase()=='oblivion')
+		if (PlayState.SONG.song.toLowerCase()=='singularity')
 		{
 			dropText = new FlxText(258, 515, Std.int(FlxG.width * 0.6), "", 40);
 			dropText.font = 'Exo Bold';
-			dropText.color = 0xFF020222;
+			dropText.color = 0xFF101010;
 			add(dropText);
 
 			swagDialogue = new FlxTypeText(253, 510, Std.int(FlxG.width * 0.6), "", 40);
 			swagDialogue.font = 'Exo Bold';
-		    swagDialogue.color = 0xFFF1B9FF;
+		    swagDialogue.color = 0xFFF173D6;
 		    swagDialogue.sounds = [FlxG.sound.load(Paths.sound('Textsounds'+vnormTextsound), 0.5)];
 			add(swagDialogue);
 		}
@@ -580,6 +587,8 @@ class DialogueBox extends FlxSpriteGroup
 				}
 				portraitLeft.animation.play('acvoidyell');
 
+				FlxG.sound.music.stop();
+
 			case 'bf1':
 				swagDialogue.sounds = [FlxG.sound.load(Paths.sound('Textsounds/'+bfTextsound), 0.5)];
 				portraitLeft.visible = false;
@@ -615,6 +624,22 @@ class DialogueBox extends FlxSpriteGroup
 					portraitRight.visible = true;
 				}
 				portraitRight.animation.play('bfready');
+			case 'a1':
+				swagDialogue.sounds = [FlxG.sound.load(Paths.sound('Textsounds/'+accrTextsound), 0.5)];
+				portraitLeft.visible = false;
+				if (!portraitRight.visible)
+				{
+					portraitRight.visible = true;
+				}
+				portraitRight.animation.play('accrnormal');
+			case 'a2':
+				swagDialogue.sounds = [FlxG.sound.load(Paths.sound('Textsounds/'+accrTextsound), 0.5)];
+				portraitLeft.visible = false;
+				if (!portraitRight.visible)
+				{
+					portraitRight.visible = true;
+				}
+				portraitRight.animation.play('accrumm');
 		}
 	}
 

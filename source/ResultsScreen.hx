@@ -211,6 +211,13 @@ class ResultsScreen extends FlxSubState
                     Conductor.changeBPM(120);
                     FlxG.switchState(new EndWeekSubState());
                 }
+                if (StringTools.replace(PlayState.SONG.song, " ", "-").toLowerCase() == 'singularity')
+                {
+                    //FlxG.sound.playMusic(Paths.music('freakyMenu'));
+    
+                    Conductor.changeBPM(120);
+                    FlxG.switchState(new EndTrueSubState());
+                 }
                 else
                 {
                     //FlxG.sound.playMusic(Paths.music('freakyMenu'));
