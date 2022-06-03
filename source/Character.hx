@@ -488,13 +488,14 @@ class Character extends FlxSprite
 		        // animation.addByPrefix('singLEFT-alt', 'Void Left Note Hype', 20, false);
 		        // animation.addByPrefix('singRIGHT-alt', 'Void Right Note Hype', 26, false);
 
-				animation.addByPrefix('flinch A', 'Flinch A', 12, false);
-				animation.addByPrefix('flinch B', 'Flinch B', 12, false);
+				animation.addByPrefix('flinch', 'Flinch A', 12, false);
+				animation.addByPrefix('secondflinch', 'Flinch B', 12, false);
 
-				animation.addByPrefix('snap A', 'Snap A', 20, false);
-				animation.addByPrefix('snap B', 'Snap B', 12, false);
+				animation.addByPrefix('snap', 'Snap A', 20, false);
+				animation.addByPrefix('secondsnap', 'Snap B', 12, false);
 
 				loadOffsetFile(curCharacter);
+				updateHitbox();
 
 		        playAnim('idle');
 
