@@ -142,7 +142,7 @@ class DialogueBox extends FlxSpriteGroup
 				spacebox.animation.addByPrefix('spaceOpen', 'Text Box Appear', 20, false);
 				spacebox.animation.addByIndices('normal', 'Text Box Appear', [6], "", 24);
 
-			case 'null':
+			case 'gravity':
 				hasDialog = true;
 				spacebox.frames = Paths.getSparrowAtlas('space/dialogueBox-space');
 				spacebox.antialiasing = true;

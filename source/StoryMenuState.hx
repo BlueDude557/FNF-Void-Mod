@@ -28,7 +28,7 @@ class StoryMenuState extends MusicBeatState
 	{
 		return [
 			['Asteroids', 'Weightless', 'Event Horizon'],
-			['Ultraviolet', 'Null', 'Singularity']
+			['Ultraviolet', 'Gravity', 'Singularity']
 		];
 	}
 	var curDifficulty:Int = 1;

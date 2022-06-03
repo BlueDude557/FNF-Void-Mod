@@ -2,6 +2,6 @@ Asteroids:void:0
 Weightless:void:0
 Event Horizon:void:0
 Ultraviolet:void:1
-Null:mad-void:1
+Gravity:mad-void:1
 Singularity:ac-void:1
 Security:accretions:2
