@@ -33,9 +33,9 @@ class EndTrueSubState extends MusicBeatState
 		thankyou.screenCenter();
 		add(thankyou);
 
-		txt = new FlxText(0, 340, FlxG.width,
-			"After an all-out, frenzied encore, 'A.C.' was incapacitated. At last, his cosmic"
-			+ "\nfury was completely spent. Bf had defeated the TRUE A.C. Void!"
+		txt = new FlxText(0, 370, FlxG.width,
+	        "After an all-out, frenzied encore, 'A.C.' was incapacitated. At last, his"
+			+ "\ncosmic fury was completely spent. Bf had defeated the TRUE A.C. Void!"
 			+ "\n\nAfter several minutes of Bf and Gf talking about what to order for dinner,"
 			+ "\n'A.C.' was gone, and Void finally came to. Aware of how badly things could've"
 			+ "\ngone, he begrudgingly thanked Bf for not letting him tear the galaxy in half."
@@ -52,9 +52,9 @@ class EndTrueSubState extends MusicBeatState
 
 		new FlxTimer().start(3.4, function(tmr:FlxTimer)
 		{
-			if(txt.y == 355) FlxTween.tween(txt, {y: 340}, 3.3, 
+			if(txt.y == 385) FlxTween.tween(txt, {y: 370}, 3.3, 
 				{ease: FlxEase.quadInOut});
-			else  FlxTween.tween(txt, {y: 355}, 3.3, 
+			else  FlxTween.tween(txt, {y: 385}, 3.3, 
 				{ease: FlxEase.quadInOut});
 		}, 0);
 
