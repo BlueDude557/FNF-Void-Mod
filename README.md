@@ -1,66 +1,45 @@
 
-![Kade Engine logo](assets/preload/images/KadeEngineLogo.png)
+![VoidMod logo](https://images.gamebanana.com/img/ss/mods/60fb35b519d2f.jpg)
 
-[![AppVeyor](https://img.shields.io/appveyor/build/KadeDev/Kade-Engine-Windows?label=windows%20build)](https://ci.appveyor.com/project/KadeDev/kade-engine-windows/branch/master/artifacts) [![AppVeyor](https://img.shields.io/appveyor/build/KadeDev/Kade-Engine-Macos?label=macOS%20build)](https://ci.appveyor.com/project/KadeDev/kade-engine-macos/branch/master/artifacts)  [![AppVeyor](https://img.shields.io/appveyor/build/KadeDev/Kade-Engine-Linux?label=linux%20build)](https://ci.appveyor.com/project/KadeDev/kade-engine-linux/branch/master/artifacts) [![AppVeyor](https://img.shields.io/appveyor/build/daniel11420/KadeEngineWeb?label=html5&20build)](https://ci.appveyor.com/project/daniel11420/KadeEngineWeb) [![Discord](https://img.shields.io/discord/808039740464300104?label=discord)](https://discord.gg/MG6GQFh52U) [![GitHub issues](https://img.shields.io/github/issues/KadeDev/Kade-Engine)](https://github.com/KadeDev/Kade-Engine/issues) [![GitHub pull requests](https://img.shields.io/github/issues-pr/KadeDev/Kade-Engine)](https://github.com/KadeDev/Kade-Engine/pulls) []() []()
+# Friday Night Funkin' VS. Void
 
-![GitHub commits since latest release (by date)](https://img.shields.io/github/commits-since/KadeDev/Kade-Engine/latest) ![GitHub repo size](https://img.shields.io/github/repo-size/KadeDev/Kade-Engine) ![Lines of code](https://img.shields.io/tokei/lines/github/KadeDev/Kade-Engine) ![Supported platforms](https://img.shields.io/badge/supported%20platforms-windows%2C%20macOS%2C%20linux%2C%20html5-blue) ![GitHub all releases](https://img.shields.io/github/downloads/KadeDev/Kade-Engine/total) ![GitHub](https://img.shields.io/github/license/KadeDev/Kade-Engine) ![GitHub release (latest by date including pre-releases)](https://img.shields.io/github/v/release/KadeDev/Kade-Engine?include_prereleases&label=latest%20version) 
+Meet A.C. Void, a cosmic pop star with an ego as massive as a black hole. (Don't ask him what A.C. stands for, he'll never let anyone know.)
 
-# Friday Night Funkin': Kade Engine
+Void has heard of your recent musical victories (namely against Daddy Dearest) and despising any competition, he's challenged you to perform against him at his next concert! He can't be as tough as he thinks he is, but be careful. He hasn't garnered galaxy-wide fame for nothing, and there may be something dark under that smug exterior...
 
-### If you want to contribute to Kade Engine, read [this](https://github.com/KadeDev/Kade-Engine/blob/stable/CONTRIBUTING.md) first.
+## GameBanana:
+https://gamebanana.com/mods/307819
 
-## Friday Night Funkin'
-**Friday Night Funkin'** is a rhythm game originally made for Ludum Dare 47 "Stuck In a Loop".
+### This mod includes:
 
-Links: **[itch.io page](https://ninja-muffin24.itch.io/funkin) ⋅ [Newgrounds](https://www.newgrounds.com/portal/view/770371) ⋅ [source code on GitHub](https://github.com/ninjamuffin99/Funkin)**
-> Uh oh! Your tryin to kiss ur hot girlfriend, but her MEAN and EVIL dad is trying to KILL you! He's an ex-rockstar, the only way to get to his heart? The power of music... 
+-3 new songs: Asteroids, Weightless, and Event Horizon, playable on all difficulties!
 
-## Kade Engine
-**Kade Engine** is a mod for Friday Night Funkin', including a full engine rework, replays, and more.
+-Completely new dialogue cutscenes!
 
-Links: **[GameBanana mod page](https://gamebanana.com/gamefiles/16761) ⋅ [play in browser](https://funkin.puyo.xyz) ⋅ [latest stable release](https://github.com/KadeDev/Kade-Engine/releases/latest) ⋅ [latest development build (windows)](https://ci.appveyor.com/project/KadeDev/kade-engine-windows/branch/master/artifacts) ⋅ [latest development build (macOS)](https://ci.appveyor.com/project/KadeDev/kade-engine-macos/branch/master/artifacts) ⋅ [latest development build (linux)](https://ci.appveyor.com/project/KadeDev/kade-engine-linux/branch/master/artifacts)**
+-An all new opponent, Void, complete with alt animations mid-song animations!
 
-**REMEMBER**: This is a **mod**. This is not the vanilla game and should be treated as a **modification**. This is not and probably will never be official, so don't get confused.
+-All the quality of life features of the one and only KadeEngine!
 
-## Website ([KadeDev.github.io/kade-engine/](https://KadeDev.github.io/Kade-Engine/))
-If you're looking for documentation, changelogs, or guides, you can find those on the Kade Engine website.
+-A snazzy title theme edit!
 
-# Previews ([skip](#features))
+-And more!
 
-![Title Screen](art/readme/KadeEngineTitleScreen.png)
+## Download available on [gamebanana](https://gamebanana.com/mods/307819) or github releases
 
-![Week Select](art/readme/KadeEngineWeekSelect.png)
 
-![Freeplay](art/readme/KadeEngineFreeplay.png)
+# Previews
 
-![Options](art/readme/KadeEngineOptions.png)
+[![Asteroids - Friday Night Funkin' Vs. Void OST](http://img.youtube.com/vi/ufRJypLSH58/0.jpg)](http://www.youtube.com/watch?v=ufRJypLSH58 "Asteroids - Friday Night Funkin' Vs. Void OST")
 
-![Senpai Gameplay (Hard, Upscroll)](art/readme/KadeEnginePixelGameplay.png)
+[![Weightless - Friday Night Funkin' Vs. Void OST](http://img.youtube.com/vi/f17npvx5vBE/0.jpg)](http://www.youtube.com/watch?v=f17npvx5vBE "Weightless - Friday Night Funkin' Vs. Void OST")
 
-![Roses Dialogue](art/readme/KadeEngineDialogue.png)
+[![Event Horizon - Friday Night Funkin' Vs. Void OST](http://img.youtube.com/vi/prQzTeOT5Ho/0.jpg)](http://www.youtube.com/watch?v=prQzTeOT5Ho "Event Horizon - Friday Night Funkin' Vs. Void OST")
 
-![Pause Screen](art/readme/KadeEnginePauseScreen.png)
+![Screenshot](https://images.gamebanana.com/img/ss/mods/60fb35156c60e.jpg)
 
-![Results Screen](art/readme/KadeEngineResultsScreen.png)
+![Screenshot](https://images.gamebanana.com/img/ss/mods/60fb3512ba5ca.jpg)
 
-![Replay Loader](art/readme/KadeEngineReplayLoader.png)
-
-# Features
-
- - **New Input System**
-	 - An improved input system, similar to Quaver or Etterna, with less delays, less dropped inputs and other improvements.
- - **More information during gameplay**
-	 - While you're playing, we show you information about how you're doing, such as your accuracy, combo break count, notes per second, and your grade/rating.
- - **Customizable keybinds**
-	 - Instead of being forced to use WASD and the arrow keys, you can set any keybinds you want!
- - **Replays** (in beta)
-	 - Have you ever gotten a crazy score but didn't record? The replay system solves that: it automatically saves a "replay" of your gameplay every time you complete a song, which you can play back inside of the game. 
-	 - Replays just store information about what you're doing, they don't actually record the screen -- so they take up way less space on your disk than videos.
- - **Audio offset**
-	 - If your speakers or headphones are delayed, you can set an offset in the options menu to line the game up with the delay and play with synced audio like intended!
- - **And much, much more!**
-	 - There's so much more in store than just what's listed here! If you can imagine a quality of life feature, it's probably
-	 either already included in Kade Engine or is being worked on!
+![Screenshot](https://images.gamebanana.com/img/ss/mods/60fb3514c51c9.jpg)
 
 # Credits
 ### Friday Night Funkin'
@@ -73,7 +52,14 @@ This game was made with love to Newgrounds and its community. Extra love to Tom 
 - [KadeDeveloper](https://twitter.com/KadeDeveloper) - Maintainer and lead programmer
 - [The contributors](https://github.com/KadeDev/Kade-Engine/graphs/contributors)
 
+### VS Void mod
+Created by:
+- [Starbreak](https://www.youtube.com/channel/UCgu90N1N7pfPfXaNsbizvhg) - Programming, Art/Animation, Music, Charting
 
+Special thanks to:
+- [TuxSuper](https://gamebanana.com/members/1787500) - LIFESAVER Source Code Guide
+- [Slinkous](https://slinkousart.github.io) - Coding Help
+- [KadeDev](https://twitter.com/KadeDeveloper) - Made KadeEngine (of course)
 
 ### Shoutouts
 - [GWebDev](https://github.com/GrowtopiaFli) - Video Code
